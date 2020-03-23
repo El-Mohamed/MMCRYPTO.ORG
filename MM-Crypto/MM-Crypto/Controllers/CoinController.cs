@@ -11,5 +11,29 @@ namespace MM_Crypto.Controllers
     [ApiController]
     public class CoinController : ControllerBase
     {
+        private readonly CryptoContext context;
+
+        public CoinController(CryptoContext context)
+        {
+            this.context = context;
+        }
+
+        [HttpGet]
+        public List<Coin> GetAllCoins()
+        {
+            return context.Coins.ToList();
+        }
+
+        [Route("{id}")]
+        [HttpGet]
+        public IActionResult GetCoinById(int Id)
+        {
+            var coin = context.Coins.Find(Id);
+
+            if (coin == null)
+                return NotFound();
+
+            return Ok(coin);
+        }
     }
 }
