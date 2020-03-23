@@ -11,5 +11,7 @@ namespace MM_Crypto
         public string Name { get; set; }
         public Founder Founder { get; set; }
         public string Website { get; set; }
+        public Coin Fork { get; set; }
+        public ICollection<Coin> Forks { get; set; }
     }
 }
