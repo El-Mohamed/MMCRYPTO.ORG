@@ -35,5 +35,22 @@ namespace MM_Crypto.Controllers
 
             return Ok(coin);
         }
+
+        [Route("{id}")]
+        [HttpDelete]
+
+        public IActionResult DeleteCoinById(int id)
+        {
+            var coin = context.Coins.Find(id);
+
+            if (coin == null)
+                return NotFound();
+
+            context.Coins.Remove(coin);
+            context.SaveChanges();
+
+            // Default 404 if delete was successful
+            return NoContent();
+        }
     }
 }
