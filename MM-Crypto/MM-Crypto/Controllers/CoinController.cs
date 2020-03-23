@@ -52,5 +52,13 @@ namespace MM_Crypto.Controllers
             // Default 404 if delete was successful
             return NoContent();
         }
+
+        [HttpPost]
+        public IActionResult CreateCoin([FromBody] Coin newCoin)
+        {
+            context.Coins.Add(newCoin);
+            context.SaveChanges();
+            return Created("", newCoin);
+        }
     }
 }
