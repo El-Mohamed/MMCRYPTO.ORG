@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace MM_Crypto.Controllers
 {
@@ -28,7 +29,9 @@ namespace MM_Crypto.Controllers
         [HttpGet]
         public IActionResult GetCoinById(int Id)
         {
-            var coin = context.Coins.Find(Id);
+            var coin = context.Coins
+                .Include(c => c.Founder)
+                .SingleOrDefault(c => c.ID == Id);
 
             if (coin == null)
                 return NotFound();
