@@ -60,5 +60,21 @@ namespace MM_Crypto.Controllers
             context.SaveChanges();
             return Created("", newCoin);
         }
+
+        [HttpPut]
+        public IActionResult UpdateCoin([FromBody] Coin updateCoin)
+        {
+            var originalCoin = context.Coins.Find(updateCoin.ID);
+
+            if (originalCoin == null)
+                return NotFound();
+
+            originalCoin.Name = updateCoin.Name;
+            originalCoin.Founder = updateCoin.Founder;
+            originalCoin.Website = updateCoin.Website;
+
+            context.SaveChanges();
+            return Ok(originalCoin);
+        }
     }
 }
