@@ -39,6 +39,26 @@ namespace MM_Crypto.Controllers
             return Ok(coin);
         }
 
+        [Route("{id}/founder")]
+        [HttpGet]
+        public IActionResult GetFounderFromCoin(int Id)
+        {
+            var coin = context.Coins
+                .Include(c => c.Founder)
+                .SingleOrDefault(c => c.ID == Id);
+
+            if (coin == null)
+                return NotFound();
+
+            var founder = context.Founders.Find(coin.Founder.ID);
+
+            if (founder == null)
+                return NotFound();
+
+            return Ok(founder);
+        }
+
+
         [Route("{id}")]
         [HttpDelete]
 
