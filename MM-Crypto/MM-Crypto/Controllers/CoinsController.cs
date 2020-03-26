@@ -25,7 +25,6 @@ namespace MM_Crypto.Controllers
             var allCoins = context.Coins
                 .Include(c => c.Founder)
                 .Include(c => c.Fork)
-                .Include(c => c.Forks)
                 .ToList();
 
             return allCoins;
@@ -37,6 +36,7 @@ namespace MM_Crypto.Controllers
         {
             var coin = context.Coins
                 .Include(c => c.Founder)
+                .Include(c => c.Fork)
                 .SingleOrDefault(c => c.ID == Id);
 
             if (coin == null)
