@@ -10,11 +10,11 @@ namespace MM_Crypto.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CoinController : ControllerBase
+    public class CoinsController : ControllerBase
     {
         private readonly CryptoContext context;
 
-        public CoinController(CryptoContext context)
+        public CoinsController(CryptoContext context)
         {
             this.context = context;
         }
