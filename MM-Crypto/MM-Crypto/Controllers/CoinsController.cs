@@ -22,7 +22,13 @@ namespace MM_Crypto.Controllers
         [HttpGet]
         public List<Coin> GetAllCoins()
         {
-            return context.Coins.ToList();
+            var allCoins = context.Coins
+                .Include(c => c.Founder)
+                .Include(c => c.Fork)
+                .Include(c => c.Forks)
+                .ToList();
+
+            return allCoins;
         }
 
         [Route("{id}")]
