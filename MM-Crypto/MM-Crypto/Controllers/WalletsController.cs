@@ -19,10 +19,20 @@ namespace MM_Crypto.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllWallets()
+        public List<Wallet> GetAllWallets(string categorie, string brand, int? page, int length =2)
         {
-            var allWallets = context.Wallets.ToList();              
-            return Ok(allWallets);
+            IQueryable<Wallet> query = context.Wallets;
+
+            if (!string.IsNullOrWhiteSpace(categorie))
+                query = query.Where(w => w.Categorie == categorie);
+            if (!string.IsNullOrWhiteSpace(brand))
+                query = query.Where(w => w.Brand == brand);
+
+            if (page.HasValue)
+                query = query.Skip(page.Value * length);
+            query = query.Take(length);
+
+            return query.ToList();
         }
 
         [Route("{id}")]
