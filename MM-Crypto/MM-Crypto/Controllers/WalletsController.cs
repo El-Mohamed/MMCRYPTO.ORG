@@ -24,5 +24,18 @@ namespace MM_Crypto.Controllers
             var allWallets = context.Wallets.ToList();              
             return Ok(allWallets);
         }
+
+        [Route("{id}")]
+        [HttpGet]
+        public IActionResult GetWalletById(int Id)
+        {
+            var wallet = context.Wallets
+                .SingleOrDefault(c => c.ID == Id);
+
+            if (wallet == null)
+                return NotFound();
+
+            return Ok(wallet);
+        }
     }
 }
