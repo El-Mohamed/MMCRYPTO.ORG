@@ -47,8 +47,52 @@ namespace MM_Crypto
             XLM.HardForks = new List<Coin> { };
 
 
-            Wallet LegderNanoS = new Wallet() { Brand = "Ledger", Model = "Nano S", Price = 59, Website = "https://www.ledger.com/" };
-            Wallet TrezorOne = new Wallet() { Brand = "Trezor", Model = "One", Price = 59, Website = "http://www.trezor.io/" };
+            Wallet LegderNanoS = new Wallet() { 
+                Brand = "Ledger",
+                Model = "Nano S", 
+                Price = 59, 
+                Website = "https://shop.ledger.com/products/ledger-nano-s", 
+                ImageURL= "https://cdn.shopify.com/s/files/1/2974/4858/products/lns-black-open_large.png",
+                Categorie = "Hardware"};
+
+            Wallet LegderNanoX = new Wallet()
+            {
+                Brand = "Ledger",
+                Model = "Nano X",
+                Price = 119,
+                Website = "https://shop.ledger.com/products/ledger-nano-x",
+                ImageURL = "https://cdn.shopify.com/s/files/1/2974/4858/products/ledger-nano-x-open_grande_eb0d186e-2c75-4687-9c85-1b6eb6e224d1_large.png",
+                Categorie = "Hardware"
+            };
+
+            Wallet TrezorOne = new Wallet() { 
+                Brand = "Trezor", 
+                Model = "One", 
+                Price = 59, 
+                Website = "https://shop.trezor.io/product/trezor-one-white", 
+                ImageURL = "https://shop.trezor.io/static/img/product/T1_white.png",
+                Categorie = "Hardware"};
+
+            Wallet TrezorModelT = new Wallet()
+            {
+                Brand = "Trezor",
+                Model = "Model T",
+                Price = 180,
+                Website = "https://shop.trezor.io/product/trezor-model-t",
+                ImageURL = "https://shop.trezor.io/static/img/product/T2.jpg",
+                Categorie = "Hardware"
+            };
+
+            Wallet Exodus = new Wallet()
+            {
+                Brand = "Exodus",
+                Model = "Mobile Wallet",
+                Price = 0,
+                Website = "https://www.exodus.io/mobile",
+                ImageURL = "https://www.exodus.io/mobile/img/header-img2-lsize.png",
+                Categorie = "Software"
+            };
+
 
             if (!context.Founders.Any())
             {
@@ -81,7 +125,10 @@ namespace MM_Crypto
             if (!context.Wallets.Any())
             {
                 context.Wallets.Add(LegderNanoS);
+                context.Wallets.Add(LegderNanoX);
                 context.Wallets.Add(TrezorOne);
+                context.Wallets.Add(TrezorModelT);
+                context.Wallets.Add(Exodus);
             }
 
             context.SaveChanges();

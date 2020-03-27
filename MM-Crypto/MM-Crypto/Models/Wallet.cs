@@ -12,5 +12,7 @@ namespace MM_Crypto
         public string Model { get; set; }
         public string Website { get; set; }
         public int Price { get; set; }
+        public string ImageURL { get; set; }
+        public string Categorie { get; set; }
     }
 }
