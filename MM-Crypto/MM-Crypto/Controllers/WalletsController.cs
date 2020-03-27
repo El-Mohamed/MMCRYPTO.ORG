@@ -61,5 +61,24 @@ namespace MM_Crypto.Controllers
             context.SaveChanges();
             return Created("", newWallet);
         }
+
+        [HttpPut]
+        public IActionResult UpdateWallet([FromBody] Wallet updateWallet)
+        {
+            var originalWallet = context.Wallets.Find(updateWallet.ID);
+
+            if (originalWallet == null)
+                return NotFound();
+
+            originalWallet.Brand = updateWallet.Brand;
+            originalWallet.Model = updateWallet.Model;
+            originalWallet.Website = updateWallet.Website;
+            originalWallet.Price = updateWallet.Price;
+            originalWallet.ImageURL = updateWallet.ImageURL;
+            originalWallet.Categorie = updateWallet.Categorie;
+
+            context.SaveChanges();
+            return Ok(originalWallet);
+        }
     }
 }
