@@ -37,5 +37,21 @@ namespace MM_Crypto.Controllers
 
             return Ok(wallet);
         }
+
+        [Route("{id}")]
+        [HttpDelete]
+        public IActionResult DeleteWalletById(int id)
+        {
+            var wallet = context.Wallets.Find(id);
+
+            if (wallet == null)
+                return NotFound();
+
+            context.Wallets.Remove(wallet);
+            context.SaveChanges();
+
+            // Default 404 if delete was successful
+            return NoContent();
+        }
     }
 }
