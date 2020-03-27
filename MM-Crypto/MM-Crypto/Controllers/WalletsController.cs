@@ -53,5 +53,13 @@ namespace MM_Crypto.Controllers
             // Default 404 if delete was successful
             return NoContent();
         }
+
+        [HttpPost]
+        public IActionResult CreateWallet([FromBody] Wallet newWallet)
+        {
+            context.Wallets.Add(newWallet);
+            context.SaveChanges();
+            return Created("", newWallet);
+        }
     }
 }
