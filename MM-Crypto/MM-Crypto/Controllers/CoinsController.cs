@@ -20,14 +20,41 @@ namespace MM_Crypto.Controllers
         }
 
         [HttpGet]
-        public List<Coin> GetAllCoins()
+        public List<Coin> GetAllCoins(string sort, int? page, int length = 2, string dir = "asc")
         {
-            var allCoins = context.Coins
-                .Include(c => c.Founder)
-                .Include(c => c.Fork)
-                .ToList();
+            IQueryable<Coin> query = context.Coins;
 
-            return allCoins;
+            if (!string.IsNullOrWhiteSpace(sort))
+            {
+                switch (sort)
+                {
+                    case "name":
+                        if (dir == "asc")
+                            query = query.OrderBy(c => c.Name);
+                        else if (dir == "asc")
+                            query.OrderByDescending(c => c.Name);
+                        break;
+
+                    case "symbol":
+                        if (dir == "asc")
+                            query = query.OrderBy(c => c.Symbol);
+                        else if (dir == "asc")
+                            query.OrderByDescending(c => c.Symbol);
+                        break;
+                }
+
+            }
+
+
+            if (page.HasValue)
+                query = query.Skip(page.Value * length);
+            query = query.Take(length);
+
+            query = query
+                .Include(c => c.Founder)
+                .Include(c => c.Fork);
+
+            return query.ToList();
         }
 
         [Route("{id}")]
