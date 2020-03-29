@@ -4,15 +4,20 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TabMenuModule } from 'primeng/tabmenu';
+import { NavigationComponent } from './components/navigation/navigation.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    TabMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
