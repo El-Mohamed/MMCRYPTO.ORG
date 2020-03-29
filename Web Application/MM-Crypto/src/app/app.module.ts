@@ -6,18 +6,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { HttpClientModule } from '@angular/common/http';
+import { PriceComponent } from './components/price/price.component'
+import { TableModule } from 'primeng/table';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent
+    NavigationComponent,
+    PriceComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    TabMenuModule
+    TabMenuModule,
+    HttpClientModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
