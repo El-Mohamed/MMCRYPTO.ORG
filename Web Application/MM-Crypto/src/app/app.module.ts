@@ -10,13 +10,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { PriceComponent } from './components/price/price.component'
 import { TableModule } from 'primeng/table';
 import { RouterModule } from '@angular/router';
+import { CalculatorComponent } from './components/calculator/calculator.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    PriceComponent
+    PriceComponent,
+    CalculatorComponent
   ],
   imports: [
     BrowserModule,
