@@ -9,6 +9,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { HttpClientModule } from '@angular/common/http';
 import { PriceComponent } from './components/price/price.component'
 import { TableModule } from 'primeng/table';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { TableModule } from 'primeng/table';
     BrowserAnimationsModule,
     TabMenuModule,
     HttpClientModule,
-    TableModule
+    TableModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

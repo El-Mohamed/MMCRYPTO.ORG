@@ -17,7 +17,7 @@ export class NavigationComponent implements OnInit {
 
     this.items = [
       { label: 'Home', icon: 'pi pi-fw pi-home' },
-      { label: 'Prices', icon: 'pi pi-fw pi-chart-line' },
+      { label: 'Prices', icon: 'pi pi-fw pi-chart-line', routerLink: 'Price' },
       { label: 'Information', icon: 'pi pi-fw pi-info-circle' },
       { label: 'Calculators', icon: 'pi pi-fw pi-money-bill' },
       { label: 'Settings', icon: 'pi pi-fw pi-cog' }
