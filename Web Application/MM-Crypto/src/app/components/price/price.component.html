@@ -7,16 +7,17 @@
 
     <div class="ui-g-10">
 
-        <p-table [value]="AllCoinCapAssets">
+        <p-table [value]="AllCoinCapAssets" [columns]="Columns" (sortFunction)="customSort($event)" [customSort]="true">
 
-            <ng-template pTemplate="header">
-                <tr>
-                    <th>Rank</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Volume</th>
-                    <th>Change</th>
-                </tr>
+            <ng-template pTemplate="caption">
+                List of Top 100 Cryptocurrencies
+            </ng-template>
+
+            <ng-template pTemplate="header" let-columns>
+                <th class="ColumnHeader" *ngFor="let col of Columns" [pSortableColumn]="col.field">
+                    {{col.header}}
+                    <p-sortIcon [field]="col.field"></p-sortIcon>
+                </th>
             </ng-template>
 
             <ng-template *ngIf="AllCoinCapAssets" pTemplate="body" let-coin>

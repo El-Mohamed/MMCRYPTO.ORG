@@ -5,3 +5,11 @@
 .Positive {
     color: green;
 }
+
+.ColumnHeader {
+    color: white;
+}
+
+.ui-g {
+    padding-top: 20px;
+}
