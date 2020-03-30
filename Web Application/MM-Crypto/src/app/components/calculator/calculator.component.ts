@@ -9,23 +9,23 @@ import { CoincapService, CoinCapAsset } from 'src/app/services/coincap.service';
 })
 export class CalculatorComponent implements OnInit {
 
-  AllItems: SelectItem[];
-  SelectedItem: CoinCapAsset;
+  AllItems: SelectItem[] = [];
+  SelectedItem1: CoinCapAsset;
   SelectedItem2: CoinCapAsset;
 
   Amount1: number;
   Amount2: number;
-  private ratio: number;
 
+  private ratio: number;
+  private tempSelectedItem1: CoinCapAsset;
+  private tempSelectedItem2: CoinCapAsset;
   private allCoinCapAssets: CoinCapAsset[] = [];
 
   constructor(private service: CoincapService) {
 
     this.service.updatePrice();
 
-    this.AllItems = [
-      { label: 'Select Coin', value: null },
-    ];
+    this.AllItems.push({ label: 'Select Coin', value: null });
 
     setTimeout(() => {
       this.allCoinCapAssets = this.service.AllCoinCappAssets;
@@ -37,10 +37,21 @@ export class CalculatorComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  Updatevalue() {
-    if (this.SelectedItem != null && this.SelectedItem != null) {
-      this.ratio = parseFloat(this.SelectedItem.priceUsd) / parseFloat(this.SelectedItem2.priceUsd);
+  Convert(): void {
+    if (this.SelectedItem1 != null && this.SelectedItem1 != null && this.Amount1 != null) {
+      this.ratio = parseFloat(this.SelectedItem1.priceUsd) / parseFloat(this.SelectedItem2.priceUsd);
       this.Amount2 = this.Amount1 * this.ratio;
     }
   }
+
+  Swap(): void {
+    this.tempSelectedItem1 = this.SelectedItem1;
+    this.tempSelectedItem2 = this.SelectedItem2;
+
+    this.SelectedItem1 = this.tempSelectedItem2;
+    this.SelectedItem2 = this.tempSelectedItem1;
+
+    this.Convert();
+  }
+
 }
