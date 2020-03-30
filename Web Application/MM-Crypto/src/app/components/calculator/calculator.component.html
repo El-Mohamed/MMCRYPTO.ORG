@@ -1,1 +1,29 @@
-<p>calculator works!</p>
+<div class="WrappingDiv">
+
+    <div class="ui-g">
+
+        <div class="ui-g-3">
+        </div>
+
+        <div class="ui-g-6">
+
+            <p-spinner [(ngModel)]="Amount1" [min]="0" (onChange)="Updatevalue()"></p-spinner>
+
+            <p-dropdown [options]="AllItems" [(ngModel)]="SelectedItem" [filter]="true" filterBy="label,value.name"
+                (onChange)="Updatevalue()">
+            </p-dropdown>
+
+            <p-dropdown [options]="AllItems" [(ngModel)]="SelectedItem2" [filter]="true" filterBy="label,value.name"
+                (onChange)="Updatevalue()">
+            </p-dropdown>
+
+            <p-spinner [(ngModel)]="Amount2"></p-spinner>
+
+        </div>
+
+        <div class="ui-g-3">
+        </div>
+
+    </div>
+
+</div>

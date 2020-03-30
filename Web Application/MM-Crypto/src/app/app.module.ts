@@ -12,6 +12,10 @@ import { TableModule } from 'primeng/table';
 import { RouterModule } from '@angular/router';
 import { CalculatorComponent } from './components/calculator/calculator.component';
 import { ProgressBarModule } from 'primeng/progressbar';
+import { DropdownModule } from 'primeng/dropdown';
+import { FormsModule } from '@angular/forms';
+import { SpinnerModule } from 'primeng/spinner';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +32,10 @@ import { ProgressBarModule } from 'primeng/progressbar';
     HttpClientModule,
     TableModule,
     RouterModule,
-    ProgressBarModule
+    ProgressBarModule,
+    DropdownModule,
+    FormsModule,
+    SpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
