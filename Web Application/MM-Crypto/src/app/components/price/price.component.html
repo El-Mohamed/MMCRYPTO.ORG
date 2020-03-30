@@ -25,7 +25,12 @@
                     <th>{{coin.name}}</th>
                     <th>{{coin.priceUsd | currency:'USD'}}</th>
                     <th>{{coin.volumeUsd24Hr | currency:'USD'}}</th>
-                    <th>{{coin.changePercent24Hr | number:'1.0-2'}}%</th>
+                    <th *ngIf="coin.changePercent24Hr < 0" class="Negative">
+                        {{coin.changePercent24Hr | number:'1.0-2'}}%
+                    </th>
+                    <th *ngIf="coin.changePercent24Hr >= 0" class="Positive">
+                        {{coin.changePercent24Hr | number:'1.0-2'}}%
+                    </th>
                 </tr>
             </ng-template>
 
