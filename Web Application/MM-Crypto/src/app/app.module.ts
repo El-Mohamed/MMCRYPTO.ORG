@@ -11,7 +11,7 @@ import { PriceComponent } from './components/price/price.component'
 import { TableModule } from 'primeng/table';
 import { RouterModule } from '@angular/router';
 import { CalculatorComponent } from './components/calculator/calculator.component';
-
+import { ProgressBarModule } from 'primeng/progressbar';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,8 @@ import { CalculatorComponent } from './components/calculator/calculator.componen
     TabMenuModule,
     HttpClientModule,
     TableModule,
-    RouterModule
+    RouterModule,
+    ProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

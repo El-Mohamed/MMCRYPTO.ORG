@@ -1,23 +1,37 @@
-<p-table [value]="AllCoinCapAssets">
+<div *ngIf="AllCoinCapAssets.length < 1">
+    <p-progressBar mode="indeterminate" [style]="{'height': '15px'}"></p-progressBar>
+</div>
 
-    <ng-template pTemplate="header">
-        <tr>
-            <th>Rank</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Volume</th>
-            <th>Change</th>
-        </tr>
-    </ng-template>
+<div class="ui-g">
+    <div class="ui-g-1"></div>
 
-    <ng-template *ngIf="AllCoinCapAssets" pTemplate="body" let-coin>
-        <tr>
-            <th>{{coin.rank}}</th>
-            <th>{{coin.name}}</th>
-            <th>{{coin.priceUsd | currency:'USD'}}</th>
-            <th>{{coin.volumeUsd24Hr | currency:'USD'}}</th>
-            <th>{{coin.changePercent24Hr | number:'1.0-2'}}%</th>
-        </tr>
-    </ng-template>
+    <div class="ui-g-10">
 
-</p-table>
+        <p-table [value]="AllCoinCapAssets">
+
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Volume</th>
+                    <th>Change</th>
+                </tr>
+            </ng-template>
+
+            <ng-template *ngIf="AllCoinCapAssets" pTemplate="body" let-coin>
+                <tr>
+                    <th>{{coin.rank}}</th>
+                    <th>{{coin.name}}</th>
+                    <th>{{coin.priceUsd | currency:'USD'}}</th>
+                    <th>{{coin.volumeUsd24Hr | currency:'USD'}}</th>
+                    <th>{{coin.changePercent24Hr | number:'1.0-2'}}%</th>
+                </tr>
+            </ng-template>
+
+        </p-table>
+
+    </div>
+
+    <div class="ui-g-1"></div>
+</div>
