@@ -17,14 +17,16 @@ import { FormsModule } from '@angular/forms';
 import { SpinnerModule } from 'primeng/spinner';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
-
+import { WalletComponent } from './components/wallet/wallet.component';
+import { DataViewModule } from 'primeng/dataview';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     PriceComponent,
-    CalculatorComponent
+    CalculatorComponent,
+    WalletComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,8 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     SpinnerModule,
     InputTextModule,
-    ButtonModule
+    ButtonModule,
+    DataViewModule
   ],
   providers: [],
   bootstrap: [AppComponent]
