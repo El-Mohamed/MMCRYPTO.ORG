@@ -14,7 +14,7 @@ export class PriceComponent implements OnInit {
   Columns = [
     { field: 'rank', header: 'Rank' },
     { field: 'name', header: 'Name' },
-    { field: 'price', header: 'Price' },
+    { field: 'priceUsd', header: 'Price' },
     { field: 'volumeUsd24Hr', header: 'Volume' },
     { field: 'changePercent24Hr', header: 'Change' }
   ];
