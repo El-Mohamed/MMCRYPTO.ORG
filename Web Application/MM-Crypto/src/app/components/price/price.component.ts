@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CoincapService, CoinCapAsset } from 'src/app/services/coincap.service';
+import { CoincapService, CoinCapAsset, CoinCapData } from 'src/app/services/coincap.service';
 import { SortEvent } from 'primeng/api';
 
 @Component({
@@ -10,6 +10,7 @@ import { SortEvent } from 'primeng/api';
 export class PriceComponent implements OnInit {
 
   AllCoinCapAssets: CoinCapAsset[] = [];
+  CoinCapData: CoinCapData;
 
   Columns = [
     { field: 'rank', header: 'Rank' },
@@ -19,19 +20,23 @@ export class PriceComponent implements OnInit {
     { field: 'changePercent24Hr', header: 'Change' }
   ];
 
-  constructor(private service: CoincapService) {
+  constructor(private service: CoincapService) { }
 
-    this.service.updatePrice();
-
-    setTimeout(() => {
-      this.AllCoinCapAssets = this.service.AllCoinCappAssets;
-    }, 2000);
+  ngOnInit(): void {
+    this.updatePrices();
   }
 
-  ngOnInit(): void { }
+  async updatePrices() {
+    try {
+      this.CoinCapData = await this.service.getAssets();
+      this.AllCoinCapAssets = this.CoinCapData.data;
+    }
+    catch (error) {
+      console.log("Error")
+    }
+  }
 
-  customSort(event: SortEvent) {
-    console.log("sorting...")
+  sortTable(event: SortEvent) {
     event.data.sort((data1, data2) => {
       let value1 = data1[event.field];
       let value2 = data2[event.field];
@@ -41,7 +46,6 @@ export class PriceComponent implements OnInit {
       let result = null;
 
       if (isNaN(temp1) || isNaN(temp2)) {
-        console.log("Values parsing failed");
         result = value1.localeCompare(value2);
       }
       else {

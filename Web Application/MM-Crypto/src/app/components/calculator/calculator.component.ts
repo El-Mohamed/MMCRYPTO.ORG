@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectItem } from 'primeng/api';
-import { CoincapService, CoinCapAsset } from 'src/app/services/coincap.service';
+import { CoincapService, CoinCapAsset, CoinCapData } from 'src/app/services/coincap.service';
 
 @Component({
   selector: 'app-calculator',
@@ -20,22 +20,32 @@ export class CalculatorComponent implements OnInit {
   private tempSelectedItem1: CoinCapAsset;
   private tempSelectedItem2: CoinCapAsset;
   private allCoinCapAssets: CoinCapAsset[] = [];
+  private coinCapData: CoinCapData;
 
   constructor(private service: CoincapService) {
-
-    this.service.updatePrice();
-
     this.AllItems.push({ label: 'Select Coin', value: null });
-
-    setTimeout(() => {
-      this.allCoinCapAssets = this.service.AllCoinCappAssets;
-      this.allCoinCapAssets.forEach(element => {
-        this.AllItems.push({ label: element.name, value: element })
-      });
-    }, 2000);
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.updatePrices();
+  }
+
+  private createSelectItems() {
+    this.allCoinCapAssets.forEach(element => {
+      this.AllItems.push({ label: element.name, value: element })
+    });
+  }
+
+  async updatePrices() {
+    try {
+      this.coinCapData = await this.service.getAssets();
+      this.allCoinCapAssets = this.coinCapData.data;
+      this.createSelectItems();
+    }
+    catch (error) {
+      console.log("Error")
+    }
+  }
 
   Convert(): void {
     if (this.SelectedItem1 != null && this.SelectedItem1 != null && this.Amount1 != null) {
@@ -44,7 +54,7 @@ export class CalculatorComponent implements OnInit {
     }
   }
 
-  Swap(): void {
+  SwapCurrencies(): void {
     this.tempSelectedItem1 = this.SelectedItem1;
     this.tempSelectedItem2 = this.SelectedItem2;
 
@@ -53,5 +63,4 @@ export class CalculatorComponent implements OnInit {
 
     this.Convert();
   }
-
 }

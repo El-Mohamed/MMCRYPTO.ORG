@@ -6,24 +6,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CoincapService {
 
-  AllCoinCappAssets: CoinCapAsset[] = [];
-  private coinCapData: CoinCapData;
-
   constructor(private http: HttpClient) { }
 
-  private getData() {
+  public getAssets() {
     return this.http.get<CoinCapData>('https://api.coincap.io/v2/assets').toPromise();
   }
 
-  async updatePrice() {
-    try {
-      this.coinCapData = await this.getData();
-      this.AllCoinCappAssets = this.coinCapData.data;
-    }
-    catch (error) {
-      console.log("Error")
-    }
-  }
 }
 
 export interface CoinCapAsset {

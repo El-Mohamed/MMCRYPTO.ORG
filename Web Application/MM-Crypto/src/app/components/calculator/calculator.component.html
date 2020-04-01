@@ -6,7 +6,7 @@
         (onChange)="Convert()">
     </p-dropdown>
 
-    <p-button icon="pi pi-refresh" (onClick)="Swap()"></p-button>
+    <p-button icon="pi pi-refresh" (onClick)="SwapCurrencies()"></p-button>
 
     <p-dropdown [options]="AllItems" [(ngModel)]="SelectedItem2" [filter]="true" filterBy="label,value.name"
         (onChange)="Convert()">

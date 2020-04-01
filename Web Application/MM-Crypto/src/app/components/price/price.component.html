@@ -8,7 +8,7 @@
 
     <div class="ui-g-10">
 
-        <p-table [value]="AllCoinCapAssets" [columns]="Columns" (sortFunction)="customSort($event)" [customSort]="true">
+        <p-table [value]="AllCoinCapAssets" [columns]="Columns" (sortFunction)="sortTable($event)" [customSort]="true">
 
             <ng-template pTemplate="caption">
                 List of Top 100 Cryptocurrencies
