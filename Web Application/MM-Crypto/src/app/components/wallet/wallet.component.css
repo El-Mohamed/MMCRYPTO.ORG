@@ -4,3 +4,8 @@ img {
     margin: auto;
     margin-bottom: auto;
 }
+
+.flex {
+    display: flex;
+    align-items: center;
+}
