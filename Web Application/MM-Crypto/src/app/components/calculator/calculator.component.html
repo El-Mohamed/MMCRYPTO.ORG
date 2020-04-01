@@ -1,31 +1,17 @@
-<div class="WrappingDiv">
+<div class="flex">
 
-    <div class="ui-g">
+    <p-spinner [(ngModel)]="Amount1" [min]="0" (onChange)="Convert()"></p-spinner>
 
-        <div class="ui-g-3">
-        </div>
+    <p-dropdown [options]="AllItems" [(ngModel)]="SelectedItem1" [filter]="true" filterBy="label,value.name"
+        (onChange)="Convert()">
+    </p-dropdown>
 
-        <div class="ui-g-6">
+    <p-button icon="pi pi-refresh" (onClick)="Swap()"></p-button>
 
-            <p-spinner [(ngModel)]="Amount1" [min]="0" (onChange)="Convert()"></p-spinner>
+    <p-dropdown [options]="AllItems" [(ngModel)]="SelectedItem2" [filter]="true" filterBy="label,value.name"
+        (onChange)="Convert()">
+    </p-dropdown>
 
-            <p-dropdown [options]="AllItems" [(ngModel)]="SelectedItem1" [filter]="true" filterBy="label,value.name"
-                (onChange)="Convert()">
-            </p-dropdown>
-
-            <p-button icon="pi pi-refresh" (onClick)="Swap()"></p-button>
-
-            <p-dropdown [options]="AllItems" [(ngModel)]="SelectedItem2" [filter]="true" filterBy="label,value.name"
-                (onChange)="Convert()">
-            </p-dropdown>
-
-            <input type="text" pInputText [(ngModel)]="Amount2" />
-
-        </div>
-
-        <div class="ui-g-3">
-        </div>
-
-    </div>
+    <input type="text" pInputText [(ngModel)]="Amount2" />
 
 </div>

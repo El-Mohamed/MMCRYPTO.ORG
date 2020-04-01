@@ -1,11 +1,9 @@
-p-dropdown {
-    padding: 10px;
-}
-
-p-spinner {
-    padding: 10px;
-}
-
-.WrappingDiv {
+.flex {
+    display: flex;
     padding: 20px;
+    align-items: center;
+}
+
+.flex * {
+    margin: 10px;
 }
