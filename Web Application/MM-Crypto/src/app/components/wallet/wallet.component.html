@@ -9,11 +9,10 @@
             <div class="ui-g-10">
                 <div class="car-details">
                     <div>
-
                         <div class="ui-g">
                             <div class="ui-g-12">Brand: <b>{{wallet.brand}}</b></div>
                             <div class="ui-g-12">Model: <b>{{wallet.model}}</b></div>
-                            <div class="ui-g-12">Price: <b>{{wallet.price}}</b></div>
+                            <div class="ui-g-12">Price: <b>{{wallet.price | currency:'EUR'}}</b></div>
                             <div class="ui-g-12">Category: <b>{{wallet.categorie}}</b></div>
                         </div>
                     </div>
@@ -24,6 +23,9 @@
                 <img src={{wallet.imageURL}}>
             </div>
 
+            <a href="{{wallet.website}}">
+                <button pButton type="button" icon="pi pi-shopping-cart"></button>
+            </a>
         </div>
 
     </ng-template>

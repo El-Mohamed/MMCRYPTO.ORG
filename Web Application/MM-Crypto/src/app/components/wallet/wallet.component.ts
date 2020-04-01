@@ -1,14 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-export interface Wallet {
-  id: number;
-  brand: string;
-  model: string;
-  website: string;
-  price: number;
-  imageURL: string;
-  categorie: string;
-}
+import { MmcryptoService, Wallet } from 'src/app/services/mmcrypto.service';
 
 @Component({
   selector: 'app-wallet',
@@ -17,32 +8,22 @@ export interface Wallet {
 })
 export class WalletComponent implements OnInit {
 
-  public allItems: Wallet[] = [
-    {
-      id: 1,
-      brand: "Ledger",
-      model: "Nano S",
-      website: "https://shop.ledger.com/products/ledger-nano-s",
-      price: 59,
-      imageURL: "https://cdn.shopify.com/s/files/1/2974/4858/products/lns-black-open_large.png",
-      categorie: "Hardware"
-    },
+  public allItems: Wallet[];
 
-    {
-      id: 1,
-      brand: "Ledger",
-      model: "Nano S",
-      website: "https://shop.ledger.com/products/ledger-nano-s",
-      price: 59,
-      imageURL: "https://cdn.shopify.com/s/files/1/2974/4858/products/lns-black-open_large.png",
-      categorie: "Hardware"
-    }
-
-  ];
-
-  constructor() { }
+  constructor(private service: MmcryptoService) { }
 
   ngOnInit(): void {
+    this.updateWallets();
+  }
+
+  async updateWallets() {
+    try {
+      this.allItems = await this.service.getWallets();
+      console.log(this.allItems);
+    }
+    catch (error) {
+      console.log("Error")
+    }
   }
 
 }
