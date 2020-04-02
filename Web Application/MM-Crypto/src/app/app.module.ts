@@ -19,6 +19,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { WalletComponent } from './components/wallet/wallet.component';
 import { DataViewModule } from 'primeng/dataview';
+import { HistoryComponent } from './components/history/history.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { DataViewModule } from 'primeng/dataview';
     NavigationComponent,
     PriceComponent,
     CalculatorComponent,
-    WalletComponent
+    WalletComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,
