@@ -37,8 +37,8 @@ export class HistoryComponent implements OnInit {
   }
 
   private createChartLabels() {
-    this.AllHistoryItems.forEach(() => {
-      this.lineChartlabels.push("element.time")
+    this.AllHistoryItems.forEach(element => {
+      this.lineChartlabels.push(String(element.date));
     });
   }
 
@@ -60,7 +60,7 @@ export class HistoryComponent implements OnInit {
           label: this.id.toUpperCase() + " Price in USD",
           data: this.LineChartPrices,
           fill: false,
-          borderColor: '#4bc0c0'
+          borderColor: '#1976d2'
         }]
     }
 
