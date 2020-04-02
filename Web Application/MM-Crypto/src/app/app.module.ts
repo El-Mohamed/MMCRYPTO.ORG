@@ -20,6 +20,7 @@ import { ButtonModule } from 'primeng/button';
 import { WalletComponent } from './components/wallet/wallet.component';
 import { DataViewModule } from 'primeng/dataview';
 import { HistoryComponent } from './components/history/history.component';
+import { ChartModule } from 'primeng/chart';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { HistoryComponent } from './components/history/history.component';
     SpinnerModule,
     InputTextModule,
     ButtonModule,
-    DataViewModule
+    DataViewModule,
+    ChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]
