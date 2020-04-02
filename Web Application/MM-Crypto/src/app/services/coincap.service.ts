@@ -12,6 +12,10 @@ export class CoincapService {
     return this.http.get<CoinCapData>('https://api.coincap.io/v2/assets').toPromise();
   }
 
+  public getHistoryFromCoin(id: string) {
+    return this.http.get<HistoryData>(`https://api.coincap.io/v2/assets/${id}/history?interval=d1`).toPromise();
+  }
+
 }
 
 export interface CoinCapAsset {
@@ -30,4 +34,15 @@ export interface CoinCapAsset {
 
 export interface CoinCapData {
   data: CoinCapAsset[];
+}
+
+export interface HistoryItem {
+  priceUsd: string;
+  time: any;
+  date: Date;
+}
+
+export interface HistoryData {
+  data: HistoryItem[];
+  timestamp: number;
 }
