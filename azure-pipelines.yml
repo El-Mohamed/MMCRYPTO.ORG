@@ -1,0 +1,47 @@
+trigger:
+- master
+
+jobs:
+
+- job: Web_Application
+
+  pool:
+    vmImage: 'ubuntu-latest'
+
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '10.x'
+    displayName: 'Install Node.js'
+
+  - script: |
+      cd 'Web Application'
+      cd 'MM-Crypto'
+      npm install -g @angular/cli
+      npm install
+      ng build --prod
+    displayName: 'npm install and build'
+
+- job: API
+
+  pool:
+    vmImage: 'windows-latest'
+
+  variables:
+    solution: '**/*.sln'
+    buildPlatform: 'Any CPU'
+    buildConfiguration: 'Release'
+
+  steps:
+  - task: NuGetToolInstaller@1
+
+  - task: NuGetCommand@2
+    inputs:
+      restoreSolution: '$(solution)'
+
+  - task: VSBuild@1
+    inputs:
+      solution: '$(solution)'
+      msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
+      platform: '$(buildPlatform)'
+      configuration: '$(buildConfiguration)'
