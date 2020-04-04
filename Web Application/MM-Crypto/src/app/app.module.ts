@@ -21,6 +21,7 @@ import { WalletComponent } from './components/wallet/wallet.component';
 import { DataViewModule } from 'primeng/dataview';
 import { HistoryComponent } from './components/history/history.component';
 import { ChartModule } from 'primeng/chart';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ChartModule } from 'primeng/chart';
     PriceComponent,
     CalculatorComponent,
     WalletComponent,
-    HistoryComponent
+    HistoryComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

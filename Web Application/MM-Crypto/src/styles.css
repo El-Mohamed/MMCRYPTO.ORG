@@ -2,3 +2,7 @@ body {
     background-color: #121212;
     margin: 0;
 }
+
+html, body {
+    height: 100%;
+}
