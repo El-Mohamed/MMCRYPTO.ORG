@@ -8,10 +8,10 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 const routes: Routes = [
-  { path: "Price", component: PriceComponent },
-  { path: "Calculator", component: CalculatorComponent },
-  { path: "Wallet", component: WalletComponent },
-  { path: 'History/:id', component: HistoryComponent },
+  { path: "price", component: PriceComponent },
+  { path: "calculator", component: CalculatorComponent },
+  { path: "wallet", component: WalletComponent },
+  { path: 'history/:id', component: HistoryComponent },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '/404' }
 ];
