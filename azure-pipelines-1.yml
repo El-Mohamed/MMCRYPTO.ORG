@@ -1,0 +1,18 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: GitHubRelease@1
+  inputs:
+    gitHubConnection: 'github.com_ElMoufid-Mohamed'
+    repositoryName: '$(Build.Repository.Name)'
+    action: 'create'
+    target: '$(Build.SourceVersion)'
+    tagSource: 'userSpecifiedTag'
+    tag: 'v$(Build.BuildNumber)'
+    title: 'v$(Build.BuildNumber)'
+    changeLogCompareToRelease: 'lastFullRelease'
+    changeLogType: 'commitBased'
