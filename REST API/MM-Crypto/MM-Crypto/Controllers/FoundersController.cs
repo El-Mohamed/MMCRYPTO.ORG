@@ -31,6 +31,17 @@ namespace MM_Crypto.Controllers
             return query.ToList();
         }
 
+        [Route("{id}")]
+        [HttpGet]
+        public IActionResult GetFounderById(int Id)
+        {
+            var founder = context.Founders.SingleOrDefault(f => f.ID == Id);
+
+            if (founder == null)
+                return NotFound();
+
+            return Ok(founder);
+        }
 
     }
 }
