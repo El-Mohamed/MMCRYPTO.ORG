@@ -22,6 +22,7 @@ import { DataViewModule } from 'primeng/dataview';
 import { HistoryComponent } from './components/history/history.component';
 import { ChartModule } from 'primeng/chart';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     CalculatorComponent,
     WalletComponent,
     HistoryComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

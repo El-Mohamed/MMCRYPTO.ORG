@@ -5,9 +5,11 @@ import { CalculatorComponent } from './components/calculator/calculator.componen
 import { WalletComponent } from './components/wallet/wallet.component';
 import { HistoryComponent } from './components/history/history.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 const routes: Routes = [
+  { path: "home", component: HomeComponent },
   { path: "price", component: PriceComponent },
   { path: "calculator", component: CalculatorComponent },
   { path: "wallet", component: WalletComponent },
