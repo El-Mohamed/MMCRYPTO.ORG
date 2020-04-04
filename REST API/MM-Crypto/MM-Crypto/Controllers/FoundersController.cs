@@ -43,5 +43,28 @@ namespace MM_Crypto.Controllers
             return Ok(founder);
         }
 
+        [Route("{id}")]
+        [HttpDelete]
+        public IActionResult DeleteFounderById(int id)
+        {
+            var founder = context.Founders.Find(id);
+
+            if (founder == null)
+                return NotFound();
+
+            context.Founders.Remove(founder);
+            context.SaveChanges();
+
+            // Default 404 if delete was successful
+            return NoContent();
+        }
+
+        [HttpPost]
+        public IActionResult CreateFounder([FromBody] Founder newFounder)
+        {
+            context.Founders.Add(newFounder);
+            context.SaveChanges();
+            return Created("", newFounder);
+        }
     }
 }
