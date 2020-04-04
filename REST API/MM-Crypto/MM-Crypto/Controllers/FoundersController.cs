@@ -66,5 +66,20 @@ namespace MM_Crypto.Controllers
             context.SaveChanges();
             return Created("", newFounder);
         }
+
+        [HttpPut]
+        public IActionResult UpdateFounder([FromBody] Founder updateFouder)
+        {
+            var originalFounder = context.Founders.Find(updateFouder.ID);
+
+            if (originalFounder == null)
+                return NotFound();
+
+            originalFounder.FirstName = updateFouder.FirstName;
+            originalFounder.LastName = updateFouder.LastName;
+
+            context.SaveChanges();
+            return Ok(originalFounder);
+        }
     }
 }
