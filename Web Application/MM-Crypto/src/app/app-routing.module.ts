@@ -9,13 +9,14 @@ import { HomeComponent } from './components/home/home.component';
 
 
 const routes: Routes = [
+  { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "home", component: HomeComponent },
   { path: "price", component: PriceComponent },
   { path: "calculator", component: CalculatorComponent },
   { path: "wallet", component: WalletComponent },
   { path: 'history/:id', component: HistoryComponent },
   { path: '404', component: NotFoundComponent },
-  { path: '**', redirectTo: '/404' }
+  { path: '**', redirectTo: '/404', pathMatch: "full" }
 ];
 
 @NgModule({
