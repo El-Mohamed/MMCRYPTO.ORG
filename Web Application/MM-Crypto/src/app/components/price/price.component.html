@@ -26,7 +26,12 @@
                     <th>
                         <a [routerLink]="['/history', coin.id]">{{coin.rank}}</a>
                     </th>
-                    <th>{{coin.name}}</th>
+                    <th>
+                        <div class="HeaderFlex">
+                            <img class="Logo" src="https://static.coincap.io/assets/icons/{{coin.symbol}}@2x.png">
+                            <p>{{coin.name}}</p>
+                        </div>
+                    </th>
                     <th>{{coin.priceUsd | currency:'USD'}}</th>
                     <th>{{coin.volumeUsd24Hr | currency:'USD'}}</th>
                     <th *ngIf="coin.changePercent24Hr < 0" class="Negative">

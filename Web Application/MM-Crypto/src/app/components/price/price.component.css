@@ -9,3 +9,15 @@
 .ColumnHeader {
     color: white;
 }
+
+.Logo {
+    height: 30px;
+    width: 30px;
+    justify-self: center;
+    margin-right: 10%;
+}
+
+.HeaderFlex {
+    display: flex;
+    align-items: center;
+}

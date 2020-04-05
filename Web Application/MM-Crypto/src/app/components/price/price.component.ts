@@ -30,10 +30,19 @@ export class PriceComponent implements OnInit {
     try {
       this.CoinCapData = await this.service.getAssets();
       this.AllCoinCapAssets = this.CoinCapData.data;
+      this.symbolsToLowerCase();
     }
     catch (error) {
       console.log("Error")
     }
+  }
+
+  private symbolsToLowerCase() {
+    this.AllCoinCapAssets.forEach(element => {
+      element.symbol = element.symbol.toLocaleLowerCase();
+      // https://static.coincap.io/assets/icons/btc@2x.png
+      // Image URLs use lowercase
+    });
   }
 
   sortTable(event: SortEvent) {
