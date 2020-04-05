@@ -24,7 +24,7 @@
             <ng-template pTemplate="body" let-coin>
                 <tr>
                     <th>
-                        <a [routerLink]="['/History', coin.id]">{{coin.rank}}</a>
+                        <a [routerLink]="['/history', coin.id]">{{coin.rank}}</a>
                     </th>
                     <th>{{coin.name}}</th>
                     <th>{{coin.priceUsd | currency:'USD'}}</th>
