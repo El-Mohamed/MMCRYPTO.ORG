@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MmcryptoService, Coin } from 'src/app/services/mmcrypto.service';
 
 @Component({
   selector: 'app-information',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InformationComponent implements OnInit {
 
-  constructor() { }
+  AllCoins: Coin[] = [];
+
+  constructor(private service: MmcryptoService) { }
 
   ngOnInit(): void {
+    this.updateCoins();
   }
 
+  async updateCoins() {
+    try {
+      this.AllCoins = await this.service.getCoins();
+    }
+    catch (error) {
+      console.log("Error")
+    }
+  }
 }
