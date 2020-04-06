@@ -9,7 +9,11 @@ export class MmcryptoService {
   constructor(private http: HttpClient) { }
 
   public getWallets() {
-    return this.http.get<Wallet[]>("https://localhost:44362/api/wallets?page=0&length=10").toPromise();
+    return this.http.get<Wallet[]>("https://localhost:44362/api/v1/wallets?page=0&length=10").toPromise();
+  }
+
+  public getCoins() {
+    return this.http.get<Coin[]>("https://localhost:44362/api/v1/coins").toPromise();
   }
 }
 
@@ -21,4 +25,20 @@ export interface Wallet {
   price: number;
   imageURL: string;
   categorie: string;
+}
+
+export interface Founder {
+  id: number;
+  firstName: string;
+  lastName: string;
+  gender: string;
+}
+
+export interface Coin {
+  id: number;
+  symbol: string;
+  name: string;
+  founder: Founder;
+  website: string;
+  fork?: Coin;
 }
