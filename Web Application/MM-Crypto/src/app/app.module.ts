@@ -25,6 +25,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HomeComponent } from './components/home/home.component';
 import { NgApexchartsModule } from "ng-apexcharts";
 import { InformationComponent } from './components/information/information.component';
+import { FormComponent } from './components/form/form.component';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { InformationComponent } from './components/information/information.compo
     HistoryComponent,
     NotFoundComponent,
     HomeComponent,
-    InformationComponent
+    InformationComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
