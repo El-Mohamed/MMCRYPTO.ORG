@@ -23,6 +23,7 @@ import { HistoryComponent } from './components/history/history.component';
 import { ChartModule } from 'primeng/chart';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HomeComponent } from './components/home/home.component';
+import { NgApexchartsModule } from "ng-apexcharts";
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { HomeComponent } from './components/home/home.component';
     InputTextModule,
     ButtonModule,
     DataViewModule,
-    ChartModule
+    ChartModule,
+    NgApexchartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
