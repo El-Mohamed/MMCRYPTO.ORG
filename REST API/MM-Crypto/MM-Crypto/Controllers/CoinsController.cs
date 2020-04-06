@@ -20,7 +20,7 @@ namespace MM_Crypto.Controllers
         }
 
         [HttpGet]
-        public List<Coin> GetAllCoins(string sort, int? page, int length = 2, string dir = "asc")
+        public List<Coin> GetAllCoins(string sort, int? page, int length = 20, string dir = "asc")
         {
             IQueryable<Coin> query = context.Coins;
 

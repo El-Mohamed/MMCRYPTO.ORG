@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,7 +19,7 @@ namespace MM_Crypto.Controllers
         }
 
         [HttpGet]
-        public List<Wallet> GetAllWallets(string categorie, string brand, int? page, int length =2)
+        public List<Wallet> GetAllWallets(string categorie, string brand, int? page, int length =20)
         {
             IQueryable<Wallet> query = context.Wallets;
 
