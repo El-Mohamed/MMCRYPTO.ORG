@@ -39,6 +39,12 @@ namespace MM_Crypto
             // cryptoContext will be set by the framework
             DbInitializer.Initialize(cryptoContext);
 
+            // Allow all
+            app.UseCors(builder =>
+            builder.AllowAnyOrigin()
+                   .AllowAnyMethod()
+                   .AllowAnyHeader());
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
