@@ -13,7 +13,6 @@ export class HistoryComponent implements OnInit {
   AllHistoryItems: HistoryItem[];
   private id: string;
 
-  LineChartData: any;
   private lineChartlabels: string[] = [];
   private LineChartPrices: number[] = [];
 
@@ -46,24 +45,6 @@ export class HistoryComponent implements OnInit {
     this.AllHistoryItems.forEach(element => {
       this.LineChartPrices.push(Number(element.priceUsd));
     });
-  }
-
-  private createLineChartData() {
-
-    this.createChartLabels();
-    this.createChartPrices();
-
-    this.LineChartData = {
-      labels: this.lineChartlabels,
-      datasets:
-        [{
-          label: this.id.toUpperCase() + " Price in USD",
-          data: this.LineChartPrices,
-          fill: false,
-          borderColor: '#1976d2'
-        }]
-    }
-
   }
 
 }
