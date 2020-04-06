@@ -24,6 +24,7 @@ import { ChartModule } from 'primeng/chart';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HomeComponent } from './components/home/home.component';
 import { NgApexchartsModule } from "ng-apexcharts";
+import { InformationComponent } from './components/information/information.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { NgApexchartsModule } from "ng-apexcharts";
     WalletComponent,
     HistoryComponent,
     NotFoundComponent,
-    HomeComponent
+    HomeComponent,
+    InformationComponent
   ],
   imports: [
     BrowserModule,

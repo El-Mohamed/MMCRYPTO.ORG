@@ -6,6 +6,7 @@ import { WalletComponent } from './components/wallet/wallet.component';
 import { HistoryComponent } from './components/history/history.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HomeComponent } from './components/home/home.component';
+import { InformationComponent } from './components/information/information.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: "price", component: PriceComponent },
   { path: "calculator", component: CalculatorComponent },
   { path: "wallet", component: WalletComponent },
+  { path: "information", component: InformationComponent },
   { path: 'history/:id', component: HistoryComponent },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '/404', pathMatch: "full" }
