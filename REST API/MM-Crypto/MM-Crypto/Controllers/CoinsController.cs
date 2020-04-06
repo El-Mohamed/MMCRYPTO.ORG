@@ -54,6 +54,8 @@ namespace MM_Crypto.Controllers
                 .Include(c => c.Founder)
                 .Include(c => c.Fork);
 
+            Response.Headers.Add("X-Total-Count", query.Count().ToString());
+
             return query.ToList();
         }
 

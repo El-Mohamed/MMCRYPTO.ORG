@@ -28,6 +28,8 @@ namespace MM_Crypto.Controllers
             
             query = query.Take(lenght);
 
+            Response.Headers.Add("X-Total-Count", query.Count().ToString());
+
             return query.ToList();
         }
 
