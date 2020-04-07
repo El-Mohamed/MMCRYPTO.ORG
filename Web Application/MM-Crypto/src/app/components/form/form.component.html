@@ -14,7 +14,10 @@
         <input type="url" size="30" pInputText [(ngModel)]="WalletToPost.imageURL">
         <p>Price EUR</p>
         <input type="number" size="30" pInputText [(ngModel)]="WalletToPost.price">
-        <br>
+
+        <br><br>
+        <p-button icon="pi pi-cloud-upload" label="Send" (onClick)="PerformWalletPost()"></p-button>
+
     </div>
 
     <div class="ui-g-6">
@@ -32,6 +35,10 @@
         <input type="url" size="30" pInputText [(ngModel)]="CoinToPost.founder.lastName">
         <p>Gender</p>
         <input type="url" size="30" pInputText [(ngModel)]="CoinToPost.founder.gender">
+
+        <br><br>
+        <p-button icon="pi pi-cloud-upload" label="Send" (onClick)="PerformCoinPost()"></p-button>
+
     </div>
 
 </div>

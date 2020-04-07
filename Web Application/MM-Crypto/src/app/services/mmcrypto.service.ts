@@ -22,6 +22,10 @@ export class MmcryptoService {
   public getCoins() {
     return this.http.get<Coin[]>(this.coinsURL).toPromise();
   }
+
+  public postCoin(coin: any) {
+    this.http.post<any>(this.coinsURL, coin).subscribe();
+  }
 }
 
 export interface Wallet {

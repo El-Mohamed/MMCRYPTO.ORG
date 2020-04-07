@@ -36,4 +36,13 @@ export class FormComponent implements OnInit {
 
   }
 
+
+  PerformWalletPost() {
+    this.service.postWallet(this.WalletToPost);
+  }
+
+  PerformCoinPost() {
+    this.service.postCoin(this.CoinToPost);
+  }
+
 }
