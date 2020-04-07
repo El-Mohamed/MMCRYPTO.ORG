@@ -111,6 +111,20 @@ namespace MM_Crypto.Controllers
             return NoContent();
         }
 
+        [Route("{id}/hardforks")]
+        [HttpGet]
+        public IActionResult GetHardForksFromCoin(int Id)
+        {
+            var coin = context.Coins
+                .Include(c => c.HardForks)
+                .SingleOrDefault(c => c.ID == Id);
+
+            if (coin == null)
+                return NotFound();
+
+            return Ok(coin.HardForks);
+        }
+
         [HttpPost]
         public IActionResult CreateCoin([FromBody] Coin newCoin)
         {
