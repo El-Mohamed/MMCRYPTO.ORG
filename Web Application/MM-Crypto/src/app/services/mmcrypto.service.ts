@@ -6,14 +6,21 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MmcryptoService {
 
+  private walletsURL = "https://localhost:44362/api/v1/wallets";
+  private coinsURL = "https://localhost:44362/api/v1/coins"
+
   constructor(private http: HttpClient) { }
 
   public getWallets() {
-    return this.http.get<Wallet[]>("https://localhost:44362/api/v1/wallets?page=0&length=10").toPromise();
+    return this.http.get<Wallet[]>(this.walletsURL).toPromise();
+  }
+
+  public postWallet(wallet: any) {
+    this.http.post<any>(this.walletsURL, wallet).subscribe();
   }
 
   public getCoins() {
-    return this.http.get<Coin[]>("https://localhost:44362/api/v1/coins").toPromise();
+    return this.http.get<Coin[]>(this.coinsURL).toPromise();
   }
 }
 
