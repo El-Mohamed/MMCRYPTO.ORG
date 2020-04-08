@@ -20,6 +20,7 @@ import {
 })
 export class PriceChartComponent implements OnInit {
 
+  private fiatCurrency: string = "USD";
 
   public series: ApexAxisChartSeries;
   public chart: ApexChart;
@@ -80,10 +81,11 @@ export class PriceChartComponent implements OnInit {
 
     this.series = [
       {
-        name: "BTC",
+        name: this.id.toUpperCase(),
         data: dates
       }
     ];
+
     this.chart = {
       type: "area",
       stacked: false,
@@ -97,12 +99,15 @@ export class PriceChartComponent implements OnInit {
         autoSelected: "zoom"
       }
     };
+
     this.dataLabels = {
       enabled: false
     };
+
     this.markers = {
       size: 0
     };
+
     this.title = {
       text: "Price History",
       align: "center",
@@ -110,6 +115,7 @@ export class PriceChartComponent implements OnInit {
         color: '#ffffff'
       }
     };
+
     this.fill = {
       type: "gradient",
       gradient: {
@@ -120,10 +126,11 @@ export class PriceChartComponent implements OnInit {
         stops: [0, 90, 100]
       }
     };
+
     this.yaxis = {
       labels: {
         formatter: function (val) {
-          return (val).toFixed(0);
+          return (((val).toFixed(2)).toString() + ' USD');
         }
       },
       title: {
@@ -133,14 +140,16 @@ export class PriceChartComponent implements OnInit {
         }
       }
     };
+
     this.xaxis = {
       type: "numeric"
     };
+
     this.tooltip = {
       shared: false,
       y: {
         formatter: function (val) {
-          return (val).toFixed(0);
+          return (((val).toFixed(2)).toString() + ' USD');
         }
       }
     };
