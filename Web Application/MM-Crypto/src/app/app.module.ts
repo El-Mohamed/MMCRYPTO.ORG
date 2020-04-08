@@ -19,13 +19,13 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { WalletComponent } from './components/wallet/wallet.component';
 import { DataViewModule } from 'primeng/dataview';
-import { HistoryComponent } from './components/history/history.component';
 import { ChartModule } from 'primeng/chart';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HomeComponent } from './components/home/home.component';
 import { NgApexchartsModule } from "ng-apexcharts";
 import { InformationComponent } from './components/information/information.component';
 import { FormComponent } from './components/form/form.component';
+import { PriceChartComponent } from './components/price-chart/price-chart.component';
 
 
 @NgModule({
@@ -35,11 +35,11 @@ import { FormComponent } from './components/form/form.component';
     PriceComponent,
     CalculatorComponent,
     WalletComponent,
-    HistoryComponent,
     NotFoundComponent,
     HomeComponent,
     InformationComponent,
-    FormComponent
+    FormComponent,
+    PriceChartComponent
   ],
   imports: [
     BrowserModule,

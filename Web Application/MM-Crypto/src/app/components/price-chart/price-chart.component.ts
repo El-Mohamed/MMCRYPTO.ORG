@@ -14,11 +14,12 @@ import {
 } from "ng-apexcharts";
 
 @Component({
-  selector: 'app-history',
-  templateUrl: './history.component.html',
-  styleUrls: ['./history.component.css']
+  selector: 'app-price-chart',
+  templateUrl: './price-chart.component.html',
+  styleUrls: ['./price-chart.component.css']
 })
-export class HistoryComponent implements OnInit {
+export class PriceChartComponent implements OnInit {
+
 
   public series: ApexAxisChartSeries;
   public chart: ApexChart;
@@ -144,5 +145,4 @@ export class HistoryComponent implements OnInit {
       }
     };
   }
-
 }
