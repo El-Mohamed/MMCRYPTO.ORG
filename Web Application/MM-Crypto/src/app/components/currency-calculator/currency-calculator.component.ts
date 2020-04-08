@@ -15,8 +15,8 @@ export class CurrencyCalculatorComponent implements OnInit {
 
   Amount1: number;
   Amount2: number;
+  Ratio: number;
 
-  private ratio: number;
   private tempSelectedItem1: CoinCapAsset;
   private tempSelectedItem2: CoinCapAsset;
   private allCoinCapAssets: CoinCapAsset[] = [];
@@ -48,10 +48,8 @@ export class CurrencyCalculatorComponent implements OnInit {
   }
 
   Convert(): void {
-    if (this.SelectedItem1 != null && this.SelectedItem1 != null && this.Amount1 != null) {
-      this.ratio = parseFloat(this.SelectedItem1.priceUsd) / parseFloat(this.SelectedItem2.priceUsd);
-      this.Amount2 = this.Amount1 * this.ratio;
-    }
+    this.Ratio = parseFloat(this.SelectedItem1.priceUsd) / parseFloat(this.SelectedItem2.priceUsd);
+    this.Amount2 = this.Amount1 * this.Ratio;
   }
 
   SwapCurrencies(): void {

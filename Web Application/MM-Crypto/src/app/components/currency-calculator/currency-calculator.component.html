@@ -1,3 +1,5 @@
+<h1>Currency Calculator </h1>
+
 <div class="flex">
 
     <p-spinner [(ngModel)]="Amount1" [min]="0" (onChange)="Convert()"></p-spinner>
@@ -15,3 +17,7 @@
     <input type="text" pInputText [(ngModel)]="Amount2" />
 
 </div>
+
+
+<h3 *ngIf="SelectedItem1 != null && SelectedItem2 != null"> 1 {{SelectedItem1.symbol}} = {{Ratio}}
+    {{SelectedItem2.symbol}}</h3>
