@@ -3,11 +3,11 @@ import { SelectItem } from 'primeng/api';
 import { CoincapService, CoinCapAsset, CoinCapData } from 'src/app/services/coincap.service';
 
 @Component({
-  selector: 'app-calculator',
-  templateUrl: './calculator.component.html',
-  styleUrls: ['./calculator.component.css']
+  selector: 'app-currency-calculator',
+  templateUrl: './currency-calculator.component.html',
+  styleUrls: ['./currency-calculator.component.css']
 })
-export class CalculatorComponent implements OnInit {
+export class CurrencyCalculatorComponent implements OnInit {
 
   AllItems: SelectItem[] = [];
   SelectedItem1: CoinCapAsset;

@@ -9,7 +9,6 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { HttpClientModule } from '@angular/common/http';
 import { TableModule } from 'primeng/table';
 import { RouterModule } from '@angular/router';
-import { CalculatorComponent } from './components/calculator/calculator.component';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
@@ -26,20 +25,22 @@ import { InformationComponent } from './components/information/information.compo
 import { FormComponent } from './components/form/form.component';
 import { PriceChartComponent } from './components/price-chart/price-chart.component';
 import { PriceTableComponent } from './components/price-table/price-table.component';
+import { CurrencyCalculatorComponent } from './components/currency-calculator/currency-calculator.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    CalculatorComponent,
+    CurrencyCalculatorComponent,
     WalletComponent,
     NotFoundComponent,
     HomeComponent,
     InformationComponent,
     FormComponent,
     PriceChartComponent,
-    PriceTableComponent
+    PriceTableComponent,
+    CurrencyCalculatorComponent
   ],
   imports: [
     BrowserModule,
