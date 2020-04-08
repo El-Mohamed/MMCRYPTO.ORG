@@ -145,7 +145,13 @@ export class PriceChartComponent implements OnInit {
 
     // Changed
     this.xaxis = {
-      type: "numeric"
+      type: "numeric",
+      title: {
+        text: "Time",
+        style: {
+          color: '#ffffff'
+        }
+      }
     };
 
     // Changed
