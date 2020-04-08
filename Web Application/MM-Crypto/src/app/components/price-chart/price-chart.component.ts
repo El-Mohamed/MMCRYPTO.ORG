@@ -81,7 +81,7 @@ export class PriceChartComponent implements OnInit {
 
     this.series = [
       {
-        name: this.id.toUpperCase(),
+        name: this.id.toUpperCase(), // Changed
         data: dates
       }
     ];
@@ -108,6 +108,7 @@ export class PriceChartComponent implements OnInit {
       size: 0
     };
 
+    // Changed
     this.title = {
       text: "Price History",
       align: "center",
@@ -127,6 +128,7 @@ export class PriceChartComponent implements OnInit {
       }
     };
 
+    // Changed
     this.yaxis = {
       labels: {
         formatter: function (val) {
@@ -141,10 +143,12 @@ export class PriceChartComponent implements OnInit {
       }
     };
 
+    // Changed
     this.xaxis = {
       type: "numeric"
     };
 
+    // Changed
     this.tooltip = {
       shared: false,
       y: {
