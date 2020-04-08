@@ -145,13 +145,19 @@ export class PriceChartComponent implements OnInit {
 
     // Changed
     this.xaxis = {
+      labels: {
+        formatter: function (val) {
+          var date = new Date(val);
+          return (date.toLocaleString());
+        }
+      },
       type: "numeric",
       title: {
         text: "Time",
         style: {
           color: '#ffffff'
         }
-      }
+      },
     };
 
     // Changed
