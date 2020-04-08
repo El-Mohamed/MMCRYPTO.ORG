@@ -3,11 +3,11 @@ import { CoincapService, CoinCapAsset, CoinCapData } from 'src/app/services/coin
 import { SortEvent } from 'primeng/api';
 
 @Component({
-  selector: 'app-price',
-  templateUrl: './price.component.html',
-  styleUrls: ['./price.component.css']
+  selector: 'app-price-table',
+  templateUrl: './price-table.component.html',
+  styleUrls: ['./price-table.component.css']
 })
-export class PriceComponent implements OnInit {
+export class PriceTableComponent implements OnInit {
 
   AllCoinCapAssets: CoinCapAsset[] = [];
   CoinCapData: CoinCapData;
@@ -70,4 +70,5 @@ export class PriceComponent implements OnInit {
       return (event.order * result);
     });
   }
+
 }

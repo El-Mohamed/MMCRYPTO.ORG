@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PriceComponent } from './components/price/price.component';
 import { CalculatorComponent } from './components/calculator/calculator.component';
 import { WalletComponent } from './components/wallet/wallet.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
@@ -8,12 +7,13 @@ import { HomeComponent } from './components/home/home.component';
 import { InformationComponent } from './components/information/information.component';
 import { FormComponent } from './components/form/form.component';
 import { PriceChartComponent } from './components/price-chart/price-chart.component';
+import { PriceTableComponent } from './components/price-table/price-table.component';
 
 
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "home", component: HomeComponent },
-  { path: "price", component: PriceComponent },
+  { path: "price", component: PriceTableComponent },
   { path: "calculator", component: CalculatorComponent },
   { path: "wallet", component: WalletComponent },
   { path: "information", component: InformationComponent },

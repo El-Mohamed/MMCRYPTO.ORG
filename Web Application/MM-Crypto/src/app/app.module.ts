@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { HttpClientModule } from '@angular/common/http';
-import { PriceComponent } from './components/price/price.component'
 import { TableModule } from 'primeng/table';
 import { RouterModule } from '@angular/router';
 import { CalculatorComponent } from './components/calculator/calculator.component';
@@ -26,20 +25,21 @@ import { NgApexchartsModule } from "ng-apexcharts";
 import { InformationComponent } from './components/information/information.component';
 import { FormComponent } from './components/form/form.component';
 import { PriceChartComponent } from './components/price-chart/price-chart.component';
+import { PriceTableComponent } from './components/price-table/price-table.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    PriceComponent,
     CalculatorComponent,
     WalletComponent,
     NotFoundComponent,
     HomeComponent,
     InformationComponent,
     FormComponent,
-    PriceChartComponent
+    PriceChartComponent,
+    PriceTableComponent
   ],
   imports: [
     BrowserModule,
