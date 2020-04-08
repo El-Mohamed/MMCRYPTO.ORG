@@ -36,7 +36,7 @@ export class PriceChartComponent implements OnInit {
   AllHistoryItems: HistoryItem[];
   private id: string;
 
-  private lineChartlabels: string[] = [];
+  private lineChartlabels: number[] = [];
   private LineChartPrices: number[] = [];
 
   constructor(private route: ActivatedRoute, private service: CoincapService) {
@@ -63,7 +63,7 @@ export class PriceChartComponent implements OnInit {
 
   private createChartLabels() {
     this.AllHistoryItems.forEach(element => {
-      this.lineChartlabels.push(String(element.date));
+      this.lineChartlabels.push(element.time);
     });
   }
 
@@ -76,7 +76,7 @@ export class PriceChartComponent implements OnInit {
   public initChartData(): void {
     let dates = [];
     for (let i = 0; i < this.AllHistoryItems.length; i++) {
-      dates.push([i, this.LineChartPrices[i]]);
+      dates.push([this.lineChartlabels[i], this.LineChartPrices[i]]);
     }
 
     this.series = [
@@ -155,7 +155,13 @@ export class PriceChartComponent implements OnInit {
         formatter: function (val) {
           return (((val).toFixed(2)).toString() + ' USD');
         }
-      }
+      },
+      x: {
+        formatter: function (val) {
+          var date = new Date(val);
+          return (date.toLocaleString());
+        }
+      },
     };
   }
 }
