@@ -20,8 +20,6 @@ import {
 })
 export class PriceChartComponent implements OnInit {
 
-  private fiatCurrency: string = "USD";
-
   public series: ApexAxisChartSeries;
   public chart: ApexChart;
   public dataLabels: ApexDataLabels;
@@ -32,12 +30,13 @@ export class PriceChartComponent implements OnInit {
   public xaxis: ApexXAxis;
   public tooltip: ApexTooltip;
 
-  CoinHistoryData: HistoryData;
-  AllHistoryItems: HistoryItem[];
+  private CoinHistoryData: HistoryData;
+  private AllHistoryItems: HistoryItem[];
   private id: string;
 
-  private lineChartlabels: number[] = [];
-  private LineChartPrices: number[] = [];
+  private TimeValues: number[] = [];
+  private PriceValues: number[] = [];
+  private ChartData: any[] = [];
 
   constructor(private route: ActivatedRoute, private service: CoincapService) {
     this.id = this.route.snapshot.paramMap.get('id');
@@ -51,41 +50,45 @@ export class PriceChartComponent implements OnInit {
     try {
       this.CoinHistoryData = await this.service.getHistoryFromCoin(id);
       this.AllHistoryItems = this.CoinHistoryData.data;
-      this.createChartLabels();
-      this.createChartPrices();
-      this.initChartData();
-
+      this.createChartData();
+      this.initChart();
     }
     catch (error) {
       console.log("Error")
     }
   }
 
-  private createChartLabels() {
-    this.AllHistoryItems.forEach(element => {
-      this.lineChartlabels.push(element.time);
-    });
-  }
+  private createChartData() {
+    this.createPriceValues();
+    this.createTimeValues();
 
-  private createChartPrices() {
-    this.AllHistoryItems.forEach(element => {
-      this.LineChartPrices.push(Number(element.priceUsd));
-    });
-  }
-
-  public initChartData(): void {
-    let dates = [];
     for (let i = 0; i < this.AllHistoryItems.length; i++) {
-      dates.push([this.lineChartlabels[i], this.LineChartPrices[i]]);
+      this.ChartData.push([this.TimeValues[i], this.PriceValues[i]]);
     }
+  }
 
+  private createTimeValues() {
+    this.AllHistoryItems.forEach(element => {
+      this.TimeValues.push(element.time);
+    });
+  }
+
+  private createPriceValues() {
+    this.AllHistoryItems.forEach(element => {
+      this.PriceValues.push(Number(element.priceUsd));
+    });
+  }
+
+  private setApexAxisChartSeries() {
     this.series = [
       {
         name: this.id.toUpperCase(), // Changed
-        data: dates
+        data: this.ChartData
       }
     ];
+  }
 
+  private setApexChart() {
     this.chart = {
       type: "area",
       stacked: false,
@@ -99,15 +102,21 @@ export class PriceChartComponent implements OnInit {
         autoSelected: "zoom"
       }
     };
+  }
 
+  private setApexDataLabels() {
     this.dataLabels = {
       enabled: false
     };
+  }
 
+  private setApexMarkers() {
     this.markers = {
       size: 0
     };
+  }
 
+  private setApexTitleSubtitle() {
     // Changed
     this.title = {
       text: "Price History",
@@ -116,7 +125,9 @@ export class PriceChartComponent implements OnInit {
         color: '#ffffff'
       }
     };
+  }
 
+  private setApexFill() {
     this.fill = {
       type: "gradient",
       gradient: {
@@ -127,7 +138,9 @@ export class PriceChartComponent implements OnInit {
         stops: [0, 90, 100]
       }
     };
+  }
 
+  private setApexYAxis() {
     // Changed
     this.yaxis = {
       labels: {
@@ -142,7 +155,9 @@ export class PriceChartComponent implements OnInit {
         }
       }
     };
+  }
 
+  private setApexXAxis() {
     // Changed
     this.xaxis = {
       labels: {
@@ -159,7 +174,9 @@ export class PriceChartComponent implements OnInit {
         }
       },
     };
+  }
 
+  private setApexTooltip() {
     // Changed
     this.tooltip = {
       shared: false,
@@ -175,5 +192,17 @@ export class PriceChartComponent implements OnInit {
         }
       },
     };
+  }
+
+  private initChart(): void {
+    this.setApexAxisChartSeries();
+    this.setApexChart();
+    this.setApexDataLabels();
+    this.setApexMarkers();
+    this.setApexTitleSubtitle();
+    this.setApexFill();
+    this.setApexYAxis();
+    this.setApexXAxis();
+    this.setApexTooltip();
   }
 }
