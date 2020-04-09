@@ -92,7 +92,8 @@ export class PriceChartComponent implements OnInit {
     this.chart = {
       type: "area",
       stacked: false,
-      height: 500,
+      height: 600,
+      width: '100%',
       zoom: {
         type: "x",
         enabled: true,
