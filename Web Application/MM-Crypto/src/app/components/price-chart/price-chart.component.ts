@@ -119,10 +119,12 @@ export class PriceChartComponent implements OnInit {
   private setApexTitleSubtitle() {
     // Changed
     this.title = {
-      text: "Price History",
+      text: this.id.toUpperCase() + " Price History",
       align: "center",
       style: {
-        color: '#ffffff'
+        color: '#ffffff',
+        fontSize: '30px',
+        fontWeight: 500,
       }
     };
   }
@@ -151,7 +153,10 @@ export class PriceChartComponent implements OnInit {
       title: {
         text: "Price",
         style: {
-          color: '#ffffff'
+          color: '#ffffff',
+          fontSize: '14px',
+          fontWeight: 500,
+          cssClass: 'apexcharts-xaxis-label'
         }
       }
     };
@@ -170,7 +175,10 @@ export class PriceChartComponent implements OnInit {
       title: {
         text: "Time",
         style: {
-          color: '#ffffff'
+          color: '#ffffff',
+          fontSize: '14px',
+          fontWeight: 500,
+          cssClass: 'apexcharts-xaxis-label'
         }
       },
     };
