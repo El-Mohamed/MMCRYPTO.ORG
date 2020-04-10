@@ -1,23 +1,23 @@
-.Negative {
+.bearish {
     color: red;
 }
 
-.Positive {
+.bullish {
     color: green;
 }
 
-.ColumnHeader {
+.table-header {
     color: white;
 }
 
-.Logo {
+.currency-logo {
     height: 30px;
     width: 30px;
     justify-self: center;
     margin-right: 10%;
 }
 
-.HeaderFlex {
+.logo-header-cell {
     display: flex;
     align-items: center;
 }

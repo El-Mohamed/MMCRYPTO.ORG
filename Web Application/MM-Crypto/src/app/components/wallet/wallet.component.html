@@ -1,10 +1,16 @@
 <p-dataView [value]="allItems">
 
+    <!-- Header -->
+
     <p-header>List of Wallets</p-header>
+
+    <!-- Dataview Item -->
 
     <ng-template let-wallet pTemplate="listItem">
 
-        <div class="flex">
+        <div class="list-item-container">
+
+            <!-- Details -->
 
             <div class="ui-g-10">
                 <div>
@@ -17,12 +23,16 @@
                 </div>
             </div>
 
+            <!-- Product Image -->
+
             <div class="ui-g-2">
-                <img src={{wallet.imageURL}}>
+                <img class="product-image" src={{wallet.imageURL}}>
             </div>
 
+            <!-- Shop Button -->
+
             <a href="{{wallet.website}}">
-                <button pButton type="button" icon="pi pi-shopping-cart"></button>
+                <button class="shop-button" pButton type="button" icon="pi pi-shopping-cart"></button>
             </a>
         </div>
 

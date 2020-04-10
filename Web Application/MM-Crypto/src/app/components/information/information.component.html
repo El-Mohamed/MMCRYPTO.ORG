@@ -1,12 +1,18 @@
 <p-dataView [value]="AllCoins">
 
+    <!-- Header -->
+
     <p-header>List of Coins and Founders</p-header>
+
+    <!-- Dataview Item -->
 
     <ng-template let-coin pTemplate="listItem">
 
-        <div class="flex">
+        <div class="list-item-container">
 
-            <div class="ui-g-10">
+            <!-- Details -->
+
+            <div class="ui-g-11">
                 <div>
                     <div class="ui-g-4">
                         <div class="ui-g-12">Name: <b>{{coin.name}}</b></div>
@@ -19,12 +25,10 @@
                 </div>
             </div>
 
-            <div class="ui-g-2">
-                <img src="">
-            </div>
+            <!-- Website Button -->
 
             <a href={{coin.website}}>
-                <button pButton type="button" icon="pi pi-globe"></button>
+                <button class="website-button" pButton type="button" icon="pi pi-globe"></button>
             </a>
         </div>
 
