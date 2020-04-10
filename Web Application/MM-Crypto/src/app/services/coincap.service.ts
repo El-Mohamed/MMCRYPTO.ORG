@@ -1,3 +1,5 @@
+
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -12,8 +14,8 @@ export class CoincapService {
     return this.http.get<CoinCapData>('https://api.coincap.io/v2/assets').toPromise();
   }
 
-  public getHistoryFromCoin(id: string) {
-    return this.http.get<HistoryData>(`https://api.coincap.io/v2/assets/${id}/history?interval=d1`).toPromise();
+  public getHistoryFromCoin(id: string, timeframe: string) {
+    return this.http.get<HistoryData>(`https://api.coincap.io/v2/assets/${ id }/history?interval=${ timeframe }`).toPromise();
   }
 
 }

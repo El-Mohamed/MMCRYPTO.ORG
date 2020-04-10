@@ -38,17 +38,20 @@ export class PriceChartComponent implements OnInit {
   private PriceValues: number[] = [];
   private ChartData: any[] = [];
 
+  TimeFrameButtonLabels: string[] = ["m1", "m5", "m15", "m30", "h1", "h2", "h6", "h12", "d1"]
+
   constructor(private route: ActivatedRoute, private service: CoincapService) {
     this.id = this.route.snapshot.paramMap.get('id');
   }
 
   ngOnInit(): void {
-    this.UpdateHitory(this.id);
+    this.UpdateChart("m1");
   }
 
-  async UpdateHitory(id: string) {
+  async UpdateChart(SelectedTimeFrame: string) {
     try {
-      this.CoinHistoryData = await this.service.getHistoryFromCoin(id);
+      this.clearAllData();
+      this.CoinHistoryData = await this.service.getHistoryFromCoin(this.id, SelectedTimeFrame);
       this.AllHistoryItems = this.CoinHistoryData.data;
       this.createChartData();
       this.initChart();
@@ -58,13 +61,18 @@ export class PriceChartComponent implements OnInit {
     }
   }
 
+  private clearAllData() {
+    this.AllHistoryItems = [];
+    this.CoinHistoryData = null;
+    this.TimeValues = [];
+    this.PriceValues = [];
+    this.ChartData = [];
+  }
+
   private createChartData() {
     this.createPriceValues();
     this.createTimeValues();
-
-    for (let i = 0; i < this.AllHistoryItems.length; i++) {
-      this.ChartData.push([this.TimeValues[i], this.PriceValues[i]]);
-    }
+    this.assembleChartData();
   }
 
   private createTimeValues() {
@@ -77,6 +85,12 @@ export class PriceChartComponent implements OnInit {
     this.AllHistoryItems.forEach(element => {
       this.PriceValues.push(Number(element.priceUsd));
     });
+  }
+
+  private assembleChartData() {
+    for (let i = 0; i < this.AllHistoryItems.length; i++) {
+      this.ChartData.push([this.TimeValues[i], this.PriceValues[i]]);
+    }
   }
 
   private setApexAxisChartSeries() {
@@ -125,7 +139,7 @@ export class PriceChartComponent implements OnInit {
       style: {
         color: '#ffffff',
         fontSize: '30px',
-        fontWeight: 500,
+        fontWeight: 550,
       }
     };
   }

@@ -3,3 +3,12 @@
     padding-left: 2%;
     padding-right: 2%;
 }
+
+.TimeFramePicker {
+    display: flex;
+    width: fit-content;
+}
+
+.TimeFramePicker * {
+    padding-right: 1%;
+}
