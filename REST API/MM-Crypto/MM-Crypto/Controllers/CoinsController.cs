@@ -104,6 +104,11 @@ namespace MM_Crypto.Controllers
             if (coin == null)
                 return NotFound();
 
+            var forks = context.Coins.Where(c => c.Fork.ID == coin.ID).ToList();
+
+            if (forks.Count > 0)
+                return NotFound();
+
             context.Coins.Remove(coin);
             context.SaveChanges();
 
