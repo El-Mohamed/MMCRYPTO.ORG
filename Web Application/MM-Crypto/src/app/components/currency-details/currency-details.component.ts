@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { MmcryptoService, Coin } from 'src/app/services/mmcrypto.service';
 
 @Component({
-  selector: 'app-information',
-  templateUrl: './information.component.html',
-  styleUrls: ['./information.component.css']
+  selector: 'app-currency-details',
+  templateUrl: './currency-details.component.html',
+  styleUrls: ['./currency-details.component.css']
 })
-export class InformationComponent implements OnInit {
+export class CurrencyDetailsComponent implements OnInit {
 
   AllCoins: Coin[] = [];
 

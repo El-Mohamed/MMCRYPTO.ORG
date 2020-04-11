@@ -8,7 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
 // Components
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { InformationComponent } from './components/information/information.component';
 import { FormComponent } from './components/form/form.component';
 import { PriceChartComponent } from './components/price-chart/price-chart.component';
 import { PriceTableComponent } from './components/price-table/price-table.component';
@@ -17,6 +16,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { WalletComponent } from './components/wallet/wallet.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HomeComponent } from './components/home/home.component';
+import { CurrencyDetailsComponent } from './components/currency-details/currency-details.component';
 
 // Prime NG
 import { TableModule } from 'primeng/table';
@@ -39,11 +39,11 @@ import { NgApexchartsModule } from "ng-apexcharts";
     WalletComponent,
     NotFoundComponent,
     HomeComponent,
-    InformationComponent,
     FormComponent,
     PriceChartComponent,
     PriceTableComponent,
-    CurrencyCalculatorComponent
+    CurrencyCalculatorComponent,
+    CurrencyDetailsComponent
   ],
   imports: [
     BrowserModule,
