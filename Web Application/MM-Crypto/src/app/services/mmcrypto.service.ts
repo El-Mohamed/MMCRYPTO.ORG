@@ -30,6 +30,10 @@ export class MmcryptoService {
   public postCoin(coin: any) {
     this.http.post<any>(this.coinsURL, coin).subscribe();
   }
+
+  public deleteCoin(Id: number) {
+    this.http.delete(this.coinsURL + '/' + Id).subscribe();
+  }
 }
 
 export interface Wallet {

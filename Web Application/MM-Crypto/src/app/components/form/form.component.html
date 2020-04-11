@@ -87,5 +87,25 @@
         <p-button icon="pi pi-cloud-upload" label="Send" (onClick)="DeleteWallet(id.value)"></p-button>
     </div>
 
+    <!-- DELETE Coin -->
+
+    <div *ngIf="SelectedModel == 'Coin' && SelectedCRUDAction == 'DELETE'" class="ui-g-6">
+
+        <!-- SubTitle -->
+
+        <h2 class="title">Coin</h2>
+
+        <!-- Input Fields -->
+
+        <p>Coin ID</p>
+        <input #id2 type="number" size="30" pInputText>
+
+        <!-- Button -->
+
+        <br><br>
+        <p-button icon="pi pi-cloud-upload" label="Send" (onClick)="DeleteCoin(id2.value)"></p-button>
+    </div>
+
+
 
 </div>
