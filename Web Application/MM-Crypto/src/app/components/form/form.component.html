@@ -2,10 +2,16 @@
 
 <h1 class="title">MM Crypto API Editor</h1>
 
-<!-- Wallet -->
+<!-- Action Selector -->
+
+<p-dropdown [options]="CRUDActions" [(ngModel)]="SelectedCRUDAction"></p-dropdown>
+<p-dropdown [options]="Models" [(ngModel)]="SelectedModel"></p-dropdown>
 
 <div class="ui-g">
-    <div class="ui-g-6">
+
+    <!-- POST Wallet -->
+
+    <div *ngIf="SelectedModel == 'Wallet' && SelectedCRUDAction == 'POST'" class="ui-g-6">
 
         <!-- SubTitle -->
 
@@ -32,9 +38,9 @@
         <p-button icon="pi pi-cloud-upload" label="Send" (onClick)="PerformWalletPost()"></p-button>
     </div>
 
-    <!-- Coin -->
+    <!-- Coin POST -->
 
-    <div class="ui-g-6">
+    <div *ngIf="SelectedModel == 'Coin' && SelectedCRUDAction == 'POST'" class="ui-g-6">
 
         <!-- SubTitle -->
 

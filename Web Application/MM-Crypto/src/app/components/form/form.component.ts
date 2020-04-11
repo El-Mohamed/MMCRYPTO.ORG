@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Wallet, Coin, MmcryptoService } from 'src/app/services/mmcrypto.service';
+import { SelectItem } from 'primeng/api/selectitem';
 
 @Component({
   selector: 'app-form',
@@ -7,6 +8,23 @@ import { Wallet, Coin, MmcryptoService } from 'src/app/services/mmcrypto.service
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
+
+  CRUDActions: SelectItem[] =
+    [
+      { label: 'POST', value: 'POST' },
+      { label: 'PUT', value: 'PUT' },
+      { label: 'DELETE', value: 'DELETE' }
+    ];
+
+  SelectedCRUDAction: string = "POST";
+
+  Models: SelectItem[] =
+    [
+      { label: 'Coin', value: 'Coin' },
+      { label: 'Wallet', value: 'Wallet' }
+    ];
+
+  SelectedModel: string = "Coin";
 
   WalletToPost: any = {
     brand: "Ledger",
