@@ -1,7 +1,18 @@
-<div class="ui-g">
+<!-- Title -->
 
+<h1 class="title">MM Crypto API Editor</h1>
+
+<!-- Wallet -->
+
+<div class="ui-g">
     <div class="ui-g-6">
-        <h1>Wallet Form</h1>
+
+        <!-- SubTitle -->
+
+        <h2 class="title">Wallet</h2>
+
+        <!-- Input Fields -->
+
         <p>Brand</p>
         <input type="text" size="30" pInputText [(ngModel)]="WalletToPost.brand">
         <p>Model</p>
@@ -10,31 +21,41 @@
         <input type="text" size="30" pInputText [(ngModel)]="WalletToPost.categorie">
         <p>Website</p>
         <input type="url" size="30" pInputText [(ngModel)]="WalletToPost.website">
-        <p>Image Url</p>
+        <p>Image URL</p>
         <input type="url" size="30" pInputText [(ngModel)]="WalletToPost.imageURL">
         <p>Price EUR</p>
         <input type="number" size="30" pInputText [(ngModel)]="WalletToPost.price">
 
+        <!-- Button -->
+
         <br><br>
         <p-button icon="pi pi-cloud-upload" label="Send" (onClick)="PerformWalletPost()"></p-button>
-
     </div>
 
+    <!-- Coin -->
+
     <div class="ui-g-6">
-        <h1>Coin Form</h1>
-        <p>Name</p>
+
+        <!-- SubTitle -->
+
+        <h2 class="title">Coin</h2>
+
+        <!-- Input Fields -->
+
+        <p>Coin Name</p>
         <input type="text" size="30" pInputText [(ngModel)]="CoinToPost.name">
-        <p>Symbol</p>
+        <p>Coin Symbol</p>
         <input type="text" size="30" pInputText [(ngModel)]="CoinToPost.symbol">
-        <p>Website</p>
+        <p>Coin Website</p>
         <input type="url" size="30" pInputText [(ngModel)]="CoinToPost.website">
-        <h1>Founder Information</h1>
-        <p>First Name</p>
+        <p>Founder First Name</p>
         <input type="text" size="30" pInputText [(ngModel)]="CoinToPost.founder.firstName">
-        <p>Last Name</p>
+        <p>Founder Last Name</p>
         <input type="url" size="30" pInputText [(ngModel)]="CoinToPost.founder.lastName">
         <p>Gender</p>
         <input type="url" size="30" pInputText [(ngModel)]="CoinToPost.founder.gender">
+
+        <!-- Button -->
 
         <br><br>
         <p-button icon="pi pi-cloud-upload" label="Send" (onClick)="PerformCoinPost()"></p-button>
