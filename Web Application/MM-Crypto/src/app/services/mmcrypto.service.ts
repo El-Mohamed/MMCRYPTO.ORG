@@ -19,6 +19,10 @@ export class MmcryptoService {
     this.http.post<any>(this.walletsURL, wallet).subscribe();
   }
 
+  public deleteWallet(Id: number) {
+    this.http.delete(this.walletsURL + '/' + Id).subscribe();
+  }
+
   public getCoins() {
     return this.http.get<Coin[]>(this.coinsURL).toPromise();
   }

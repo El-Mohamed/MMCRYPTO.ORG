@@ -54,7 +54,9 @@ export class FormComponent implements OnInit {
 
   }
 
-
+  DeleteWallet(Id: number) {
+    this.service.deleteWallet(Id);
+  }
   PerformWalletPost() {
     this.service.postWallet(this.WalletToPost);
   }

@@ -68,4 +68,24 @@
 
     </div>
 
+    <!-- DELETE Wallet -->
+
+    <div *ngIf="SelectedModel == 'Wallet' && SelectedCRUDAction == 'DELETE'" class="ui-g-6">
+
+        <!-- SubTitle -->
+
+        <h2 class="title">Wallet</h2>
+
+        <!-- Input Fields -->
+
+        <p>Wallet ID</p>
+        <input #id type="number" size="30" pInputText>
+
+        <!-- Button -->
+
+        <br><br>
+        <p-button icon="pi pi-cloud-upload" label="Send" (onClick)="DeleteWallet(id.value)"></p-button>
+    </div>
+
+
 </div>
