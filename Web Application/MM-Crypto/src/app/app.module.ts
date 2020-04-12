@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 // Components
 import { AppRoutingModule } from './app-routing.module';
@@ -29,6 +30,10 @@ import { DataViewModule } from 'primeng/dataview';
 
 // Other
 import { NgApexchartsModule } from "ng-apexcharts";
+
+// Firebase
+import { AngularFireModule } from '@angular/fire';
+
 
 
 @NgModule({
@@ -61,7 +66,9 @@ import { NgApexchartsModule } from "ng-apexcharts";
     ButtonModule,
     DataViewModule,
     // Other
-    NgApexchartsModule
+    NgApexchartsModule,
+    // Firebase
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
