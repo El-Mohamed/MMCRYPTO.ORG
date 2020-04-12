@@ -1,12 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MM_Crypto
 {
-    public class CryptoContext: DbContext
+    public class CryptoContext : DbContext
     {
         public CryptoContext(DbContextOptions<CryptoContext> options) : base(options)
         {

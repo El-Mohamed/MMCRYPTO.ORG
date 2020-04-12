@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace MM_Crypto
 {
@@ -47,13 +45,15 @@ namespace MM_Crypto
             XLM.HardForks = new List<Coin> { };
 
 
-            Wallet LegderNanoS = new Wallet() { 
+            Wallet LegderNanoS = new Wallet()
+            {
                 Brand = "Ledger",
-                Model = "Nano S", 
-                Price = 59, 
-                Website = "https://shop.ledger.com/products/ledger-nano-s", 
-                ImageURL= "https://cdn.shopify.com/s/files/1/2974/4858/products/lns-black-open_large.png",
-                Categorie = "Hardware"};
+                Model = "Nano S",
+                Price = 59,
+                Website = "https://shop.ledger.com/products/ledger-nano-s",
+                ImageURL = "https://cdn.shopify.com/s/files/1/2974/4858/products/lns-black-open_large.png",
+                Categorie = "Hardware"
+            };
 
             Wallet LegderNanoX = new Wallet()
             {
@@ -65,13 +65,15 @@ namespace MM_Crypto
                 Categorie = "Hardware"
             };
 
-            Wallet TrezorOne = new Wallet() { 
-                Brand = "Trezor", 
-                Model = "One", 
-                Price = 59, 
-                Website = "https://shop.trezor.io/product/trezor-one-white", 
+            Wallet TrezorOne = new Wallet()
+            {
+                Brand = "Trezor",
+                Model = "One",
+                Price = 59,
+                Website = "https://shop.trezor.io/product/trezor-one-white",
                 ImageURL = "https://shop.trezor.io/static/img/product/T1_white.png",
-                Categorie = "Hardware"};
+                Categorie = "Hardware"
+            };
 
             Wallet TrezorModelT = new Wallet()
             {

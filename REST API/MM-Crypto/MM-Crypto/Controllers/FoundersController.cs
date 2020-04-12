@@ -1,9 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 
 namespace MM_Crypto.Controllers
 {
@@ -19,13 +16,13 @@ namespace MM_Crypto.Controllers
         }
 
         [HttpGet]
-        public List<Founder> GetAllFounders(  int? page, int lenght = 20)
+        public List<Founder> GetAllFounders(int? page, int lenght = 20)
         {
             IQueryable<Founder> query = context.Founders;
 
             if (page.HasValue)
                 query = query.Skip(page.Value * lenght);
-            
+
             query = query.Take(lenght);
 
             Response.Headers.Add("X-Total-Count", query.Count().ToString());

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace MM_Crypto
+﻿namespace MM_Crypto
 {
     public class Founder
     {
