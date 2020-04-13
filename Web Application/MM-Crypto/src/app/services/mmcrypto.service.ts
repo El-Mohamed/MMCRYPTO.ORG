@@ -4,39 +4,47 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class MmcryptoService {
+export class MmcryptoService
+{
 
   private walletsURL = "https://localhost:44362/api/v1/wallets";
-  private coinsURL = "https://localhost:44362/api/v1/coins"
+  private coinsURL = "https://localhost:44362/api/v1/coins";
 
   constructor(private http: HttpClient) { }
 
-  public getWallets() {
+  public getWallets()
+  {
     return this.http.get<Wallet[]>(this.walletsURL).toPromise();
   }
 
-  public postWallet(wallet: any) {
+  public postWallet(wallet: any)
+  {
     this.http.post<any>(this.walletsURL, wallet).subscribe();
   }
 
-  public deleteWallet(Id: number) {
+  public deleteWallet(Id: number)
+  {
     this.http.delete(this.walletsURL + '/' + Id).subscribe();
   }
 
-  public getCoins() {
+  public getCoins()
+  {
     return this.http.get<Coin[]>(this.coinsURL).toPromise();
   }
 
-  public postCoin(coin: any) {
+  public postCoin(coin: any)
+  {
     this.http.post<any>(this.coinsURL, coin).subscribe();
   }
 
-  public deleteCoin(Id: number) {
+  public deleteCoin(Id: number)
+  {
     this.http.delete(this.coinsURL + '/' + Id).subscribe();
   }
 }
 
-export interface Wallet {
+export interface Wallet
+{
   id: number;
   brand: string;
   model: string;
@@ -46,14 +54,16 @@ export interface Wallet {
   categorie: string;
 }
 
-export interface Founder {
+export interface Founder
+{
   id: number;
   firstName: string;
   lastName: string;
   gender: string;
 }
 
-export interface Coin {
+export interface Coin
+{
   id: number;
   symbol: string;
   name: string;

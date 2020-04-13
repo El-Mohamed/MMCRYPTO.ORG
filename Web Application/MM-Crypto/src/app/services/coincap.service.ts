@@ -6,21 +6,25 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class CoincapService {
+export class CoincapService
+{
 
   constructor(private http: HttpClient) { }
 
-  public getAssets() {
+  public getAssets()
+  {
     return this.http.get<CoinCapData>('https://api.coincap.io/v2/assets').toPromise();
   }
 
-  public getHistoryFromCoin(id: string, timeframe: string) {
+  public getHistoryFromCoin(id: string, timeframe: string)
+  {
     return this.http.get<HistoryData>(`https://api.coincap.io/v2/assets/${ id }/history?interval=${ timeframe }`).toPromise();
   }
 
 }
 
-export interface CoinCapAsset {
+export interface CoinCapAsset
+{
   id: string;
   rank: string;
   symbol: string;
@@ -34,17 +38,20 @@ export interface CoinCapAsset {
   vwap24Hr: string;
 }
 
-export interface CoinCapData {
+export interface CoinCapData
+{
   data: CoinCapAsset[];
 }
 
-export interface HistoryItem {
+export interface HistoryItem
+{
   priceUsd: string;
   time: any;
   date: Date;
 }
 
-export interface HistoryData {
+export interface HistoryData
+{
   data: HistoryItem[];
   timestamp: number;
 }

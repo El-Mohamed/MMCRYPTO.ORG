@@ -7,7 +7,8 @@ import { SortEvent } from 'primeng/api';
   templateUrl: './price-table.component.html',
   styleUrls: ['./price-table.component.css']
 })
-export class PriceTableComponent implements OnInit {
+export class PriceTableComponent implements OnInit
+{
 
   AllCoinCapAssets: CoinCapAsset[] = [];
   CoinCapData: CoinCapData;
@@ -22,31 +23,37 @@ export class PriceTableComponent implements OnInit {
 
   constructor(private service: CoincapService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void
+  {
     this.updatePrices();
   }
 
-  async updatePrices() {
+  async updatePrices()
+  {
     try {
       this.CoinCapData = await this.service.getAssets();
       this.AllCoinCapAssets = this.CoinCapData.data;
       this.symbolsToLowerCase();
     }
     catch (error) {
-      console.log("Error")
+      console.log("Error");
     }
   }
 
-  private symbolsToLowerCase() {
-    this.AllCoinCapAssets.forEach(element => {
+  private symbolsToLowerCase()
+  {
+    this.AllCoinCapAssets.forEach(element =>
+    {
       element.symbol = element.symbol.toLocaleLowerCase();
       // https://static.coincap.io/assets/icons/btc@2x.png
       // Image URLs use lowercase
     });
   }
 
-  sortTable(event: SortEvent) {
-    event.data.sort((data1, data2) => {
+  sortTable(event: SortEvent)
+  {
+    event.data.sort((data1, data2) =>
+    {
       let value1 = data1[event.field];
       let value2 = data2[event.field];
 

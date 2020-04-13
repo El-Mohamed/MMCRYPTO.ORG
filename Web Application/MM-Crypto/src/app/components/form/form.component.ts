@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Wallet, Coin, MmcryptoService } from 'src/app/services/mmcrypto.service';
+import { MmcryptoService } from 'src/app/services/mmcrypto.service';
 import { SelectItem } from 'primeng/api/selectitem';
 
 @Component({
@@ -7,7 +7,8 @@ import { SelectItem } from 'primeng/api/selectitem';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent implements OnInit {
+export class FormComponent implements OnInit
+{
 
   CRUDActions: SelectItem[] =
     [
@@ -47,26 +48,32 @@ export class FormComponent implements OnInit {
     fork: null
   };
 
-  constructor(private service: MmcryptoService) {
+  constructor(private service: MmcryptoService)
+  {
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void
+  {
 
   }
 
-  DeleteWallet(Id: number) {
+  DeleteWallet(Id: number)
+  {
     this.service.deleteWallet(Id);
   }
 
-  PerformWalletPost() {
+  PerformWalletPost()
+  {
     this.service.postWallet(this.WalletToPost);
   }
 
-  DeleteCoin(Id: number) {
+  DeleteCoin(Id: number)
+  {
     this.service.deleteCoin(Id);
   }
 
-  PerformCoinPost() {
+  PerformCoinPost()
+  {
     this.service.postCoin(this.CoinToPost);
   }
 

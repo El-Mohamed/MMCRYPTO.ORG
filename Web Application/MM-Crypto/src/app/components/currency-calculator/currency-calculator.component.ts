@@ -7,7 +7,8 @@ import { CoincapService, CoinCapAsset, CoinCapData } from 'src/app/services/coin
   templateUrl: './currency-calculator.component.html',
   styleUrls: ['./currency-calculator.component.css']
 })
-export class CurrencyCalculatorComponent implements OnInit {
+export class CurrencyCalculatorComponent implements OnInit
+{
 
   AllItems: SelectItem[] = [];
   SelectedItem1: CoinCapAsset;
@@ -22,37 +23,44 @@ export class CurrencyCalculatorComponent implements OnInit {
   private allCoinCapAssets: CoinCapAsset[] = [];
   private coinCapData: CoinCapData;
 
-  constructor(private service: CoincapService) {
+  constructor(private service: CoincapService)
+  {
     this.AllItems.push({ label: 'Select Coin', value: null });
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void
+  {
     this.updatePrices();
   }
 
-  private createSelectItems() {
-    this.allCoinCapAssets.forEach(element => {
-      this.AllItems.push({ label: element.name, value: element })
+  private createSelectItems()
+  {
+    this.allCoinCapAssets.forEach(element =>
+    {
+      this.AllItems.push({ label: element.name, value: element });
     });
   }
 
-  async updatePrices() {
+  async updatePrices()
+  {
     try {
       this.coinCapData = await this.service.getAssets();
       this.allCoinCapAssets = this.coinCapData.data;
       this.createSelectItems();
     }
     catch (error) {
-      console.log("Error")
+      console.log("Error");
     }
   }
 
-  Convert(): void {
+  Convert(): void
+  {
     this.Ratio = parseFloat(this.SelectedItem1.priceUsd) / parseFloat(this.SelectedItem2.priceUsd);
     this.Amount2 = this.Amount1 * this.Ratio;
   }
 
-  SwapCurrencies(): void {
+  SwapCurrencies(): void
+  {
     this.tempSelectedItem1 = this.SelectedItem1;
     this.tempSelectedItem2 = this.SelectedItem2;
 

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CoincapService, HistoryData, HistoryItem } from 'src/app/services/coincap.service';
-import {
+import
+{
   ApexAxisChartSeries,
   ApexChart,
   ApexTitleSubtitle,
@@ -18,7 +19,8 @@ import {
   templateUrl: './price-chart.component.html',
   styleUrls: ['./price-chart.component.css']
 })
-export class PriceChartComponent implements OnInit {
+export class PriceChartComponent implements OnInit
+{
 
   public series: ApexAxisChartSeries;
   public chart: ApexChart;
@@ -38,17 +40,20 @@ export class PriceChartComponent implements OnInit {
   private PriceValues: number[] = [];
   private ChartData: any[] = [];
 
-  TimeFrameButtonLabels: string[] = ["m1", "m5", "m15", "m30", "h1", "h2", "h6", "h12", "d1"]
+  TimeFrameButtonLabels: string[] = ["m1", "m5", "m15", "m30", "h1", "h2", "h6", "h12", "d1"];
 
-  constructor(private route: ActivatedRoute, private service: CoincapService) {
+  constructor(private route: ActivatedRoute, private service: CoincapService)
+  {
     this.id = this.route.snapshot.paramMap.get('id');
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void
+  {
     this.UpdateChart("m1");
   }
 
-  async UpdateChart(SelectedTimeFrame: string) {
+  async UpdateChart(SelectedTimeFrame: string)
+  {
     try {
       this.clearAllData();
       this.CoinHistoryData = await this.service.getHistoryFromCoin(this.id, SelectedTimeFrame);
@@ -57,11 +62,12 @@ export class PriceChartComponent implements OnInit {
       this.initChart();
     }
     catch (error) {
-      console.log("Error")
+      console.log("Error");
     }
   }
 
-  private clearAllData() {
+  private clearAllData()
+  {
     this.AllHistoryItems = [];
     this.CoinHistoryData = null;
     this.TimeValues = [];
@@ -69,31 +75,38 @@ export class PriceChartComponent implements OnInit {
     this.ChartData = [];
   }
 
-  private createChartData() {
+  private createChartData()
+  {
     this.createPriceValues();
     this.createTimeValues();
     this.assembleChartData();
   }
 
-  private createTimeValues() {
-    this.AllHistoryItems.forEach(element => {
+  private createTimeValues()
+  {
+    this.AllHistoryItems.forEach(element =>
+    {
       this.TimeValues.push(element.time);
     });
   }
 
-  private createPriceValues() {
-    this.AllHistoryItems.forEach(element => {
+  private createPriceValues()
+  {
+    this.AllHistoryItems.forEach(element =>
+    {
       this.PriceValues.push(Number(element.priceUsd));
     });
   }
 
-  private assembleChartData() {
+  private assembleChartData()
+  {
     for (let i = 0; i < this.AllHistoryItems.length; i++) {
       this.ChartData.push([this.TimeValues[i], this.PriceValues[i]]);
     }
   }
 
-  private setApexAxisChartSeries() {
+  private setApexAxisChartSeries()
+  {
     this.series = [
       {
         name: this.id.toUpperCase(), // Changed
@@ -102,7 +115,8 @@ export class PriceChartComponent implements OnInit {
     ];
   }
 
-  private setApexChart() {
+  private setApexChart()
+  {
     this.chart = {
       type: "area",
       stacked: false,
@@ -119,19 +133,22 @@ export class PriceChartComponent implements OnInit {
     };
   }
 
-  private setApexDataLabels() {
+  private setApexDataLabels()
+  {
     this.dataLabels = {
       enabled: false
     };
   }
 
-  private setApexMarkers() {
+  private setApexMarkers()
+  {
     this.markers = {
       size: 0
     };
   }
 
-  private setApexTitleSubtitle() {
+  private setApexTitleSubtitle()
+  {
     // Changed
     this.title = {
       text: this.id.toUpperCase() + " Price History",
@@ -144,7 +161,8 @@ export class PriceChartComponent implements OnInit {
     };
   }
 
-  private setApexFill() {
+  private setApexFill()
+  {
     this.fill = {
       type: "gradient",
       gradient: {
@@ -157,11 +175,13 @@ export class PriceChartComponent implements OnInit {
     };
   }
 
-  private setApexYAxis() {
+  private setApexYAxis()
+  {
     // Changed
     this.yaxis = {
       labels: {
-        formatter: function (val) {
+        formatter: function (val)
+        {
           return (((val).toFixed(2)).toString() + ' USD');
         }
       },
@@ -177,11 +197,13 @@ export class PriceChartComponent implements OnInit {
     };
   }
 
-  private setApexXAxis() {
+  private setApexXAxis()
+  {
     // Changed
     this.xaxis = {
       labels: {
-        formatter: function (val) {
+        formatter: function (val)
+        {
           var date = new Date(val);
           return (date.toLocaleString());
         }
@@ -199,17 +221,20 @@ export class PriceChartComponent implements OnInit {
     };
   }
 
-  private setApexTooltip() {
+  private setApexTooltip()
+  {
     // Changed
     this.tooltip = {
       shared: false,
       y: {
-        formatter: function (val) {
+        formatter: function (val)
+        {
           return (((val).toFixed(2)).toString() + ' USD');
         }
       },
       x: {
-        formatter: function (val) {
+        formatter: function (val)
+        {
           var date = new Date(val);
           return (date.toLocaleString());
         }
@@ -217,7 +242,8 @@ export class PriceChartComponent implements OnInit {
     };
   }
 
-  private initChart(): void {
+  private initChart(): void
+  {
     this.setApexAxisChartSeries();
     this.setApexChart();
     this.setApexDataLabels();
