@@ -18,7 +18,11 @@
                         <div class="ui-g-12">ID: <b>{{wallet.id}}</b></div>
                         <div class="ui-g-12">Brand: <b>{{wallet.brand}}</b></div>
                         <div class="ui-g-12">Model: <b>{{wallet.model}}</b></div>
-                        <div class="ui-g-12">Price: <b>{{wallet.price | currency:'EUR'}}</b></div>
+                        <div *ngIf="wallet.price != 0.00" class="ui-g-12">Price:
+                            <b>{{wallet.price | currency:'EUR'}}</b>
+                        </div>
+                        <div *ngIf="wallet.price == 0" class="ui-g-12">Price: <b>FREE</b>
+                        </div>
                         <div class="ui-g-12">Category: <b>{{wallet.categorie}}</b></div>
                     </div>
                 </div>
