@@ -22,7 +22,6 @@ export class WalletComponent implements OnInit
   {
     try {
       this.allItems = await this.service.getWallets();
-      console.log(this.allItems);
     }
     catch (error) {
       console.log("Error");
