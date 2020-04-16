@@ -28,14 +28,14 @@ namespace MM_Crypto.Controllers
                     case "name":
                         if (dir == "asc")
                             query = query.OrderBy(c => c.Name);
-                        else if (dir == "asc")
+                        else if (dir == "desc")
                             query.OrderByDescending(c => c.Name);
                         break;
 
                     case "symbol":
                         if (dir == "asc")
                             query = query.OrderBy(c => c.Symbol);
-                        else if (dir == "asc")
+                        else if (dir == "desc")
                             query.OrderByDescending(c => c.Symbol);
                         break;
                 }

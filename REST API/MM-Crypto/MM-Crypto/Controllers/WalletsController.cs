@@ -34,14 +34,14 @@ namespace MM_Crypto.Controllers
                     case "brand":
                         if (dir == "asc")
                             query = query.OrderBy(w => w.Brand);
-                        else if (dir == "asc")
+                        else if (dir == "desc")
                             query.OrderByDescending(w => w.Brand);
                         break;
 
                     case "price":
                         if (dir == "asc")
                             query = query.OrderBy(w => w.Price);
-                        else if (dir == "asc")
+                        else if (dir == "desc")
                             query.OrderByDescending(w => w.Price);
                         break;
                 }
