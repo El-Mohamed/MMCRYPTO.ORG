@@ -16,15 +16,38 @@ namespace MM_Crypto.Controllers
         }
 
         [HttpGet]
-        public List<Wallet> GetAllWallets(string categorie, string brand, int? page, int length = 20)
+        public List<Wallet> GetAllWallets(string sort,string category, string brand, int? page, int length = 20, string dir="asc")
         {
             IQueryable<Wallet> query = context.Wallets;
 
-            if (!string.IsNullOrWhiteSpace(categorie))
-                query = query.Where(w => w.Categorie == categorie);
+            // Filter
+            if (!string.IsNullOrWhiteSpace(category))
+                query = query.Where(w => w.Categorie == category);
             if (!string.IsNullOrWhiteSpace(brand))
                 query = query.Where(w => w.Brand == brand);
 
+            // Sort
+            if (!string.IsNullOrWhiteSpace(sort))
+            {
+                switch (sort)
+                {
+                    case "brand":
+                        if (dir == "asc")
+                            query = query.OrderBy(w => w.Brand);
+                        else if (dir == "asc")
+                            query.OrderByDescending(w => w.Brand);
+                        break;
+
+                    case "price":
+                        if (dir == "asc")
+                            query = query.OrderBy(w => w.Price);
+                        else if (dir == "asc")
+                            query.OrderByDescending(w => w.Price);
+                        break;
+                }
+            }
+
+            // Paging
             if (page.HasValue)
                 query = query.Skip(page.Value * length);
             query = query.Take(length);
