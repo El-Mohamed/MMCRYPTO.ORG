@@ -19,12 +19,18 @@ export class MmcryptoService
 
   public postWallet(wallet: any)
   {
-    this.http.post<any>(this.walletsURL, wallet).subscribe();
+    this.http.post<any>(this.walletsURL, wallet).subscribe(
+      data => console.log('POST SUCCESFULLY', data),
+      error => console.log('POST FAILED', error)
+    );
   }
 
   public deleteWallet(Id: number)
   {
-    this.http.delete(this.walletsURL + '/' + Id).subscribe();
+    this.http.delete(this.walletsURL + '/' + Id).subscribe(
+      data => console.log('DELETE SUCCESFULLY', data),
+      error => console.log('DELETE FAILED', error)
+    );
   }
 
   public getCoins()
@@ -34,12 +40,18 @@ export class MmcryptoService
 
   public postCoin(coin: any)
   {
-    this.http.post<any>(this.coinsURL, coin).subscribe();
+    this.http.post<any>(this.coinsURL, coin).subscribe(
+      data => console.log('POST SUCCESFULLY', data),
+      error => console.log('POST FAILED', error)
+    );
   }
 
   public deleteCoin(Id: number)
   {
-    this.http.delete(this.coinsURL + '/' + Id).subscribe();
+    this.http.delete(this.coinsURL + '/' + Id).subscribe(
+      data => console.log('DELETE SUCCESFULLY', data),
+      error => console.log('DELETE FAILED', error)
+    );
   }
 }
 
