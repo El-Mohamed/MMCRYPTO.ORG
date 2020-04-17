@@ -13,7 +13,7 @@ import { CurrencyDetailsComponent } from './components/currency-details/currency
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "home", component: HomeComponent },
-  { path: "price", component: PriceTableComponent },
+  { path: "ranking", component: PriceTableComponent },
   { path: "calculator", component: CurrencyCalculatorComponent },
   { path: "wallet", component: WalletComponent },
   { path: "information", component: CurrencyDetailsComponent },
