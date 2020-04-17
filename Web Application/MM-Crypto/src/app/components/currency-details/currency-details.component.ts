@@ -24,7 +24,7 @@ export class CurrencyDetailsComponent implements OnInit
       this.AllCoins = await this.service.getCoins();
     }
     catch (error) {
-      console.log("Error");
+      console.log('Error');
     }
   }
 }

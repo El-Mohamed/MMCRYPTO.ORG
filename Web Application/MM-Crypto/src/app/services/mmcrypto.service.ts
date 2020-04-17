@@ -7,8 +7,8 @@ import { HttpClient } from '@angular/common/http';
 export class MmcryptoService
 {
 
-  private walletsURL = "https://localhost:44362/api/v1/wallets";
-  private coinsURL = "https://localhost:44362/api/v1/coins";
+  private walletsURL = 'https://localhost:44362/api/v1/wallets';
+  private coinsURL = 'https://localhost:44362/api/v1/coins';
 
   constructor(private http: HttpClient) { }
 

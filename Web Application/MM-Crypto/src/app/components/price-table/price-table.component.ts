@@ -36,7 +36,7 @@ export class PriceTableComponent implements OnInit
       this.symbolsToLowerCase();
     }
     catch (error) {
-      console.log("Error");
+      console.log('Error');
     }
   }
 
@@ -57,8 +57,8 @@ export class PriceTableComponent implements OnInit
       let value1 = data1[event.field];
       let value2 = data2[event.field];
 
-      let temp1 = parseFloat(value1);
-      let temp2 = parseFloat(value2);
+      const temp1 = parseFloat(value1);
+      const temp2 = parseFloat(value2);
       let result = null;
 
       if (isNaN(temp1) || isNaN(temp2)) {
@@ -68,10 +68,12 @@ export class PriceTableComponent implements OnInit
         value1 = parseFloat(value1);
         value2 = parseFloat(value2);
 
-        if (value1 > value2)
+        if (value1 > value2) {
           result = 1;
-        else if (value1 < value2)
+        }
+        else if (value1 < value2) {
           result = -1;
+        }
       }
 
       return (event.order * result);

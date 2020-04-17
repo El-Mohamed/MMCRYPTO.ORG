@@ -49,7 +49,7 @@ export class CurrencyCalculatorComponent implements OnInit
       this.createSelectItems();
     }
     catch (error) {
-      console.log("Error");
+      console.log('Error');
     }
   }
 

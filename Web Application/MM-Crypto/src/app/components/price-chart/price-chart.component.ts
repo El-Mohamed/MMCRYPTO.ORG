@@ -12,7 +12,7 @@ import
   ApexYAxis,
   ApexXAxis,
   ApexTooltip
-} from "ng-apexcharts";
+} from 'ng-apexcharts';
 
 @Component({
   selector: 'app-price-chart',
@@ -40,7 +40,7 @@ export class PriceChartComponent implements OnInit
   private PriceValues: number[] = [];
   private ChartData: any[] = [];
 
-  TimeFrameButtonLabels: string[] = ["m1", "m5", "m15", "m30", "h1", "h2", "h6", "h12", "d1"];
+  TimeFrameButtonLabels: string[] = ['m1', 'm5', 'm15', 'm30', 'h1', 'h2', 'h6', 'h12', 'd1'];
 
   constructor(private route: ActivatedRoute, private service: CoincapService)
   {
@@ -49,7 +49,7 @@ export class PriceChartComponent implements OnInit
 
   ngOnInit(): void
   {
-    this.UpdateChart("m1");
+    this.UpdateChart('m1');
   }
 
   async UpdateChart(SelectedTimeFrame: string)
@@ -62,7 +62,7 @@ export class PriceChartComponent implements OnInit
       this.initChart();
     }
     catch (error) {
-      console.log("Error");
+      console.log('Error');
     }
   }
 
@@ -118,17 +118,17 @@ export class PriceChartComponent implements OnInit
   private setApexChart()
   {
     this.chart = {
-      type: "area",
+      type: 'area',
       stacked: false,
       height: 600,
       width: '100%',
       zoom: {
-        type: "x",
+        type: 'x',
         enabled: true,
         autoScaleYaxis: true
       },
       toolbar: {
-        autoSelected: "zoom"
+        autoSelected: 'zoom'
       }
     };
   }
@@ -151,8 +151,8 @@ export class PriceChartComponent implements OnInit
   {
     // Changed
     this.title = {
-      text: this.id.toUpperCase() + " Price History",
-      align: "center",
+      text: this.id.toUpperCase() + ' Price History',
+      align: 'center',
       style: {
         color: '#ffffff',
         fontSize: '30px',
@@ -164,7 +164,7 @@ export class PriceChartComponent implements OnInit
   private setApexFill()
   {
     this.fill = {
-      type: "gradient",
+      type: 'gradient',
       gradient: {
         shadeIntensity: 1,
         inverseColors: false,
@@ -180,13 +180,13 @@ export class PriceChartComponent implements OnInit
     // Changed
     this.yaxis = {
       labels: {
-        formatter: function (val)
+        formatter(val)
         {
           return (((val).toFixed(2)).toString() + ' USD');
         }
       },
       title: {
-        text: "Price",
+        text: 'Price',
         style: {
           color: '#ffffff',
           fontSize: '14px',
@@ -202,15 +202,15 @@ export class PriceChartComponent implements OnInit
     // Changed
     this.xaxis = {
       labels: {
-        formatter: function (val)
+        formatter(val)
         {
-          var date = new Date(val);
+          let date = new Date(val);
           return (date.toLocaleString());
         }
       },
-      type: "numeric",
+      type: 'numeric',
       title: {
-        text: "Time",
+        text: 'Time',
         style: {
           color: '#ffffff',
           fontSize: '14px',
@@ -227,15 +227,15 @@ export class PriceChartComponent implements OnInit
     this.tooltip = {
       shared: false,
       y: {
-        formatter: function (val)
+        formatter(val)
         {
           return (((val).toFixed(2)).toString() + ' USD');
         }
       },
       x: {
-        formatter: function (val)
+        formatter(val)
         {
-          var date = new Date(val);
+          let date = new Date(val);
           return (date.toLocaleString());
         }
       },

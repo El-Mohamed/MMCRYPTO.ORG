@@ -17,7 +17,7 @@ export class FormComponent implements OnInit
       { label: 'DELETE', value: 'DELETE' }
     ];
 
-  SelectedCRUDAction: string = "POST";
+  SelectedCRUDAction: string = 'POST';
 
   Models: SelectItem[] =
     [
@@ -25,26 +25,26 @@ export class FormComponent implements OnInit
       { label: 'Wallet', value: 'Wallet' }
     ];
 
-  SelectedModel: string = "Coin";
+  SelectedModel: string = 'Coin';
 
   WalletToPost: any = {
-    brand: "Ledger",
-    model: "Nano S",
-    website: "https://shop.ledger.com/products/ledger-nano-s",
+    brand: 'Ledger',
+    model: 'Nano S',
+    website: 'https://shop.ledger.com/products/ledger-nano-s',
     price: 59,
-    imageURL: "https://cdn.shopify.com/s/files/1/2974/4858/products/lns-black-open_large.png",
-    categorie: "Hardware"
+    imageURL: 'https://cdn.shopify.com/s/files/1/2974/4858/products/lns-black-open_large.png',
+    categorie: 'Hardware'
   };
 
   CoinToPost: any = {
-    symbol: "BTC",
-    name: "Bitcoin",
+    symbol: 'BTC',
+    name: 'Bitcoin',
     founder: {
-      firstName: "Satoshi",
-      lastName: "Nakamotor",
-      gender: "M"
+      firstName: 'Satoshi',
+      lastName: 'Nakamotor',
+      gender: 'M'
     },
-    website: "http://www.bitcoin.org/",
+    website: 'http://www.bitcoin.org/',
     fork: null
   };
 
