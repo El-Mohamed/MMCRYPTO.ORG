@@ -23,8 +23,13 @@
 
 .nav-item {
   padding: 10px;
+  color: white;
 }
 
 .nav-item:hover {
   opacity: 0.8;
+}
+
+.active-router {
+  border-bottom: 1px solid white;
 }
