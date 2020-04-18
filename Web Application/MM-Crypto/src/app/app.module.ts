@@ -18,6 +18,7 @@ import { WalletComponent } from './components/wallet/wallet.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HomeComponent } from './components/home/home.component';
 import { CurrencyDetailsComponent } from './components/currency-details/currency-details.component';
+import { ApiNavigationComponent } from './components/api-navigation/api-navigation.component';
 
 // Prime NG
 import { TableModule } from 'primeng/table';
@@ -48,7 +49,8 @@ import { AngularFireModule } from '@angular/fire';
     PriceChartComponent,
     PriceTableComponent,
     CurrencyCalculatorComponent,
-    CurrencyDetailsComponent
+    CurrencyDetailsComponent,
+    ApiNavigationComponent
   ],
   imports: [
     BrowserModule,
