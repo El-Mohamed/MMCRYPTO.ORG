@@ -15,9 +15,9 @@ const routes: Routes = [
   { path: "home", component: HomeComponent },
   { path: "ranking", component: PriceTableComponent },
   { path: "calculator", component: CurrencyCalculatorComponent },
-  { path: "wallet", component: WalletDetailsComponent },
-  { path: "information", component: CurrencyDetailsComponent },
-  { path: "form", component: FormComponent },
+  { path: "wallet-details", component: WalletDetailsComponent },
+  { path: "currency-details", component: CurrencyDetailsComponent },
+  { path: "api-editor", component: FormComponent },
   { path: 'chart/:id', component: PriceChartComponent },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '/404', pathMatch: "full" }
