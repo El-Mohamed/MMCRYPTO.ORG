@@ -55,8 +55,10 @@ export class CurrencyCalculatorComponent implements OnInit
 
   Convert(): void
   {
-    this.Ratio = parseFloat(this.SelectedItem1.priceUsd) / parseFloat(this.SelectedItem2.priceUsd);
-    this.Amount2 = this.Amount1 * this.Ratio;
+    if (this.SelectedItem1 != null && this.SelectedItem2 != null) {
+      this.Ratio = parseFloat(this.SelectedItem1.priceUsd) / parseFloat(this.SelectedItem2.priceUsd);
+      this.Amount2 = this.Amount1 * this.Ratio;
+    }
   }
 
   SwapCurrencies(): void
