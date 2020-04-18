@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HomeComponent } from './components/home/home.component';
-import { FormComponent } from './components/form/form.component';
 import { PriceChartComponent } from './components/price-chart/price-chart.component';
 import { PriceTableComponent } from './components/price-table/price-table.component';
 import { CurrencyCalculatorComponent } from './components/currency-calculator/currency-calculator.component';
 import { CurrencyDetailsComponent } from './components/currency-details/currency-details.component';
 import { WalletDetailsComponent } from './components/wallet-details/wallet-details.component';
+import { ApiEditorComponent } from './components/api-editor/api-editor.component';
 
 
 const routes: Routes = [
@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: "calculator", component: CurrencyCalculatorComponent },
   { path: "wallet-details", component: WalletDetailsComponent },
   { path: "currency-details", component: CurrencyDetailsComponent },
-  { path: "api-editor", component: FormComponent },
+  { path: "api-editor", component: ApiEditorComponent },
   { path: 'chart/:id', component: PriceChartComponent },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '/404', pathMatch: "full" }

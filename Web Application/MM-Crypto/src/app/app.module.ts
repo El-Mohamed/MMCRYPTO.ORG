@@ -9,7 +9,6 @@ import { environment } from 'src/environments/environment';
 // Components
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormComponent } from './components/form/form.component';
 import { PriceChartComponent } from './components/price-chart/price-chart.component';
 import { PriceTableComponent } from './components/price-table/price-table.component';
 import { CurrencyCalculatorComponent } from './components/currency-calculator/currency-calculator.component';
@@ -19,6 +18,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HomeComponent } from './components/home/home.component';
 import { CurrencyDetailsComponent } from './components/currency-details/currency-details.component';
 import { ApiNavigationComponent } from './components/api-navigation/api-navigation.component';
+import { ApiEditorComponent } from './components/api-editor/api-editor.component';
 
 // Prime NG
 import { TableModule } from 'primeng/table';
@@ -38,6 +38,7 @@ import { AngularFireModule } from '@angular/fire';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,13 +46,13 @@ import { AngularFireModule } from '@angular/fire';
     CurrencyCalculatorComponent,
     NotFoundComponent,
     HomeComponent,
-    FormComponent,
     PriceChartComponent,
     PriceTableComponent,
     CurrencyCalculatorComponent,
     CurrencyDetailsComponent,
     ApiNavigationComponent,
-    WalletDetailsComponent
+    WalletDetailsComponent,
+    ApiEditorComponent
   ],
   imports: [
     BrowserModule,

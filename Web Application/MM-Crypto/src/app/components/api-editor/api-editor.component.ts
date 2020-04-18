@@ -3,11 +3,11 @@ import { MmcryptoService } from 'src/app/services/mmcrypto.service';
 import { SelectItem } from 'primeng/api/selectitem';
 
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  selector: 'app-api-editor',
+  templateUrl: './api-editor.component.html',
+  styleUrls: ['./api-editor.component.css']
 })
-export class FormComponent implements OnInit
+export class ApiEditorComponent implements OnInit
 {
 
   CRUDActions: SelectItem[] =
