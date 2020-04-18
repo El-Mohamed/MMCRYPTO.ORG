@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { MmcryptoService, Wallet } from 'src/app/services/mmcrypto.service';
 
 @Component({
-  selector: 'app-wallet',
-  templateUrl: './wallet.component.html',
-  styleUrls: ['./wallet.component.css']
+  selector: 'app-wallet-details',
+  templateUrl: './wallet-details.component.html',
+  styleUrls: ['./wallet-details.component.css']
 })
-export class WalletComponent implements OnInit
+export class WalletDetailsComponent implements OnInit
 {
 
   public allItems: Wallet[];

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { WalletComponent } from './components/wallet/wallet.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HomeComponent } from './components/home/home.component';
 import { FormComponent } from './components/form/form.component';
@@ -8,6 +7,7 @@ import { PriceChartComponent } from './components/price-chart/price-chart.compon
 import { PriceTableComponent } from './components/price-table/price-table.component';
 import { CurrencyCalculatorComponent } from './components/currency-calculator/currency-calculator.component';
 import { CurrencyDetailsComponent } from './components/currency-details/currency-details.component';
+import { WalletDetailsComponent } from './components/wallet-details/wallet-details.component';
 
 
 const routes: Routes = [
@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: "home", component: HomeComponent },
   { path: "ranking", component: PriceTableComponent },
   { path: "calculator", component: CurrencyCalculatorComponent },
-  { path: "wallet", component: WalletComponent },
+  { path: "wallet", component: WalletDetailsComponent },
   { path: "information", component: CurrencyDetailsComponent },
   { path: "form", component: FormComponent },
   { path: 'chart/:id', component: PriceChartComponent },

@@ -14,7 +14,7 @@ import { PriceChartComponent } from './components/price-chart/price-chart.compon
 import { PriceTableComponent } from './components/price-table/price-table.component';
 import { CurrencyCalculatorComponent } from './components/currency-calculator/currency-calculator.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { WalletComponent } from './components/wallet/wallet.component';
+import { WalletDetailsComponent } from './components/wallet-details/wallet-details.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HomeComponent } from './components/home/home.component';
 import { CurrencyDetailsComponent } from './components/currency-details/currency-details.component';
@@ -37,12 +37,12 @@ import { AngularFireModule } from '@angular/fire';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     CurrencyCalculatorComponent,
-    WalletComponent,
     NotFoundComponent,
     HomeComponent,
     FormComponent,
@@ -50,7 +50,8 @@ import { AngularFireModule } from '@angular/fire';
     PriceTableComponent,
     CurrencyCalculatorComponent,
     CurrencyDetailsComponent,
-    ApiNavigationComponent
+    ApiNavigationComponent,
+    WalletDetailsComponent
   ],
   imports: [
     BrowserModule,
