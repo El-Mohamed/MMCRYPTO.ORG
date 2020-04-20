@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CoincapService, HistoryData, HistoryItem } from 'src/app/services/coincap.service';
+import { CoincapService, HistoryData, HistoryItem } from 'src/app/services/coincap/coincap.service';
 import
 {
   ApexAxisChartSeries,

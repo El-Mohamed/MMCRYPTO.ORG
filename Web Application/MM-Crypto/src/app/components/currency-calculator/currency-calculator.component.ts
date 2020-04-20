@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectItem } from 'primeng/api';
-import { CoincapService, CoinCapAsset, CoinCapData } from 'src/app/services/coincap.service';
+import { CoincapService, CoinCapAsset, CoinCapData } from 'src/app/services/coincap/coincap.service';
 
 @Component({
   selector: 'app-currency-calculator',

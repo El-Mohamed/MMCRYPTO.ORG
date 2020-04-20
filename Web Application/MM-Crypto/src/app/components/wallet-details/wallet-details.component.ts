@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MmcryptoService, Wallet } from 'src/app/services/mmcrypto.service';
+import { MmcryptoService, Wallet } from 'src/app/services/mmcrypto/mmcrypto.service';
 
 @Component({
   selector: 'app-wallet-details',

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MmcryptoService } from 'src/app/services/mmcrypto.service';
+import { MmcryptoService } from 'src/app/services/mmcrypto/mmcrypto.service';
 import { SelectItem } from 'primeng/api/selectitem';
 
 @Component({

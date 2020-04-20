@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CoincapService, CoinCapAsset, CoinCapData } from 'src/app/services/coincap.service';
+import { CoincapService, CoinCapAsset, CoinCapData } from 'src/app/services/coincap/coincap.service';
 import { SortEvent } from 'primeng/api';
 
 @Component({
