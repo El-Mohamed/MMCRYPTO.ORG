@@ -1,0 +1,9 @@
+.list-item-container {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #d9dad9;
+}
+
+.website-button {
+    margin-right: 20px;
+}

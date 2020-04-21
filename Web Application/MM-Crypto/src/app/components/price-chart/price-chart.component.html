@@ -1,0 +1,15 @@
+<div class="ChartContainer">
+
+    <!-- Time Frame Buttons -->
+
+    <div class="TimeFramePicker">
+        <p-button *ngFor="let ButtonLabel of TimeFrameButtonLabels" label={{ButtonLabel}}
+            (onClick)="UpdateChart(ButtonLabel)">
+        </p-button>
+    </div>
+
+    <!-- Chart -->
+
+    <apx-chart [series]="series" [chart]="chart" [dataLabels]="dataLabels" [markers]="markers" [title]="title"
+        [fill]="fill" [yaxis]="yaxis" [xaxis]="xaxis" [tooltip]="tooltip" [autoUpdateSeries]="true"></apx-chart>
+</div>

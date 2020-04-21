@@ -1,0 +1,16 @@
+.product-image {
+    height: 100px;
+    display: block;
+    margin: auto;
+    margin-bottom: auto;
+}
+
+.list-item-container {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #d9dad9;
+}
+
+.shop-button {
+    margin-right: 20px;
+}

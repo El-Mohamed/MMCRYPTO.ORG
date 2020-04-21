@@ -1,0 +1,28 @@
+<!-- Title -->
+
+<h1 class="title">Currency Calculator</h1>
+
+<!-- Input/Output -->
+
+<div class="input-container">
+
+    <p-spinner [(ngModel)]="Amount1" [min]="0" (onChange)="Convert()"></p-spinner>
+
+    <p-dropdown [options]="AllItems" [(ngModel)]="SelectedItem1" [filter]="true" filterBy="label,value.name"
+        (onChange)="Convert()">
+    </p-dropdown>
+
+    <p-button icon="pi pi-refresh" (onClick)="SwapCurrencies()"></p-button>
+
+    <p-dropdown [options]="AllItems" [(ngModel)]="SelectedItem2" [filter]="true" filterBy="label,value.name"
+        (onChange)="Convert()">
+    </p-dropdown>
+
+    <input type="text" pInputText [(ngModel)]="Amount2" />
+
+</div>
+
+<!-- Curreny Rate -->
+
+<h3 class="currency-rate" *ngIf="SelectedItem1 != null && SelectedItem2 != null"> 1 {{SelectedItem1.symbol}} = {{Ratio}}
+    {{SelectedItem2.symbol}}</h3>

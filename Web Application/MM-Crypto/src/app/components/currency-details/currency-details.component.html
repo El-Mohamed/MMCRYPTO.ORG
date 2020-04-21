@@ -1,0 +1,46 @@
+<app-api-navigation></app-api-navigation>
+
+<p-dataView [value]="AllCoins">
+
+    <!-- Header -->
+
+    <p-header>List of Coins and Founders</p-header>
+
+    <!-- Dataview Item -->
+
+    <ng-template let-coin pTemplate="listItem">
+
+        <div class="list-item-container">
+
+            <!-- Details -->
+
+            <div class="ui-g-11">
+                <div>
+                    <div class="ui-g-4">
+                        <div class="ui-g-12">ID: <b>{{coin.id}}</b></div>
+                        <div class="ui-g-12">Name: <b>{{coin.name}}</b></div>
+                        <div class="ui-g-12">Symbol: <b>{{coin.symbol}}</b></div>
+                        <div class="ui-g-12">Forked From:
+                            <b *ngIf="coin.fork != null">{{coin.fork.name}}</b>
+                            <b *ngIf="coin.fork == null">none</b>
+                        </div>
+                    </div>
+                    <div class="ui-g-4">
+                        <div class="ui-g-12">ID: <b>{{coin.founder.id}}</b></div>
+                        <div class="ui-g-12">First Name: <b>{{coin.founder.firstName}}</b></div>
+                        <div class="ui-g-12">Last Name: <b>{{coin.founder.lastName}}</b></div>
+                        <div class="ui-g-12">Gender: <b>{{coin.founder.gender}}</b></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Website Button -->
+
+            <a href={{coin.website}}>
+                <button class="website-button" pButton type="button" icon="pi pi-globe"></button>
+            </a>
+        </div>
+
+    </ng-template>
+
+</p-dataView>

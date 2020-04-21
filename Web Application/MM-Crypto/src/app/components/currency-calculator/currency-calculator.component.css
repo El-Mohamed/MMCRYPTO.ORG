@@ -1,0 +1,15 @@
+.title, .currency-rate {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: white;
+    margin: 30px;
+}
+
+.input-container {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+}
+
+.input-container * {
+    margin: 10px;
+}

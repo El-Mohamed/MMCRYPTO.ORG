@@ -1,0 +1,55 @@
+<!-- Progress Bar -->
+
+<div *ngIf="AllCoinCapAssets.length < 1">
+    <p-progressBar mode="indeterminate" [style]="{'height': '15px'}"></p-progressBar>
+</div>
+
+<!-- Table -->
+
+<div *ngIf="AllCoinCapAssets.length > 1" class="ui-g">
+
+
+    <p-table [value]="AllCoinCapAssets" [columns]="Columns" (sortFunction)="sortTable($event)" [customSort]="true">
+
+        <!-- Caption -->
+
+        <ng-template pTemplate="caption">
+            List of Top 100 Cryptocurrencies
+        </ng-template>
+
+        <!-- Header -->
+
+        <ng-template pTemplate="header" let-columns>
+            <th class="table-header" *ngFor="let col of Columns" [pSortableColumn]="col.field">
+                {{col.header}}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+        </ng-template>
+
+        <!-- Body -->
+
+        <ng-template pTemplate="body" let-coin>
+            <tr>
+                <th>
+                    <a [routerLink]="['/chart', coin.id]">{{coin.rank}}</a>
+                </th>
+                <th>
+                    <div class="logo-header-cell">
+                        <img class="currency-logo" src="https://static.coincap.io/assets/icons/{{coin.symbol}}@2x.png">
+                        <p>{{coin.name}}</p>
+                    </div>
+                </th>
+                <th>{{coin.priceUsd | currency:'USD'}}</th>
+                <th>{{coin.volumeUsd24Hr | currency:'USD'}}</th>
+                <th *ngIf="coin.changePercent24Hr < 0" class="bearish">
+                    {{coin.changePercent24Hr | number:'1.0-2'}}%
+                </th>
+                <th *ngIf="coin.changePercent24Hr >= 0" class="bullish">
+                    {{coin.changePercent24Hr | number:'1.0-2'}}%
+                </th>
+            </tr>
+        </ng-template>
+
+    </p-table>
+
+</div>

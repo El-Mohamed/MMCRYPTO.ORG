@@ -1,0 +1,23 @@
+.bearish {
+    color: red;
+}
+
+.bullish {
+    color: green;
+}
+
+.table-header {
+    color: white;
+}
+
+.currency-logo {
+    height: 30px;
+    width: 30px;
+    justify-self: center;
+    margin-right: 10%;
+}
+
+.logo-header-cell {
+    display: flex;
+    align-items: center;
+}
