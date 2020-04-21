@@ -17,3 +17,18 @@ steps:
     title: 'v$(Build.BuildNumber)'
     changeLogCompareToRelease: 'lastFullRelease'
     changeLogType: 'commitBased'
+
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    cd 'Web Application'
+    cd 'MM-Crypto'
+    npm install -g @angular/cli
+    npm install -g firebase-tools
+    npm install
+    ng build --prod
+    firebase deploy --token $(firebase-token) --project $(project-id) --message "test"
+  displayName: 'npm install and build and deploy'
