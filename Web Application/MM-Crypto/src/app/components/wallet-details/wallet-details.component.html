@@ -1,48 +1,54 @@
 <app-api-navigation></app-api-navigation>
 
-<p-dataView [value]="allItems">
+<!-- Data View -->
 
-    <!-- Header -->
+<div *ngIf="allItems.length > 1" class="ui-sm-12 ui-lg-7" style="margin: auto;">
 
-    <p-header>List of Wallets</p-header>
+    <p-dataView [value]="allItems">
 
-    <!-- Dataview Item -->
+        <!-- Header -->
 
-    <ng-template let-wallet pTemplate="listItem">
+        <p-header>List of Wallets</p-header>
 
-        <div class="list-item-container">
+        <!-- Dataview Item -->
 
-            <!-- Details -->
+        <ng-template let-wallet pTemplate="listItem">
 
-            <div class="ui-g-10">
-                <div>
-                    <div class="ui-g">
-                        <div class="ui-g-12">ID: <b>{{wallet.id}}</b></div>
-                        <div class="ui-g-12">Brand: <b>{{wallet.brand}}</b></div>
-                        <div class="ui-g-12">Model: <b>{{wallet.model}}</b></div>
-                        <div *ngIf="wallet.price != 0.00" class="ui-g-12">Price:
-                            <b>{{wallet.price | currency:'EUR'}}</b>
+            <div class="list-item-container">
+
+                <!-- Details -->
+
+                <div class="ui-g-10">
+                    <div>
+                        <div class="ui-g">
+                            <div class="ui-g-12">ID: <b>{{wallet.id}}</b></div>
+                            <div class="ui-g-12">Brand: <b>{{wallet.brand}}</b></div>
+                            <div class="ui-g-12">Model: <b>{{wallet.model}}</b></div>
+                            <div *ngIf="wallet.price != 0.00" class="ui-g-12">Price:
+                                <b>{{wallet.price | currency:'EUR'}}</b>
+                            </div>
+                            <div *ngIf="wallet.price == 0" class="ui-g-12">Price: <b>FREE</b>
+                            </div>
+                            <div class="ui-g-12">Category: <b>{{wallet.categorie}}</b></div>
                         </div>
-                        <div *ngIf="wallet.price == 0" class="ui-g-12">Price: <b>FREE</b>
-                        </div>
-                        <div class="ui-g-12">Category: <b>{{wallet.categorie}}</b></div>
                     </div>
                 </div>
+
+                <!-- Product Image -->
+
+                <div class="ui-g-2">
+                    <img class="product-image" src={{wallet.imageURL}}>
+                </div>
+
+                <!-- Shop Button -->
+
+                <a href="{{wallet.website}}">
+                    <button class="shop-button" pButton type="button" icon="pi pi-shopping-cart"></button>
+                </a>
             </div>
 
-            <!-- Product Image -->
+        </ng-template>
 
-            <div class="ui-g-2">
-                <img class="product-image" src={{wallet.imageURL}}>
-            </div>
+    </p-dataView>
 
-            <!-- Shop Button -->
-
-            <a href="{{wallet.website}}">
-                <button class="shop-button" pButton type="button" icon="pi pi-shopping-cart"></button>
-            </a>
-        </div>
-
-    </ng-template>
-
-</p-dataView>
+</div>
