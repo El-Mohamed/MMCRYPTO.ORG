@@ -13,8 +13,8 @@ export class AuthService
   // Create an observable of Auth0 instance of client
   auth0Client$ = (from(
     createAuth0Client({
-      domain: "mmcrypto.eu.auth0.com",
-      client_id: "t55j67kURy7KfTZeDE2FIAxtQcuvZgSQ",
+      domain: "mm-crypto.eu.auth0.com",
+      client_id: "YxgSHkDznhctl9g86fsUMyBAMxIkQKIF",
       redirect_uri: `${ window.location.origin }`
     })
   ) as Observable<Auth0Client>).pipe(
@@ -130,7 +130,7 @@ export class AuthService
     {
       // Call method to log out
       client.logout({
-        client_id: "t55j67kURy7KfTZeDE2FIAxtQcuvZgSQ",
+        client_id: "YxgSHkDznhctl9g86fsUMyBAMxIkQKIF",
         returnTo: `${ window.location.origin }`
       });
     });
