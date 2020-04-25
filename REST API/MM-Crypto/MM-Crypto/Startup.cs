@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +20,14 @@ namespace MM_Crypto
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Auth0 Authentication
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            {
+                options.Authority = "mm-crypto.eu.auth0.com";
+                options.Audience = "https://localhost:44362/";
+                options.RequireHttpsMetadata = false;
+            });
+
             services.AddControllers();
 
             services.AddDbContext<CryptoContext>(
@@ -43,11 +52,14 @@ namespace MM_Crypto
                 app.UseDeveloperExceptionPage();
             }
 
+            // Use the Authentication
+            app.UseAuthentication();
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
-            app.UseAuthorization();
+           // app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

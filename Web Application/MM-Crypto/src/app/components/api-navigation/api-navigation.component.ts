@@ -5,11 +5,18 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './api-navigation.component.html',
   styleUrls: ['./api-navigation.component.css']
 })
-export class ApiNavigationComponent implements OnInit {
+export class ApiNavigationComponent implements OnInit
+{
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void
+  {
+  }
+
+  OpenDocumentation()
+  {
+    window.open('https://documenter.getpostman.com/view/11121025/Szf9V6zz?version=latest');
   }
 
 }

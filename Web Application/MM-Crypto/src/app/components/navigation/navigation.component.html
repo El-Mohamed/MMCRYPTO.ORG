@@ -14,6 +14,8 @@
     <a class="nav-item" routerLink="ranking" routerLinkActive="active-router">RANKING</a>
     <a class="nav-item" routerLink="calculator" routerLinkActive="active-router">TOOLS</a>
     <a class="nav-item" routerLink="currency-details" routerLinkActive="active-router">REST API</a>
+    <a class="nav-item" (click)="auth.login()" *ngIf="!auth.loggedIn">LOGIN</a>
+    <a class="nav-item" (click)="auth.logout()" *ngIf="auth.loggedIn">LOGOUT</a>
 
     <!-- Github Link -->
 
