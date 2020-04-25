@@ -23,11 +23,10 @@ namespace MM_Crypto
             // Auth0 Authentication
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {
-                options.Authority = "mm-crypto.eu.auth0.com";
+                options.Authority = "https://mm-crypto.eu.auth0.com/";
                 options.Audience = "https://localhost:44362/";
-                options.RequireHttpsMetadata = false;
             });
-
+         
             services.AddControllers();
 
             services.AddDbContext<CryptoContext>(
@@ -52,14 +51,12 @@ namespace MM_Crypto
                 app.UseDeveloperExceptionPage();
             }
 
-            // Use the Authentication
-            app.UseAuthentication();
-
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
-           // app.UseAuthorization();
+            // Use the Authentication
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
