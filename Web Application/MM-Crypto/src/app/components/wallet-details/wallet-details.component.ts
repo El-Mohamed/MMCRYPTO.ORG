@@ -9,7 +9,7 @@ import { MmcryptoService, Wallet } from 'src/app/services/mmcrypto/mmcrypto.serv
 export class WalletDetailsComponent implements OnInit
 {
 
-  public allItems: Wallet[];
+  public allItems: Wallet[] = [];
 
   constructor(private service: MmcryptoService) { }
 
