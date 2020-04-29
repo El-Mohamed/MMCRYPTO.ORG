@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
@@ -25,5 +25,8 @@ namespace MM_Crypto
 
         [JsonIgnore]
         public ICollection<Coin> HardForks { get; set; }
+
+        [JsonIgnore]
+        public ICollection<WalletCoin> SupportedWallets { get; set; }
     }
 }
