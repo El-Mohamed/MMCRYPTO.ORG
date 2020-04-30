@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace MM_Crypto
@@ -95,6 +95,31 @@ namespace MM_Crypto
                 Categorie = "Software"
             };
 
+            var relation1 = new WalletCoin() { Wallet = LegderNanoS, Coin = BTC };
+            var relation2 = new WalletCoin() { Wallet = LegderNanoX, Coin = BTC };
+
+            LegderNanoS.SupportedCoins = new List<WalletCoin>() { relation1 };
+            LegderNanoX.SupportedCoins = new List<WalletCoin>() { };
+            TrezorOne.SupportedCoins = new List<WalletCoin>() { };
+            TrezorModelT.SupportedCoins = new List<WalletCoin>() {  };
+            Exodus.SupportedCoins = new List<WalletCoin>() {};
+
+            BTC.SupportedWallets = new List<WalletCoin>() { relation1, relation2 };
+            ETH.SupportedWallets = new List<WalletCoin>() {  };
+            XRP.SupportedWallets = new List<WalletCoin>() { };
+            BSV.SupportedWallets = new List<WalletCoin>() {  };
+            LTC.SupportedWallets = new List<WalletCoin>() { };
+            BCH.SupportedWallets = new List<WalletCoin>() {  };
+            DASH.SupportedWallets = new List<WalletCoin>() {  };
+            PIVX.SupportedWallets = new List<WalletCoin>() {};
+            ZEC.SupportedWallets = new List<WalletCoin>() { };
+            XLM.SupportedWallets = new List<WalletCoin>() {  };
+
+            if (!context.WalletCoin.Any())
+            {
+                context.WalletCoin.Add(relation1);
+                context.WalletCoin.Add(relation2);
+            }
 
             if (!context.Founders.Any())
             {
@@ -132,6 +157,8 @@ namespace MM_Crypto
                 context.Wallets.Add(TrezorModelT);
                 context.Wallets.Add(Exodus);
             }
+
+         
 
             context.SaveChanges();
         }

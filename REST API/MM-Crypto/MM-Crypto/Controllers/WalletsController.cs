@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -68,6 +69,19 @@ namespace MM_Crypto.Controllers
                 return NotFound();
 
             return Ok(wallet);
+        }
+
+        [Route("{id}/coins")]
+        [HttpGet]
+        public IActionResult GetSupportedCoins(int Id)
+        {
+            var walletIncludingCoins = context.Wallets.Include(c => c.SupportedCoins).ThenInclude(row => row.Coin).First(c => c.ID == Id);
+            var supportedCoins = walletIncludingCoins.SupportedCoins.Select(row => row.Coin);
+
+            if (supportedCoins == null)
+                return NotFound();
+
+            return Ok(supportedCoins);
         }
 
         [Route("{id}")]

@@ -127,6 +127,19 @@ namespace MM_Crypto.Controllers
             return Ok(coin.HardForks);
         }
 
+        [Route("{id}/wallets")]
+        [HttpGet]
+        public IActionResult GetSupportedWallets(int Id)
+        {
+            var coinIncludingWallets = context.Coins.Include(c => c.SupportedWallets).ThenInclude(row => row.Wallet).First(c => c.ID == Id);
+            var supportedWallets = coinIncludingWallets.SupportedWallets.Select(row => row.Wallet);
+
+            if (supportedWallets == null)
+                return NotFound();
+
+            return Ok(supportedWallets);
+        }
+
         [HttpPost]
         public IActionResult CreateCoin([FromBody] Coin newCoin)
         {
