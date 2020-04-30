@@ -33,7 +33,7 @@ export class ApiEditorComponent implements OnInit
     website: 'https://shop.ledger.com/products/ledger-nano-s',
     price: 59,
     imageURL: 'https://cdn.shopify.com/s/files/1/2974/4858/products/lns-black-open_large.png',
-    categorie: 'Hardware'
+    category: 'Hardware'
   };
 
   CoinToPost: any = {
@@ -59,22 +59,22 @@ export class ApiEditorComponent implements OnInit
 
   DeleteWallet(Id: number)
   {
-    this.service.deleteWallet(Id);
+    this.service.DeleteWallet(Id);
   }
 
   PerformWalletPost()
   {
-    this.service.postWallet(this.WalletToPost);
+    this.service.PostWallet(this.WalletToPost);
   }
 
   DeleteCoin(Id: number)
   {
-    this.service.deleteCoin(Id);
+    this.service.DeleteAsset(Id);
   }
 
   PerformCoinPost()
   {
-    this.service.postCoin(this.CoinToPost);
+    this.service.PostAsset(this.CoinToPost);
   }
 
 }

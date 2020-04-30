@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MmcryptoService, Coin } from 'src/app/services/mmcrypto/mmcrypto.service';
+import { MmcryptoService, Asset } from 'src/app/services/mmcrypto/mmcrypto.service';
 
 @Component({
   selector: 'app-currency-details',
@@ -9,7 +9,7 @@ import { MmcryptoService, Coin } from 'src/app/services/mmcrypto/mmcrypto.servic
 export class CurrencyDetailsComponent implements OnInit
 {
 
-  AllCoins: Coin[] = [];
+  AllCoins: Asset[] = [];
 
   constructor(private service: MmcryptoService) { }
 
@@ -21,7 +21,7 @@ export class CurrencyDetailsComponent implements OnInit
   async updateCoins()
   {
     try {
-      this.AllCoins = await this.service.getCoins();
+      this.AllCoins = await this.service.GetAssets();
     }
     catch (error) {
       console.log('Error');

@@ -8,16 +8,16 @@ export class MmcryptoService
 {
 
   private walletsURL = 'https://localhost:44362/api/v1/wallets';
-  private coinsURL = 'https://localhost:44362/api/v1/coins';
+  private coinsURL = 'https://localhost:44362/api/v1/assets';
 
   constructor(private http: HttpClient) { }
 
-  public getWallets()
+  public GetWallets()
   {
     return this.http.get<Wallet[]>(this.walletsURL).toPromise();
   }
 
-  public postWallet(wallet: any)
+  public PostWallet(wallet: any)
   {
     this.http.post<any>(this.walletsURL, wallet).subscribe(
       data => console.log('POST SUCCESFULLY', data),
@@ -25,7 +25,7 @@ export class MmcryptoService
     );
   }
 
-  public deleteWallet(Id: number)
+  public DeleteWallet(Id: number)
   {
     this.http.delete(this.walletsURL + '/' + Id).subscribe(
       data => console.log('DELETE SUCCESFULLY', data),
@@ -33,12 +33,12 @@ export class MmcryptoService
     );
   }
 
-  public getCoins()
+  public GetAssets()
   {
-    return this.http.get<Coin[]>(this.coinsURL).toPromise();
+    return this.http.get<Asset[]>(this.coinsURL).toPromise();
   }
 
-  public postCoin(coin: any)
+  public PostAsset(coin: any)
   {
     this.http.post<any>(this.coinsURL, coin).subscribe(
       data => console.log('POST SUCCESFULLY', data),
@@ -46,7 +46,7 @@ export class MmcryptoService
     );
   }
 
-  public deleteCoin(Id: number)
+  public DeleteAsset(Id: number)
   {
     this.http.delete(this.coinsURL + '/' + Id).subscribe(
       data => console.log('DELETE SUCCESFULLY', data),
@@ -63,7 +63,7 @@ export interface Wallet
   website: string;
   price: number;
   imageURL: string;
-  categorie: string;
+  category: string;
 }
 
 export interface Founder
@@ -74,12 +74,12 @@ export interface Founder
   gender: string;
 }
 
-export interface Coin
+export interface Asset
 {
   id: number;
   symbol: string;
   name: string;
   founder: Founder;
   website: string;
-  fork?: Coin;
+  fork?: Asset;
 }

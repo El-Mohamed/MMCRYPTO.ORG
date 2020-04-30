@@ -21,7 +21,7 @@ export class WalletDetailsComponent implements OnInit
   async updateWallets()
   {
     try {
-      this.allItems = await this.service.getWallets();
+      this.allItems = await this.service.GetWallets();
     }
     catch (error) {
       console.log('Error');
