@@ -17,6 +17,11 @@ export class MmcryptoService
     return this.http.get<Wallet[]>(this.walletsURL).toPromise();
   }
 
+  public GetWalletById(id: number)
+  {
+    return this.http.get<Wallet>(this.walletsURL + '/' + id).toPromise();
+  }
+
   public PostWallet(wallet: any)
   {
     this.http.post<any>(this.walletsURL, wallet).subscribe(
@@ -36,6 +41,11 @@ export class MmcryptoService
   public GetAssets()
   {
     return this.http.get<Asset[]>(this.coinsURL).toPromise();
+  }
+
+  public GetAssetById(id: number)
+  {
+    return this.http.get<Asset>(this.coinsURL + '/' + id).toPromise();
   }
 
   public PostAsset(coin: any)
