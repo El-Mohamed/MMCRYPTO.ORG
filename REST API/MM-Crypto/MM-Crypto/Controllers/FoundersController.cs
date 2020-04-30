@@ -20,11 +20,13 @@ namespace MM_Crypto.Controllers
         {
             IQueryable<Founder> query = context.Founders;
 
+            // Paging
             if (page.HasValue)
                 query = query.Skip(page.Value * lenght);
 
             query = query.Take(lenght);
 
+            // Response Headers
             Response.Headers.Add("X-Total-Count", query.Count().ToString());
 
             return query.ToList();

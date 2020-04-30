@@ -53,6 +53,7 @@ namespace MM_Crypto.Controllers
                 query = query.Skip(page.Value * length);
             query = query.Take(length);
 
+            // Response Headers
             Response.Headers.Add("X-Total-Count", query.Count().ToString());
 
             return query.ToList();

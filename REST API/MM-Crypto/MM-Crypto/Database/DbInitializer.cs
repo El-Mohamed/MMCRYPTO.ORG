@@ -101,19 +101,19 @@ namespace MM_Crypto
             LegderNanoS.SupportedCoins = new List<WalletCoin>() { relation1 };
             LegderNanoX.SupportedCoins = new List<WalletCoin>() { };
             TrezorOne.SupportedCoins = new List<WalletCoin>() { };
-            TrezorModelT.SupportedCoins = new List<WalletCoin>() {  };
-            Exodus.SupportedCoins = new List<WalletCoin>() {};
+            TrezorModelT.SupportedCoins = new List<WalletCoin>() { };
+            Exodus.SupportedCoins = new List<WalletCoin>() { };
 
             BTC.SupportedWallets = new List<WalletCoin>() { relation1, relation2 };
-            ETH.SupportedWallets = new List<WalletCoin>() {  };
+            ETH.SupportedWallets = new List<WalletCoin>() { };
             XRP.SupportedWallets = new List<WalletCoin>() { };
-            BSV.SupportedWallets = new List<WalletCoin>() {  };
+            BSV.SupportedWallets = new List<WalletCoin>() { };
             LTC.SupportedWallets = new List<WalletCoin>() { };
-            BCH.SupportedWallets = new List<WalletCoin>() {  };
-            DASH.SupportedWallets = new List<WalletCoin>() {  };
-            PIVX.SupportedWallets = new List<WalletCoin>() {};
+            BCH.SupportedWallets = new List<WalletCoin>() { };
+            DASH.SupportedWallets = new List<WalletCoin>() { };
+            PIVX.SupportedWallets = new List<WalletCoin>() { };
             ZEC.SupportedWallets = new List<WalletCoin>() { };
-            XLM.SupportedWallets = new List<WalletCoin>() {  };
+            XLM.SupportedWallets = new List<WalletCoin>() { };
 
             if (!context.WalletCoin.Any())
             {
@@ -158,7 +158,7 @@ namespace MM_Crypto
                 context.Wallets.Add(Exodus);
             }
 
-         
+
 
             context.SaveChanges();
         }

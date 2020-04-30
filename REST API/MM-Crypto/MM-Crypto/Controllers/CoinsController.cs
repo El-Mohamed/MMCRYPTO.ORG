@@ -21,6 +21,7 @@ namespace MM_Crypto.Controllers
         {
             IQueryable<Coin> query = context.Coins;
 
+            // Sort
             if (!string.IsNullOrWhiteSpace(sort))
             {
                 switch (sort)
@@ -39,10 +40,9 @@ namespace MM_Crypto.Controllers
                             query.OrderByDescending(c => c.Symbol);
                         break;
                 }
-
             }
 
-
+            // Paging
             if (page.HasValue)
                 query = query.Skip(page.Value * length);
             query = query.Take(length);
@@ -51,6 +51,7 @@ namespace MM_Crypto.Controllers
                 .Include(c => c.Founder)
                 .Include(c => c.Fork);
 
+            // Response Headers
             Response.Headers.Add("X-Total-Count", query.Count().ToString());
 
             return query.ToList();
@@ -90,29 +91,6 @@ namespace MM_Crypto.Controllers
             return Ok(founder);
         }
 
-
-        [Route("{id}")]
-        [HttpDelete]
-
-        public IActionResult DeleteCoinById(int id)
-        {
-            var coin = context.Coins.Find(id);
-
-            if (coin == null)
-                return NotFound();
-
-            var forks = context.Coins.Where(c => c.Fork.ID == coin.ID).ToList();
-
-            if (forks.Count > 0)
-                return NotFound();
-
-            context.Coins.Remove(coin);
-            context.SaveChanges();
-
-            // Default 404 if delete was successful
-            return NoContent();
-        }
-
         [Route("{id}/hardforks")]
         [HttpGet]
         public IActionResult GetHardForksFromCoin(int Id)
@@ -138,6 +116,27 @@ namespace MM_Crypto.Controllers
                 return NotFound();
 
             return Ok(supportedWallets);
+        }
+
+        [Route("{id}")]
+        [HttpDelete]
+        public IActionResult DeleteCoinById(int id)
+        {
+            var coin = context.Coins.Find(id);
+
+            if (coin == null)
+                return NotFound();
+
+            var forks = context.Coins.Where(c => c.Fork.ID == coin.ID).ToList();
+
+            if (forks.Count > 0)
+                return NotFound();
+
+            context.Coins.Remove(coin);
+            context.SaveChanges();
+
+            // Default 404 if delete was successful
+            return NoContent();
         }
 
         [HttpPost]
