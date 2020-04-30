@@ -9,7 +9,7 @@ import { MmcryptoService, Wallet } from 'src/app/services/mmcrypto/mmcrypto.serv
 export class WalletDetailsComponent implements OnInit
 {
 
-  public allItems: Wallet[] = [];
+  AllWallets: Wallet[] = [];
 
   constructor(private service: MmcryptoService) { }
 
@@ -21,7 +21,7 @@ export class WalletDetailsComponent implements OnInit
   async updateWallets()
   {
     try {
-      this.allItems = await this.service.GetWallets();
+      this.AllWallets = await this.service.GetWallets();
     }
     catch (error) {
       console.log('Error');

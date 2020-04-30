@@ -9,19 +9,19 @@ import { MmcryptoService, Asset } from 'src/app/services/mmcrypto/mmcrypto.servi
 export class CurrencyDetailsComponent implements OnInit
 {
 
-  AllCoins: Asset[] = [];
+  AllAssets: Asset[] = [];
 
   constructor(private service: MmcryptoService) { }
 
   ngOnInit(): void
   {
-    this.updateCoins();
+    this.updateAssets();
   }
 
-  async updateCoins()
+  async updateAssets()
   {
     try {
-      this.AllCoins = await this.service.GetAssets();
+      this.AllAssets = await this.service.GetAssets();
     }
     catch (error) {
       console.log('Error');
