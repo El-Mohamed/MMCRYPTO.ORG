@@ -7,17 +7,17 @@ namespace MM_Crypto.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
-    public class CoinsController : ControllerBase
+    public class AssetsController : ControllerBase
     {
         private readonly CryptoContext context;
 
-        public CoinsController(CryptoContext context)
+        public AssetsController(CryptoContext context)
         {
             this.context = context;
         }
 
         [HttpGet]
-        public List<Asset> GetAllCoins(string sort, int? page, int length = 20, string dir = "asc")
+        public List<Asset> GetAllAssets(string sort, int? page, int length = 20, string dir = "asc")
         {
             IQueryable<Asset> query = context.Assets;
 
@@ -59,7 +59,7 @@ namespace MM_Crypto.Controllers
 
         [Route("{id}")]
         [HttpGet]
-        public IActionResult GetCoinById(int Id)
+        public IActionResult GetAssetById(int Id)
         {
             var coin = context.Assets
                 .Include(c => c.Founder)
@@ -74,7 +74,7 @@ namespace MM_Crypto.Controllers
 
         [Route("{id}/founder")]
         [HttpGet]
-        public IActionResult GetFounderFromCoin(int Id)
+        public IActionResult GetFounderFromAsset(int Id)
         {
             var coin = context.Assets
                 .Include(c => c.Founder)
@@ -93,7 +93,7 @@ namespace MM_Crypto.Controllers
 
         [Route("{id}/hardforks")]
         [HttpGet]
-        public IActionResult GetHardForksFromCoin(int Id)
+        public IActionResult GetHardForksFromAsset(int Id)
         {
             var coin = context.Assets
                 .Include(c => c.HardForks)
@@ -120,7 +120,7 @@ namespace MM_Crypto.Controllers
 
         [Route("{id}")]
         [HttpDelete]
-        public IActionResult DeleteCoinById(int id)
+        public IActionResult DeleteAssetById(int id)
         {
             var coin = context.Assets.Find(id);
 
@@ -140,7 +140,7 @@ namespace MM_Crypto.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateCoin([FromBody] Asset newCoin)
+        public IActionResult InsertAsset([FromBody] Asset newCoin)
         {
             context.Assets.Add(newCoin);
             context.SaveChanges();
@@ -148,7 +148,7 @@ namespace MM_Crypto.Controllers
         }
 
         [HttpPut]
-        public IActionResult UpdateCoin([FromBody] Asset updateCoin)
+        public IActionResult UpdateAsset([FromBody] Asset updateCoin)
         {
             var originalCoin = context.Assets.Find(updateCoin.ID);
 
