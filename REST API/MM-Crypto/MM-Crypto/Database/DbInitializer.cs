@@ -131,18 +131,18 @@ namespace MM_Crypto
 
             }
 
-            if (!context.Coins.Any())
+            if (!context.Assets.Any())
             {
-                context.Coins.Add(BTC);
-                context.Coins.Add(ETH);
-                context.Coins.Add(XRP);
-                context.Coins.Add(BSV);
-                context.Coins.Add(LTC);
-                context.Coins.Add(BCH);
-                context.Coins.Add(DASH);
-                context.Coins.Add(PIVX);
-                context.Coins.Add(ZEC);
-                context.Coins.Add(XLM);
+                context.Assets.Add(BTC);
+                context.Assets.Add(ETH);
+                context.Assets.Add(XRP);
+                context.Assets.Add(BSV);
+                context.Assets.Add(LTC);
+                context.Assets.Add(BCH);
+                context.Assets.Add(DASH);
+                context.Assets.Add(PIVX);
+                context.Assets.Add(ZEC);
+                context.Assets.Add(XLM);
             }
 
             if (!context.Wallets.Any())

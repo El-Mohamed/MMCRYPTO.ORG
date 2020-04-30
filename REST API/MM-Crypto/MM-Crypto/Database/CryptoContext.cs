@@ -4,7 +4,7 @@ namespace MM_Crypto
 {
     public class CryptoContext : DbContext
     {
-        public DbSet<Asset> Coins { get; set; }
+        public DbSet<Asset> Assets { get; set; }
         public DbSet<Founder> Founders { get; set; }
         public DbSet<Wallet> Wallets { get; set; }
         public DbSet<WalletCoin> WalletCoin { get; set; }
