@@ -142,6 +142,9 @@ namespace MM_Crypto.Controllers
         [HttpPost]
         public IActionResult InsertAsset([FromBody] Asset newAsset)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             context.Assets.Add(newAsset);
             context.SaveChanges();
             return Created("", newAsset);

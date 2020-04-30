@@ -104,6 +104,9 @@ namespace MM_Crypto.Controllers
         [HttpPost]
         public IActionResult InsertWallet([FromBody] Wallet newWallet)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             context.Wallets.Add(newWallet);
             context.SaveChanges();
             return Created("", newWallet);

@@ -61,8 +61,11 @@ namespace MM_Crypto.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateFounder([FromBody] Founder newFounder)
+        public IActionResult InsertFounder([FromBody] Founder newFounder)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             context.Founders.Add(newFounder);
             context.SaveChanges();
             return Created("", newFounder);
