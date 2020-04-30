@@ -8,9 +8,11 @@ export class MmcryptoService
 {
 
   private walletsURL = 'https://localhost:44362/api/v1/wallets';
-  private coinsURL = 'https://localhost:44362/api/v1/assets';
+  private assetsURL = 'https://localhost:44362/api/v1/assets';
 
   constructor(private http: HttpClient) { }
+
+  // WALLET CRUD
 
   public GetWallets()
   {
@@ -46,19 +48,21 @@ export class MmcryptoService
     );
   }
 
+  // ASSET CRUD
+
   public GetAssets()
   {
-    return this.http.get<Asset[]>(this.coinsURL).toPromise();
+    return this.http.get<Asset[]>(this.assetsURL).toPromise();
   }
 
   public GetAssetById(id: number)
   {
-    return this.http.get<Asset>(this.coinsURL + '/' + id).toPromise();
+    return this.http.get<Asset>(this.assetsURL + '/' + id).toPromise();
   }
 
   public PostAsset(coin: any)
   {
-    this.http.post<any>(this.coinsURL, coin).subscribe(
+    this.http.post<any>(this.assetsURL, coin).subscribe(
       data => console.log('POST SUCCESFULLY', data),
       error => console.log('POST FAILED', error)
     );
@@ -66,7 +70,7 @@ export class MmcryptoService
 
   public DeleteAsset(Id: number)
   {
-    this.http.delete(this.coinsURL + '/' + Id).subscribe(
+    this.http.delete(this.assetsURL + '/' + Id).subscribe(
       data => console.log('DELETE SUCCESFULLY', data),
       error => console.log('DELETE FAILED', error)
     );
@@ -74,11 +78,12 @@ export class MmcryptoService
 
   public PutAsset(asset: Asset)
   {
-    return this.http.put<Asset>(this.coinsURL, asset).subscribe(
+    return this.http.put<Asset>(this.assetsURL, asset).subscribe(
       data => console.log('PUT SUCCESFULLY', data),
       error => console.log('PUT FAILED', error)
     );
   }
+
 }
 
 export interface Wallet
