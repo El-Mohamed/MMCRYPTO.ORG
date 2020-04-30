@@ -7,8 +7,8 @@
     public class WalletCoin
     {
         public int WalletId { get; set; }
-        public int CoinId { get; set; }
-        public Coin Coin { get; set; }
+        public int AssetId { get; set; }
+        public Asset Asset { get; set; }
         public Wallet Wallet { get; set; }
     }
 }

@@ -23,7 +23,7 @@ namespace MM_Crypto.Controllers
 
             // Filter
             if (!string.IsNullOrWhiteSpace(category))
-                query = query.Where(w => w.Categorie == category);
+                query = query.Where(w => w.Category == category);
             if (!string.IsNullOrWhiteSpace(brand))
                 query = query.Where(w => w.Brand == brand);
 
@@ -76,8 +76,8 @@ namespace MM_Crypto.Controllers
         [HttpGet]
         public IActionResult GetSupportedCoins(int Id)
         {
-            var walletIncludingCoins = context.Wallets.Include(c => c.SupportedCoins).ThenInclude(row => row.Coin).First(c => c.ID == Id);
-            var supportedCoins = walletIncludingCoins.SupportedCoins.Select(row => row.Coin);
+            var walletIncludingCoins = context.Wallets.Include(c => c.SupportedAssets).ThenInclude(row => row.Asset).First(c => c.ID == Id);
+            var supportedCoins = walletIncludingCoins.SupportedAssets.Select(row => row.Asset);
 
             if (supportedCoins == null)
                 return NotFound();
@@ -122,7 +122,7 @@ namespace MM_Crypto.Controllers
             originalWallet.Website = updateWallet.Website;
             originalWallet.Price = updateWallet.Price;
             originalWallet.ImageURL = updateWallet.ImageURL;
-            originalWallet.Categorie = updateWallet.Categorie;
+            originalWallet.Category = updateWallet.Category;
 
             context.SaveChanges();
             return Ok(originalWallet);

@@ -17,9 +17,9 @@ namespace MM_Crypto.Controllers
         }
 
         [HttpGet]
-        public List<Coin> GetAllCoins(string sort, int? page, int length = 20, string dir = "asc")
+        public List<Asset> GetAllCoins(string sort, int? page, int length = 20, string dir = "asc")
         {
-            IQueryable<Coin> query = context.Coins;
+            IQueryable<Asset> query = context.Coins;
 
             // Sort
             if (!string.IsNullOrWhiteSpace(sort))
@@ -140,7 +140,7 @@ namespace MM_Crypto.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateCoin([FromBody] Coin newCoin)
+        public IActionResult CreateCoin([FromBody] Asset newCoin)
         {
             context.Coins.Add(newCoin);
             context.SaveChanges();
@@ -148,7 +148,7 @@ namespace MM_Crypto.Controllers
         }
 
         [HttpPut]
-        public IActionResult UpdateCoin([FromBody] Coin updateCoin)
+        public IActionResult UpdateCoin([FromBody] Asset updateCoin)
         {
             var originalCoin = context.Coins.Find(updateCoin.ID);
 

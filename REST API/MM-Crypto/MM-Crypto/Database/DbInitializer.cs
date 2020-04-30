@@ -24,27 +24,27 @@ namespace MM_Crypto
             Founder DavidMazières = new Founder() { FirstName = "David", LastName = "Mazières", Gender = 'M' };
 
 
-            Coin BTC = new Coin() { Symbol = "BTC", Name = "Bitcoin", Founder = SatoshiNakamoto, Website = "http://www.bitcoin.org/", Fork = null };
-            Coin ETH = new Coin() { Symbol = "ETH", Name = "Ethereum", Founder = VitalikButerin, Website = "http://www.ethereum.org/", Fork = null };
-            Coin XRP = new Coin() { Symbol = "XRP", Name = "Ripple", Founder = ChrisLarsen, Website = "http://www.ripple.com/", Fork = null };
-            Coin BSV = new Coin() { Symbol = "BSV", Name = "Bitcoin SV", Founder = CraigWright, Website = "http://www.bitcoinsv.io/", Fork = null };
-            Coin LTC = new Coin() { Symbol = "LTC", Name = "Litecoin", Founder = CharlesLee, Website = "http://www.litecoin.org/", Fork = BTC };
-            Coin BCH = new Coin() { Symbol = "BCH", Name = "Bitcoin Cash", Founder = SatoshiNakamoto, Website = "https://www.bitcoincash.org/", Fork = BTC };
-            Coin DASH = new Coin() { Symbol = "DASH", Name = "Dash", Founder = RyanTaylor, Website = "https://www.dash.org/", Fork = BTC };
-            Coin PIVX = new Coin() { Symbol = "PIVX", Name = "PIVX", Founder = JamesBurden, Website = "https://pivx.org/", Fork = DASH };
-            Coin ZEC = new Coin() { Symbol = "ZEC", Name = "Zcash", Founder = ZookoWilcox, Website = "https://z.cash/", Fork = BTC };
-            Coin XLM = new Coin() { Symbol = "XLM", Name = "Stellar", Founder = DavidMazières, Website = "https://www.stellar.org/", Fork = XRP };
+            Asset BTC = new Asset() { Symbol = "BTC", Name = "Bitcoin", Founder = SatoshiNakamoto, Website = "http://www.bitcoin.org/", Fork = null };
+            Asset ETH = new Asset() { Symbol = "ETH", Name = "Ethereum", Founder = VitalikButerin, Website = "http://www.ethereum.org/", Fork = null };
+            Asset XRP = new Asset() { Symbol = "XRP", Name = "Ripple", Founder = ChrisLarsen, Website = "http://www.ripple.com/", Fork = null };
+            Asset BSV = new Asset() { Symbol = "BSV", Name = "Bitcoin SV", Founder = CraigWright, Website = "http://www.bitcoinsv.io/", Fork = null };
+            Asset LTC = new Asset() { Symbol = "LTC", Name = "Litecoin", Founder = CharlesLee, Website = "http://www.litecoin.org/", Fork = BTC };
+            Asset BCH = new Asset() { Symbol = "BCH", Name = "Bitcoin Cash", Founder = SatoshiNakamoto, Website = "https://www.bitcoincash.org/", Fork = BTC };
+            Asset DASH = new Asset() { Symbol = "DASH", Name = "Dash", Founder = RyanTaylor, Website = "https://www.dash.org/", Fork = BTC };
+            Asset PIVX = new Asset() { Symbol = "PIVX", Name = "PIVX", Founder = JamesBurden, Website = "https://pivx.org/", Fork = DASH };
+            Asset ZEC = new Asset() { Symbol = "ZEC", Name = "Zcash", Founder = ZookoWilcox, Website = "https://z.cash/", Fork = BTC };
+            Asset XLM = new Asset() { Symbol = "XLM", Name = "Stellar", Founder = DavidMazières, Website = "https://www.stellar.org/", Fork = XRP };
 
-            BTC.HardForks = new List<Coin> { LTC, DASH, ZEC, BCH };
-            ETH.HardForks = new List<Coin> { };
-            XRP.HardForks = new List<Coin> { XLM };
-            BSV.HardForks = new List<Coin> { };
-            LTC.HardForks = new List<Coin> { };
-            BCH.HardForks = new List<Coin> { };
-            DASH.HardForks = new List<Coin> { PIVX };
-            PIVX.HardForks = new List<Coin> { };
-            ZEC.HardForks = new List<Coin> { };
-            XLM.HardForks = new List<Coin> { };
+            BTC.HardForks = new List<Asset> { LTC, DASH, ZEC, BCH };
+            ETH.HardForks = new List<Asset> { };
+            XRP.HardForks = new List<Asset> { XLM };
+            BSV.HardForks = new List<Asset> { };
+            LTC.HardForks = new List<Asset> { };
+            BCH.HardForks = new List<Asset> { };
+            DASH.HardForks = new List<Asset> { PIVX };
+            PIVX.HardForks = new List<Asset> { };
+            ZEC.HardForks = new List<Asset> { };
+            XLM.HardForks = new List<Asset> { };
 
 
             Wallet LegderNanoS = new Wallet()
@@ -54,7 +54,7 @@ namespace MM_Crypto
                 Price = 59,
                 Website = "https://shop.ledger.com/products/ledger-nano-s",
                 ImageURL = "https://cdn.shopify.com/s/files/1/2974/4858/products/lns-black-open_large.png",
-                Categorie = "Hardware"
+                Category = "Hardware"
             };
 
             Wallet LegderNanoX = new Wallet()
@@ -64,7 +64,7 @@ namespace MM_Crypto
                 Price = 119,
                 Website = "https://shop.ledger.com/products/ledger-nano-x",
                 ImageURL = "https://cdn.shopify.com/s/files/1/2974/4858/products/ledger-nano-x-open_grande_eb0d186e-2c75-4687-9c85-1b6eb6e224d1_large.png",
-                Categorie = "Hardware"
+                Category = "Hardware"
             };
 
             Wallet TrezorOne = new Wallet()
@@ -74,7 +74,7 @@ namespace MM_Crypto
                 Price = 59,
                 Website = "https://shop.trezor.io/product/trezor-one-white",
                 ImageURL = "https://shop.trezor.io/static/img/product/T1_white.png",
-                Categorie = "Hardware"
+                Category = "Hardware"
             };
 
             Wallet TrezorModelT = new Wallet()
@@ -84,7 +84,7 @@ namespace MM_Crypto
                 Price = 180,
                 Website = "https://shop.trezor.io/product/trezor-model-t",
                 ImageURL = "https://shop.trezor.io/static/img/product/T2.jpg",
-                Categorie = "Hardware"
+                Category = "Hardware"
             };
 
             Wallet Exodus = new Wallet()
@@ -94,14 +94,14 @@ namespace MM_Crypto
                 Price = 0,
                 Website = "https://www.exodus.io/mobile",
                 ImageURL = "https://www.exodus.io/mobile/img/header-img2-lsize.png",
-                Categorie = "Software"
+                Category = "Software"
             };
 
-            LegderNanoS.SupportedCoins = new List<WalletCoin>() { };
-            LegderNanoX.SupportedCoins = new List<WalletCoin>() { };
-            TrezorOne.SupportedCoins = new List<WalletCoin>() { };
-            TrezorModelT.SupportedCoins = new List<WalletCoin>() { };
-            Exodus.SupportedCoins = new List<WalletCoin>() { };
+            LegderNanoS.SupportedAssets = new List<WalletCoin>() { };
+            LegderNanoX.SupportedAssets = new List<WalletCoin>() { };
+            TrezorOne.SupportedAssets = new List<WalletCoin>() { };
+            TrezorModelT.SupportedAssets = new List<WalletCoin>() { };
+            Exodus.SupportedAssets = new List<WalletCoin>() { };
 
             var supportedWallets1 = new List<Wallet>() { LegderNanoS, LegderNanoX };
             var supportedWallets2 = new List<Wallet>() { Exodus };
@@ -160,13 +160,13 @@ namespace MM_Crypto
         }
 
 
-        public static List<WalletCoin> CreateRelations(Coin coin, List<Wallet> allSupportedWallets, CryptoContext context)
+        public static List<WalletCoin> CreateRelations(Asset coin, List<Wallet> allSupportedWallets, CryptoContext context)
         {
             List<WalletCoin> allRelations = new List<WalletCoin>();
 
             foreach (var wallet in allSupportedWallets)
             {
-                var relation = new WalletCoin() { Wallet = wallet, Coin = coin };
+                var relation = new WalletCoin() { Wallet = wallet, Asset = coin };
 
                 context.AddOrUpdate(relation);
                 allRelations.Add(relation);
@@ -175,13 +175,13 @@ namespace MM_Crypto
             return allRelations;
         }
 
-        public static List<WalletCoin> CreateRelations(Wallet wallet, List<Coin> allSupportedCoins, CryptoContext context)
+        public static List<WalletCoin> CreateRelations(Wallet wallet, List<Asset> allSupportedCoins, CryptoContext context)
         {
             List<WalletCoin> allRelations = new List<WalletCoin>();
 
             foreach (var coin in allSupportedCoins)
             {
-                var relation = new WalletCoin() { Wallet = wallet, Coin = coin };
+                var relation = new WalletCoin() { Wallet = wallet, Asset = coin };
 
                 context.AddOrUpdate(relation);
                 allRelations.Add(relation);

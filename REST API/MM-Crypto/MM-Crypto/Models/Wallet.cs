@@ -28,9 +28,9 @@ namespace MM_Crypto
         public string? ImageURL { get; set; }
 
         [Required]
-        public string? Categorie { get; set; }
+        public string? Category { get; set; }
         
         [JsonIgnore]
-        public ICollection<WalletCoin> SupportedCoins { get; set; }
+        public ICollection<WalletCoin> SupportedAssets { get; set; }
     }
 }
