@@ -40,28 +40,28 @@
         <p-button icon="pi pi-cloud-upload" label="Send" (onClick)="PerformWalletPost()"></p-button>
     </div>
 
-    <!-- Coin POST -->
+    <!-- Post Asset -->
 
-    <div *ngIf="SelectedModel == 'Coin' && SelectedCRUDAction == 'POST'" class="ui-g-6">
+    <div *ngIf="SelectedModel == 'Asset' && SelectedCRUDAction == 'POST'" class="ui-g-6">
 
         <!-- SubTitle -->
 
-        <h2 class="title">Coin</h2>
+        <h2 class="title">Asset</h2>
 
         <!-- Input Fields -->
 
-        <p>Coin Name</p>
-        <input type="text" size="30" pInputText [(ngModel)]="CoinToPost.name">
-        <p>Coin Symbol</p>
-        <input type="text" size="30" pInputText [(ngModel)]="CoinToPost.symbol">
-        <p>Coin Website</p>
-        <input type="url" size="30" pInputText [(ngModel)]="CoinToPost.website">
+        <p>Asset Name</p>
+        <input type="text" size="30" pInputText [(ngModel)]="AssetToPost.name">
+        <p>Asset Symbol</p>
+        <input type="text" size="30" pInputText [(ngModel)]="AssetToPost.symbol">
+        <p>Asset Website</p>
+        <input type="url" size="30" pInputText [(ngModel)]="AssetToPost.website">
         <p>Founder First Name</p>
-        <input type="text" size="30" pInputText [(ngModel)]="CoinToPost.founder.firstName">
+        <input type="text" size="30" pInputText [(ngModel)]="AssetToPost.founder.firstName">
         <p>Founder Last Name</p>
-        <input type="url" size="30" pInputText [(ngModel)]="CoinToPost.founder.lastName">
+        <input type="url" size="30" pInputText [(ngModel)]="AssetToPost.founder.lastName">
         <p>Gender</p>
-        <input type="url" size="30" pInputText [(ngModel)]="CoinToPost.founder.gender">
+        <input type="url" size="30" pInputText [(ngModel)]="AssetToPost.founder.gender">
 
         <!-- Button -->
 
@@ -89,17 +89,17 @@
         <p-button icon="pi pi-cloud-upload" label="Send" (onClick)="DeleteWallet(id.value)"></p-button>
     </div>
 
-    <!-- DELETE Coin -->
+    <!-- DELETE Asset -->
 
-    <div *ngIf="SelectedModel == 'Coin' && SelectedCRUDAction == 'DELETE'" class="ui-g-6">
+    <div *ngIf="SelectedModel == 'Asset' && SelectedCRUDAction == 'DELETE'" class="ui-g-6">
 
         <!-- SubTitle -->
 
-        <h2 class="title">Coin</h2>
+        <h2 class="title">Asset</h2>
 
         <!-- Input Fields -->
 
-        <p>Coin ID</p>
+        <p>Asset ID</p>
         <input #id2 type="number" size="30" pInputText>
 
         <!-- Button -->

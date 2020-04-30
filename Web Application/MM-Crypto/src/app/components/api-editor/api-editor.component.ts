@@ -21,11 +21,11 @@ export class ApiEditorComponent implements OnInit
 
   Models: SelectItem[] =
     [
-      { label: 'Coin', value: 'Coin' },
+      { label: 'Asset', value: 'Asset' },
       { label: 'Wallet', value: 'Wallet' }
     ];
 
-  SelectedModel: string = 'Coin';
+  SelectedModel: string = 'Asset';
 
   WalletToPost: any = {
     brand: 'Ledger',
@@ -36,7 +36,7 @@ export class ApiEditorComponent implements OnInit
     category: 'Hardware'
   };
 
-  CoinToPost: any = {
+  AssetToPost: any = {
     symbol: 'BTC',
     name: 'Bitcoin',
     founder: {
@@ -74,7 +74,7 @@ export class ApiEditorComponent implements OnInit
 
   PerformCoinPost()
   {
-    this.service.PostAsset(this.CoinToPost);
+    this.service.PostAsset(this.AssetToPost);
   }
 
 }

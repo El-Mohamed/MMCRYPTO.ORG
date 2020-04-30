@@ -8,11 +8,11 @@
 
         <!-- Header -->
 
-        <p-header>List of Coins and Founders</p-header>
+        <p-header>List of Assets and Founders</p-header>
 
         <!-- Dataview Item -->
 
-        <ng-template let-coin pTemplate="listItem">
+        <ng-template let-asset pTemplate="listItem">
 
             <div class="list-item-container">
 
@@ -21,26 +21,26 @@
                 <div class="ui-g-11">
                     <div>
                         <div class="ui-g-4">
-                            <div class="ui-g-12">ID: <b>{{coin.id}}</b></div>
-                            <div class="ui-g-12">Name: <b>{{coin.name}}</b></div>
-                            <div class="ui-g-12">Symbol: <b>{{coin.symbol}}</b></div>
+                            <div class="ui-g-12">ID: <b>{{asset.id}}</b></div>
+                            <div class="ui-g-12">Name: <b>{{asset.name}}</b></div>
+                            <div class="ui-g-12">Symbol: <b>{{asset.symbol}}</b></div>
                             <div class="ui-g-12">Forked From:
-                                <b *ngIf="coin.fork != null">{{coin.fork.name}}</b>
-                                <b *ngIf="coin.fork == null">none</b>
+                                <b *ngIf="asset.fork != null">{{asset.fork.name}}</b>
+                                <b *ngIf="asset.fork == null">none</b>
                             </div>
                         </div>
                         <div class="ui-g-4">
-                            <div class="ui-g-12">ID: <b>{{coin.founder.id}}</b></div>
-                            <div class="ui-g-12">First Name: <b>{{coin.founder.firstName}}</b></div>
-                            <div class="ui-g-12">Last Name: <b>{{coin.founder.lastName}}</b></div>
-                            <div class="ui-g-12">Gender: <b>{{coin.founder.gender}}</b></div>
+                            <div class="ui-g-12">ID: <b>{{asset.founder.id}}</b></div>
+                            <div class="ui-g-12">First Name: <b>{{asset.founder.firstName}}</b></div>
+                            <div class="ui-g-12">Last Name: <b>{{asset.founder.lastName}}</b></div>
+                            <div class="ui-g-12">Gender: <b>{{asset.founder.gender}}</b></div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Website Button -->
 
-                <a href={{coin.website}}>
+                <a href={{asset.website}}>
                     <button class="website-button" pButton type="button" icon="pi pi-globe"></button>
                 </a>
             </div>
