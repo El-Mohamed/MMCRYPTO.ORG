@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MmcryptoService } from 'src/app/services/mmcrypto/mmcrypto.service';
+import { MmcryptoService, Wallet, Asset } from 'src/app/services/mmcrypto/mmcrypto.service';
 import { SelectItem } from 'primeng/api/selectitem';
 
 @Component({
@@ -17,7 +17,7 @@ export class ApiEditorComponent implements OnInit
       { label: 'DELETE', value: 'DELETE' }
     ];
 
-  SelectedCRUDAction: string = 'POST';
+  SelectedCRUDAction: string = 'PUT';
 
   Models: SelectItem[] =
     [
@@ -25,9 +25,19 @@ export class ApiEditorComponent implements OnInit
       { label: 'Wallet', value: 'Wallet' }
     ];
 
-  SelectedModel: string = 'Asset';
+  SelectedModel: string = 'Wallet';
 
   WalletToPost: any = {
+    brand: 'Ledger',
+    model: 'Nano S',
+    website: 'https://shop.ledger.com/products/ledger-nano-s',
+    price: 59,
+    imageURL: 'https://cdn.shopify.com/s/files/1/2974/4858/products/lns-black-open_large.png',
+    category: 'Hardware'
+  };
+
+  WalletToPut: Wallet = {
+    id: 1,
     brand: 'Ledger',
     model: 'Nano S',
     website: 'https://shop.ledger.com/products/ledger-nano-s',
@@ -48,6 +58,21 @@ export class ApiEditorComponent implements OnInit
     fork: null
   };
 
+
+  AssetToPut: Asset = {
+    id: 1,
+    symbol: 'BTC',
+    name: 'Bitcoin',
+    founder: {
+      id: 1,
+      firstName: 'Satoshi',
+      lastName: 'Nakamotor',
+      gender: 'M'
+    },
+    website: 'http://www.bitcoin.org/',
+    fork: null
+  };
+
   constructor(private service: MmcryptoService)
   {
   }
@@ -55,6 +80,27 @@ export class ApiEditorComponent implements OnInit
   ngOnInit(): void
   {
 
+  }
+
+
+  async ReadWallet(id: number)
+  {
+    try {
+      this.WalletToPut = await this.service.GetWalletById(id);
+    }
+    catch (e) {
+
+    }
+  }
+
+  async ReadAsset(id: number)
+  {
+    try {
+      this.AssetToPut = await this.service.GetAssetById(id);
+    }
+    catch (e) {
+
+    }
   }
 
   DeleteWallet(Id: number)
@@ -75,6 +121,16 @@ export class ApiEditorComponent implements OnInit
   PerformCoinPost()
   {
     this.service.PostAsset(this.AssetToPost);
+  }
+
+  PerformAssetPut()
+  {
+    // TODO
+  }
+
+  PerformWalletPut()
+  {
+    // TODO
   }
 
 }
