@@ -103,32 +103,32 @@ export class ApiEditorComponent implements OnInit
     }
   }
 
-  DeleteWallet(Id: number)
+  PerformWalletDELETE(Id: number)
   {
     this.service.DeleteWallet(Id);
   }
 
-  PerformWalletPost()
+  PerformWalletPOST()
   {
     this.service.PostWallet(this.WalletToPost);
   }
 
-  DeleteCoin(Id: number)
+  PeformAssetDELETE(Id: number)
   {
     this.service.DeleteAsset(Id);
   }
 
-  PerformCoinPost()
+  PerformAssetPOST()
   {
     this.service.PostAsset(this.AssetToPost);
   }
 
-  PerformAssetPut()
+  PerformAssetPUT()
   {
     this.service.PutAsset(this.AssetToPut);
   }
 
-  PerformWalletPut()
+  PerformWalletPUT()
   {
     this.service.PutWallet(this.WalletToPut);
   }
