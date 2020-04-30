@@ -125,12 +125,12 @@ export class ApiEditorComponent implements OnInit
 
   PerformAssetPut()
   {
-    // TODO
+    this.service.PutAsset(this.AssetToPut);
   }
 
   PerformWalletPut()
   {
-    // TODO
+    this.service.PutWallet(this.WalletToPut);
   }
 
 }

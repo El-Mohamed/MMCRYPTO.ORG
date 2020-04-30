@@ -30,6 +30,14 @@ export class MmcryptoService
     );
   }
 
+  public PutWallet(wallet: Wallet)
+  {
+    return this.http.put<Wallet>(this.walletsURL, wallet).subscribe(
+      data => console.log('PUT SUCCESFULLY', data),
+      error => console.log('PUT FAILED', error)
+    );
+  }
+
   public DeleteWallet(Id: number)
   {
     this.http.delete(this.walletsURL + '/' + Id).subscribe(
@@ -61,6 +69,14 @@ export class MmcryptoService
     this.http.delete(this.coinsURL + '/' + Id).subscribe(
       data => console.log('DELETE SUCCESFULLY', data),
       error => console.log('DELETE FAILED', error)
+    );
+  }
+
+  public PutAsset(asset: Asset)
+  {
+    return this.http.put<Asset>(this.coinsURL, asset).subscribe(
+      data => console.log('PUT SUCCESFULLY', data),
+      error => console.log('PUT FAILED', error)
     );
   }
 }
