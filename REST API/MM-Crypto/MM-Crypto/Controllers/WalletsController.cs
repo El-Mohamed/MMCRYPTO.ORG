@@ -72,17 +72,17 @@ namespace MM_Crypto.Controllers
             return Ok(wallet);
         }
 
-        [Route("{id}/coins")]
+        [Route("{id}/assets")]
         [HttpGet]
-        public IActionResult GetSupportedCoins(int Id)
+        public IActionResult GetSupportedAssets(int Id)
         {
-            var walletIncludingCoins = context.Wallets.Include(c => c.SupportedAssets).ThenInclude(row => row.Asset).First(c => c.ID == Id);
-            var supportedCoins = walletIncludingCoins.SupportedAssets.Select(row => row.Asset);
+            var walletIncludingAssets = context.Wallets.Include(c => c.SupportedAssets).ThenInclude(row => row.Asset).First(c => c.ID == Id);
+            var supportedAssets = walletIncludingAssets.SupportedAssets.Select(row => row.Asset);
 
-            if (supportedCoins == null)
+            if (supportedAssets == null)
                 return NotFound();
 
-            return Ok(supportedCoins);
+            return Ok(supportedAssets);
         }
 
         [Route("{id}")]
@@ -102,7 +102,7 @@ namespace MM_Crypto.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateWallet([FromBody] Wallet newWallet)
+        public IActionResult InsertWallet([FromBody] Wallet newWallet)
         {
             context.Wallets.Add(newWallet);
             context.SaveChanges();
