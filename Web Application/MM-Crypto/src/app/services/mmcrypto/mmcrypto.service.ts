@@ -26,26 +26,17 @@ export class MmcryptoService
 
   public PostWallet(wallet: any)
   {
-    this.http.post<any>(this.walletsURL, wallet).subscribe(
-      data => console.log('POST SUCCESFULLY', data),
-      error => console.log('POST FAILED', error)
-    );
+    return this.http.post<any>(this.walletsURL, wallet);
   }
 
   public PutWallet(wallet: Wallet)
   {
-    return this.http.put<Wallet>(this.walletsURL, wallet).subscribe(
-      data => console.log('PUT SUCCESFULLY', data),
-      error => console.log('PUT FAILED', error)
-    );
+    return this.http.put<Wallet>(this.walletsURL, wallet);
   }
 
   public DeleteWallet(Id: number)
   {
-    this.http.delete(this.walletsURL + '/' + Id).subscribe(
-      data => console.log('DELETE SUCCESFULLY', data),
-      error => console.log('DELETE FAILED', error)
-    );
+    return this.http.delete(this.walletsURL + '/' + Id);
   }
 
   // ASSET CRUD
@@ -62,26 +53,17 @@ export class MmcryptoService
 
   public PostAsset(coin: any)
   {
-    this.http.post<any>(this.assetsURL, coin).subscribe(
-      data => console.log('POST SUCCESFULLY', data),
-      error => console.log('POST FAILED', error)
-    );
+    return this.http.post<any>(this.assetsURL, coin);
   }
 
   public DeleteAsset(Id: number)
   {
-    this.http.delete(this.assetsURL + '/' + Id).subscribe(
-      data => console.log('DELETE SUCCESFULLY', data),
-      error => console.log('DELETE FAILED', error)
-    );
+    return this.http.delete(this.assetsURL + '/' + Id);
   }
 
   public PutAsset(asset: Asset)
   {
-    return this.http.put<Asset>(this.assetsURL, asset).subscribe(
-      data => console.log('PUT SUCCESFULLY', data),
-      error => console.log('PUT FAILED', error)
-    );
+    return this.http.put<Asset>(this.assetsURL, asset);
   }
 
 }

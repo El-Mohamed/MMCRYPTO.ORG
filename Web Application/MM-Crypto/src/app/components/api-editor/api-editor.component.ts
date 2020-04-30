@@ -105,32 +105,50 @@ export class ApiEditorComponent implements OnInit
 
   PerformWalletDELETE(Id: number)
   {
-    this.service.DeleteWallet(Id);
+    this.service.DeleteWallet(Id).subscribe(
+      data => console.log('DELETE SUCCESFULLY', data),
+      error => console.log('DELETE FAILED', error)
+    );
   }
 
   PerformWalletPOST()
   {
-    this.service.PostWallet(this.WalletToPost);
+    this.service.PostWallet(this.WalletToPost).subscribe(
+      data => console.log('POST SUCCESFULLY', data),
+      error => console.log('POST FAILED', error)
+    );
   }
 
   PeformAssetDELETE(Id: number)
   {
-    this.service.DeleteAsset(Id);
+    this.service.DeleteAsset(Id).subscribe(
+      data => console.log('DELETE SUCCESFULLY', data),
+      error => console.log('DELETE FAILED', error)
+    );
   }
 
   PerformAssetPOST()
   {
-    this.service.PostAsset(this.AssetToPost);
+    this.service.PostAsset(this.AssetToPost).subscribe(
+      data => console.log('POST SUCCESFULLY', data),
+      error => console.log('POST FAILED', error)
+    );
   }
 
   PerformAssetPUT()
   {
-    this.service.PutAsset(this.AssetToPut);
+    this.service.PutAsset(this.AssetToPut).subscribe(
+      data => console.log('PUT SUCCESFULLY', data),
+      error => console.log('PUT FAILED', error)
+    );
   }
 
   PerformWalletPUT()
   {
-    this.service.PutWallet(this.WalletToPut);
+    this.service.PutWallet(this.WalletToPut).subscribe(
+      data => console.log('PUT SUCCESFULLY', data),
+      error => console.log('PUT FAILED', error)
+    );
   }
 
 }
