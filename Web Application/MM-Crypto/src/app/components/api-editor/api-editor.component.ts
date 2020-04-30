@@ -58,7 +58,6 @@ export class ApiEditorComponent implements OnInit
     fork: null
   };
 
-
   AssetToPut: Asset = {
     id: 1,
     symbol: 'BTC',
@@ -82,6 +81,7 @@ export class ApiEditorComponent implements OnInit
 
   }
 
+  // Wallet CRUD
 
   async ReadWallet(id: number)
   {
@@ -93,14 +93,20 @@ export class ApiEditorComponent implements OnInit
     }
   }
 
-  async ReadAsset(id: number)
+  PerformWalletPOST()
   {
-    try {
-      this.AssetToPut = await this.service.GetAssetById(id);
-    }
-    catch (e) {
+    this.service.PostWallet(this.WalletToPost).subscribe(
+      data => console.log('POST SUCCESFULLY', data),
+      error => console.log('POST FAILED', error)
+    );
+  }
 
-    }
+  PerformWalletPUT()
+  {
+    this.service.PutWallet(this.WalletToPut).subscribe(
+      data => console.log('PUT SUCCESFULLY', data),
+      error => console.log('PUT FAILED', error)
+    );
   }
 
   PerformWalletDELETE(Id: number)
@@ -111,20 +117,16 @@ export class ApiEditorComponent implements OnInit
     );
   }
 
-  PerformWalletPOST()
-  {
-    this.service.PostWallet(this.WalletToPost).subscribe(
-      data => console.log('POST SUCCESFULLY', data),
-      error => console.log('POST FAILED', error)
-    );
-  }
+  // Asset CRUD 
 
-  PeformAssetDELETE(Id: number)
+  async ReadAsset(id: number)
   {
-    this.service.DeleteAsset(Id).subscribe(
-      data => console.log('DELETE SUCCESFULLY', data),
-      error => console.log('DELETE FAILED', error)
-    );
+    try {
+      this.AssetToPut = await this.service.GetAssetById(id);
+    }
+    catch (e) {
+
+    }
   }
 
   PerformAssetPOST()
@@ -143,12 +145,11 @@ export class ApiEditorComponent implements OnInit
     );
   }
 
-  PerformWalletPUT()
+  PeformAssetDELETE(Id: number)
   {
-    this.service.PutWallet(this.WalletToPut).subscribe(
-      data => console.log('PUT SUCCESFULLY', data),
-      error => console.log('PUT FAILED', error)
+    this.service.DeleteAsset(Id).subscribe(
+      data => console.log('DELETE SUCCESFULLY', data),
+      error => console.log('DELETE FAILED', error)
     );
   }
-
 }

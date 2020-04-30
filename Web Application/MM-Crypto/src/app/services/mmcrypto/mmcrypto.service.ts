@@ -56,16 +56,15 @@ export class MmcryptoService
     return this.http.post<any>(this.assetsURL, coin);
   }
 
-  public DeleteAsset(Id: number)
-  {
-    return this.http.delete(this.assetsURL + '/' + Id);
-  }
-
   public PutAsset(asset: Asset)
   {
     return this.http.put<Asset>(this.assetsURL, asset);
   }
 
+  public DeleteAsset(Id: number)
+  {
+    return this.http.delete(this.assetsURL + '/' + Id);
+  }
 }
 
 export interface Wallet
