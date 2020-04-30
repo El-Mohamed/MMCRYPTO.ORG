@@ -76,14 +76,14 @@ namespace MM_Crypto.Controllers
         [HttpGet]
         public IActionResult GetFounderFromAsset(int Id)
         {
-            var coin = context.Assets
+            var asset = context.Assets
                 .Include(c => c.Founder)
                 .SingleOrDefault(c => c.ID == Id);
 
-            if (coin == null)
+            if (asset == null)
                 return NotFound();
 
-            var founder = context.Founders.Find(coin.Founder.ID);
+            var founder = context.Founders.Find(asset.Founder.ID);
 
             if (founder == null)
                 return NotFound();
@@ -95,22 +95,22 @@ namespace MM_Crypto.Controllers
         [HttpGet]
         public IActionResult GetHardForksFromAsset(int Id)
         {
-            var coin = context.Assets
+            var asset = context.Assets
                 .Include(c => c.HardForks)
                 .SingleOrDefault(c => c.ID == Id);
 
-            if (coin == null)
+            if (asset == null)
                 return NotFound();
 
-            return Ok(coin.HardForks);
+            return Ok(asset.HardForks);
         }
 
         [Route("{id}/wallets")]
         [HttpGet]
         public IActionResult GetSupportedWallets(int Id)
         {
-            var coinIncludingWallets = context.Assets.Include(c => c.SupportedWallets).ThenInclude(row => row.Wallet).First(c => c.ID == Id);
-            var supportedWallets = coinIncludingWallets.SupportedWallets.Select(row => row.Wallet);
+            var assetIncludingWallets = context.Assets.Include(c => c.SupportedWallets).ThenInclude(row => row.Wallet).First(c => c.ID == Id);
+            var supportedWallets = assetIncludingWallets.SupportedWallets.Select(row => row.Wallet);
 
             if (supportedWallets == null)
                 return NotFound();
@@ -122,17 +122,17 @@ namespace MM_Crypto.Controllers
         [HttpDelete]
         public IActionResult DeleteAssetById(int id)
         {
-            var coin = context.Assets.Find(id);
+            var asset = context.Assets.Find(id);
 
-            if (coin == null)
+            if (asset == null)
                 return NotFound();
 
-            var forks = context.Assets.Where(c => c.Fork.ID == coin.ID).ToList();
+            var forks = context.Assets.Where(c => c.Fork.ID == asset.ID).ToList();
 
             if (forks.Count > 0)
                 return NotFound();
 
-            context.Assets.Remove(coin);
+            context.Assets.Remove(asset);
             context.SaveChanges();
 
             // Default 404 if delete was successful
@@ -140,24 +140,24 @@ namespace MM_Crypto.Controllers
         }
 
         [HttpPost]
-        public IActionResult InsertAsset([FromBody] Asset newCoin)
+        public IActionResult InsertAsset([FromBody] Asset newAsset)
         {
-            context.Assets.Add(newCoin);
+            context.Assets.Add(newAsset);
             context.SaveChanges();
-            return Created("", newCoin);
+            return Created("", newAsset);
         }
 
         [HttpPut]
-        public IActionResult UpdateAsset([FromBody] Asset updateCoin)
+        public IActionResult UpdateAsset([FromBody] Asset updateAsset)
         {
-            var originalCoin = context.Assets.Find(updateCoin.ID);
+            var originalCoin = context.Assets.Find(updateAsset.ID);
 
             if (originalCoin == null)
                 return NotFound();
 
-            originalCoin.Name = updateCoin.Name;
-            originalCoin.Founder = updateCoin.Founder;
-            originalCoin.Website = updateCoin.Website;
+            originalCoin.Name = updateAsset.Name;
+            originalCoin.Founder = updateAsset.Founder;
+            originalCoin.Website = updateAsset.Website;
 
             context.SaveChanges();
             return Ok(originalCoin);
