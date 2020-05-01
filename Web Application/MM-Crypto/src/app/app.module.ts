@@ -28,6 +28,7 @@ import { SpinnerModule } from 'primeng/spinner';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { DataViewModule } from 'primeng/dataview';
+import { ToastModule } from 'primeng/toast';
 
 // Other
 import { NgApexchartsModule } from "ng-apexcharts";
@@ -69,6 +70,7 @@ import { AngularFireModule } from '@angular/fire';
     InputTextModule,
     ButtonModule,
     DataViewModule,
+    ToastModule,
     // Other
     NgApexchartsModule,
     // Firebase

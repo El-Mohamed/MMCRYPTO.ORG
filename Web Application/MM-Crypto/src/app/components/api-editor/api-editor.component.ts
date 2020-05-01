@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { MmcryptoService, Wallet, Asset } from 'src/app/services/mmcrypto/mmcrypto.service';
 import { SelectItem } from 'primeng/api/selectitem';
+import { HttpErrorResponse } from '@angular/common/http';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-api-editor',
   templateUrl: './api-editor.component.html',
-  styleUrls: ['./api-editor.component.css']
+  styleUrls: ['./api-editor.component.css'],
+  providers: [MessageService]
 })
 export class ApiEditorComponent implements OnInit
 {
@@ -72,7 +75,7 @@ export class ApiEditorComponent implements OnInit
     fork: null
   };
 
-  constructor(private service: MmcryptoService)
+  constructor(private service: MmcryptoService, private messageService: MessageService)
   {
   }
 
