@@ -22,6 +22,7 @@ export class WalletDetailsComponent implements OnInit
 
   PageLenght: SelectItem[] =
     [
+      { label: '5', value: '5' },
       { label: '10', value: '10' },
       { label: '15', value: '15' },
       { label: '25', value: '25' },
@@ -29,7 +30,16 @@ export class WalletDetailsComponent implements OnInit
       { label: '100', value: '100' },
     ];
 
-  SelectedPageLength: string = '15';
+  SelectedPageLength: string = '5';
+
+
+  SortOn: SelectItem[] =
+    [
+      { label: 'Brand', value: 'brand' },
+      { label: 'Price', value: 'price' }
+    ];
+
+  SelectedSortOn: string = 'price';
 
   CurrentPageNumber: number = 1;
   KeyWord: string = 'Search Here';
@@ -39,13 +49,15 @@ export class WalletDetailsComponent implements OnInit
 
   ngOnInit(): void
   {
-    this.updateWallets();
+    this.UpdateWallets();
   }
 
-  async updateWallets()
+  async UpdateWallets()
   {
     try {
-      this.AllWallets = await this.service.GetWalletsWithQuery(this.CurrentPageNumber.toString(), this.SelectedPageLength, this.SelectedSortMode, 'brand');
+      this.AllWallets = await this.service.GetWalletsWithQuery(
+        this.CurrentPageNumber.toString(), this.SelectedPageLength,
+        this.SelectedSortMode, this.SelectedSortOn);
     }
     catch (error) {
       console.log('Error');
@@ -56,7 +68,7 @@ export class WalletDetailsComponent implements OnInit
   {
     if (!(this.CurrentPageNumber == 1 && command == -1)) {
       this.CurrentPageNumber += command;
-      this.updateWallets();
+      this.UpdateWallets();
     }
   }
 

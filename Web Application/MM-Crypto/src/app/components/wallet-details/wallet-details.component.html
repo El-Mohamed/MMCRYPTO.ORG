@@ -5,8 +5,9 @@
 <div class="ui-sm-12 ui-lg-7" style="margin: auto;">
 
     <div class="filters-container">
-        <p-dropdown [options]="SortMode" [(ngModel)]="SelectedSortMode" (onChange)="updateWallets()"></p-dropdown>
-        <p-dropdown [options]="PageLenght" [(ngModel)]="SelectedPageLength" (onChange)="updateWallets()"></p-dropdown>
+        <p-dropdown [options]="SortOn" [(ngModel)]="SelectedSortOn" (onChange)="UpdateWallets()"></p-dropdown>
+        <p-dropdown [options]="SortMode" [(ngModel)]="SelectedSortMode" (onChange)="UpdateWallets()"></p-dropdown>
+        <p-dropdown [options]="PageLenght" [(ngModel)]="SelectedPageLength" (onChange)="UpdateWallets()"></p-dropdown>
         <div>
             <input type="text" [(ngModel)]="KeyWord" pInputText />
         </div>
