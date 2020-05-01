@@ -7,3 +7,17 @@ p, .title {
     width: fit-content;
     padding: 10px;
 }
+
+.action-selector * {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.input-fields-subcontainer {
+    display: flex;
+}
+
+.input-fields-subcontainer * {
+    margin-left: 10px;
+    margin-right: 10px;
+}

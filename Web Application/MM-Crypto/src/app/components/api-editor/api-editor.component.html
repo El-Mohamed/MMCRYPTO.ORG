@@ -23,18 +23,27 @@
 
         <!-- Input Fields -->
 
-        <p>Brand</p>
-        <input type="text" size="30" pInputText [(ngModel)]="WalletToPost.brand">
-        <p>Model</p>
-        <input type="text" size="30" pInputText [(ngModel)]="WalletToPost.model">
-        <p>Category</p>
-        <input type="text" size="30" pInputText [(ngModel)]="WalletToPost.category">
-        <p>Website</p>
-        <input type="url" size="30" pInputText [(ngModel)]="WalletToPost.website">
-        <p>Image URL</p>
-        <input type="url" size="30" pInputText [(ngModel)]="WalletToPost.imageURL">
-        <p>Price EUR</p>
-        <input type="number" size="30" pInputText [(ngModel)]="WalletToPost.price">
+        <div class="input-fields-subcontainer">
+
+            <div>
+                <p>Brand</p>
+                <input type="text" size="30" pInputText [(ngModel)]="WalletToPost.brand">
+                <p>Model</p>
+                <input type="text" size="30" pInputText [(ngModel)]="WalletToPost.model">
+                <p>Category</p>
+                <input type="text" size="30" pInputText [(ngModel)]="WalletToPost.category">
+            </div>
+
+            <div>
+                <p>Website</p>
+                <input type="url" size="30" pInputText [(ngModel)]="WalletToPost.website">
+                <p>Image URL</p>
+                <input type="url" size="30" pInputText [(ngModel)]="WalletToPost.imageURL">
+                <p>Price EUR</p>
+                <input type="number" size="30" pInputText [(ngModel)]="WalletToPost.price">
+            </div>
+
+        </div>
 
         <!-- Button -->
 
@@ -52,18 +61,27 @@
 
         <!-- Input Fields -->
 
-        <p>Asset Name</p>
-        <input type="text" size="30" pInputText [(ngModel)]="AssetToPost.name">
-        <p>Asset Symbol</p>
-        <input type="text" size="30" pInputText [(ngModel)]="AssetToPost.symbol">
-        <p>Asset Website</p>
-        <input type="url" size="30" pInputText [(ngModel)]="AssetToPost.website">
-        <p>Founder First Name</p>
-        <input type="text" size="30" pInputText [(ngModel)]="AssetToPost.founder.firstName">
-        <p>Founder Last Name</p>
-        <input type="url" size="30" pInputText [(ngModel)]="AssetToPost.founder.lastName">
-        <p>Gender</p>
-        <input type="url" size="30" pInputText [(ngModel)]="AssetToPost.founder.gender">
+        <div class="input-fields-subcontainer">
+
+            <div>
+                <p>Asset Name</p>
+                <input type="text" size="30" pInputText [(ngModel)]="AssetToPost.name">
+                <p>Asset Symbol</p>
+                <input type="text" size="30" pInputText [(ngModel)]="AssetToPost.symbol">
+                <p>Asset Website</p>
+                <input type="url" size="30" pInputText [(ngModel)]="AssetToPost.website">
+            </div>
+
+            <div>
+                <p>Founder First Name</p>
+                <input type="text" size="30" pInputText [(ngModel)]="AssetToPost.founder.firstName">
+                <p>Founder Last Name</p>
+                <input type="url" size="30" pInputText [(ngModel)]="AssetToPost.founder.lastName">
+                <p>Gender</p>
+                <input type="url" size="30" pInputText [(ngModel)]="AssetToPost.founder.gender">
+            </div>
+
+        </div>
 
         <!-- Button -->
 
@@ -120,20 +138,30 @@
 
         <!-- Input Fields -->
 
-        <p>ID</p>
-        <input type="number" size="30" pInputText [(ngModel)]="WalletToPut.id" (change)="ReadWallet(WalletToPut.id)">
-        <p>Brand</p>
-        <input type="text" size="30" pInputText [(ngModel)]="WalletToPut.brand">
-        <p>Model</p>
-        <input type="text" size="30" pInputText [(ngModel)]="WalletToPut.model">
-        <p>Category</p>
-        <input type="text" size="30" pInputText [(ngModel)]="WalletToPut.category">
-        <p>Website</p>
-        <input type="url" size="30" pInputText [(ngModel)]="WalletToPut.website">
-        <p>Image URL</p>
-        <input type="url" size="30" pInputText [(ngModel)]="WalletToPut.imageURL">
-        <p>Price EUR</p>
-        <input type="number" size="30" pInputText [(ngModel)]="WalletToPut.price">
+        <div class="input-fields-subcontainer">
+
+            <div>
+                <p>ID</p>
+                <input type="number" size="30" pInputText [(ngModel)]="WalletToPut.id"
+                    (change)="ReadWallet(WalletToPut.id)">
+                <p>Brand</p>
+                <input type="text" size="30" pInputText [(ngModel)]="WalletToPut.brand">
+                <p>Model</p>
+                <input type="text" size="30" pInputText [(ngModel)]="WalletToPut.model">
+            </div>
+
+            <div>
+                <p>Category</p>
+                <input type="text" size="30" pInputText [(ngModel)]="WalletToPut.category">
+                <p>Website</p>
+                <input type="url" size="30" pInputText [(ngModel)]="WalletToPut.website">
+                <p>Image URL</p>
+                <input type="url" size="30" pInputText [(ngModel)]="WalletToPut.imageURL">
+                <p>Price EUR</p>
+                <input type="number" size="30" pInputText [(ngModel)]="WalletToPut.price">
+            </div>
+
+        </div>
 
         <!-- Button -->
 
@@ -151,22 +179,32 @@
 
         <!-- Input Fields -->
 
-        <p>Asset ID</p>
-        <input type="number" size="30" pInputText [(ngModel)]="AssetToPut.id" (change)="ReadAsset(AssetToPut.id)">
-        <p>Asset Name</p>
-        <input type="text" size="30" pInputText [(ngModel)]="AssetToPut.name">
-        <p>Asset Symbol</p>
-        <input type="text" size="30" pInputText [(ngModel)]="AssetToPut.symbol">
-        <p>Asset Website</p>
-        <input type="url" size="30" pInputText [(ngModel)]="AssetToPut.website">
-        <p>Founder ID</p>
-        <input [disabled]="true" type="number" size="30" pInputText [(ngModel)]="AssetToPut.founder.id">
-        <p>Founder First Name</p>
-        <input type=" text" size="30" pInputText [(ngModel)]="AssetToPut.founder.firstName">
-        <p>Founder Last Name</p>
-        <input type="url" size="30" pInputText [(ngModel)]="AssetToPut.founder.lastName">
-        <p>Gender</p>
-        <input type="url" size="30" pInputText [(ngModel)]="AssetToPut.founder.gender">
+        <div class="input-fields-subcontainer">
+
+            <div>
+                <p>Asset ID</p>
+                <input type="number" size="30" pInputText [(ngModel)]="AssetToPut.id"
+                    (change)="ReadAsset(AssetToPut.id)">
+                <p>Asset Name</p>
+                <input type="text" size="30" pInputText [(ngModel)]="AssetToPut.name">
+                <p>Asset Symbol</p>
+                <input type="text" size="30" pInputText [(ngModel)]="AssetToPut.symbol">
+                <p>Asset Website</p>
+                <input type="url" size="30" pInputText [(ngModel)]="AssetToPut.website">
+            </div>
+
+            <div>
+                <p>Founder ID</p>
+                <input [disabled]="true" type="number" size="30" pInputText [(ngModel)]="AssetToPut.founder.id">
+                <p>Founder First Name</p>
+                <input type=" text" size="30" pInputText [(ngModel)]="AssetToPut.founder.firstName">
+                <p>Founder Last Name</p>
+                <input type="url" size="30" pInputText [(ngModel)]="AssetToPut.founder.lastName">
+                <p>Gender</p>
+                <input type="url" size="30" pInputText [(ngModel)]="AssetToPut.founder.gender">
+            </div>
+
+        </div>
 
         <!-- Button -->
 
