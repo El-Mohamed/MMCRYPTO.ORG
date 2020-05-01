@@ -1,19 +1,17 @@
 <app-api-navigation></app-api-navigation>
 
-<!-- Title -->
-
-<h1 class="title">MM Crypto API Editor</h1>
-
 <!-- Action Selector -->
 
-<p-dropdown [options]="CRUDActions" [(ngModel)]="SelectedCRUDAction"></p-dropdown>
-<p-dropdown [options]="Models" [(ngModel)]="SelectedModel"></p-dropdown>
+<div class="action-selector">
+    <p-dropdown [options]="CRUDActions" [(ngModel)]="SelectedCRUDAction"></p-dropdown>
+    <p-dropdown [options]="Models" [(ngModel)]="SelectedModel"></p-dropdown>
+</div>
 
 <div class="ui-g">
 
     <!-- POST Wallet -->
 
-    <div *ngIf="SelectedModel == 'Wallet' && SelectedCRUDAction == 'POST'" class="ui-g-6">
+    <div *ngIf="SelectedModel == 'Wallet' && SelectedCRUDAction == 'POST'" class="input-fields-container">
 
         <!-- SubTitle -->
 
@@ -42,7 +40,7 @@
 
     <!-- Post Asset -->
 
-    <div *ngIf="SelectedModel == 'Asset' && SelectedCRUDAction == 'POST'" class="ui-g-6">
+    <div *ngIf="SelectedModel == 'Asset' && SelectedCRUDAction == 'POST'" class="input-fields-container">
 
         <!-- SubTitle -->
 
@@ -72,7 +70,7 @@
 
     <!-- DELETE Wallet -->
 
-    <div *ngIf="SelectedModel == 'Wallet' && SelectedCRUDAction == 'DELETE'" class="ui-g-6">
+    <div *ngIf="SelectedModel == 'Wallet' && SelectedCRUDAction == 'DELETE'" class="input-fields-container">
 
         <!-- SubTitle -->
 
@@ -91,7 +89,7 @@
 
     <!-- DELETE Asset -->
 
-    <div *ngIf="SelectedModel == 'Asset' && SelectedCRUDAction == 'DELETE'" class="ui-g-6">
+    <div *ngIf="SelectedModel == 'Asset' && SelectedCRUDAction == 'DELETE'" class="input-fields-container">
 
         <!-- SubTitle -->
 
@@ -110,7 +108,7 @@
 
     <!-- PUT Wallet -->
 
-    <div *ngIf="SelectedModel == 'Wallet' && SelectedCRUDAction == 'PUT'" class="ui-g-6">
+    <div *ngIf="SelectedModel == 'Wallet' && SelectedCRUDAction == 'PUT'" class="input-fields-container">
 
         <!-- SubTitle -->
 
@@ -141,7 +139,7 @@
 
     <!-- PUT Asset -->
 
-    <div *ngIf="SelectedModel == 'Asset' && SelectedCRUDAction == 'PUT'" class="ui-g-6">
+    <div *ngIf="SelectedModel == 'Asset' && SelectedCRUDAction == 'PUT'" class="input-fields-container">
 
         <!-- SubTitle -->
 
@@ -163,7 +161,7 @@
         <input type=" text" size="30" pInputText [(ngModel)]="AssetToPut.founder.firstName">
         <p>Founder Last Name</p>
         <input type="url" size="30" pInputText [(ngModel)]="AssetToPut.founder.lastName">
-        <p>Gender</p>AssetToPut
+        <p>Gender</p>
         <input type="url" size="30" pInputText [(ngModel)]="AssetToPut.founder.gender">
 
         <!-- Button -->

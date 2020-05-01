@@ -1,3 +1,9 @@
 p, .title {
     color: white;
 }
+
+.input-fields-container, .action-selector, .title {
+    margin: auto;
+    width: fit-content;
+    padding: 10px;
+}
