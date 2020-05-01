@@ -2,9 +2,20 @@
 
 <!-- Data View -->
 
-<div *ngIf="AllWallets.length > 1" class="ui-sm-12 ui-lg-7" style="margin: auto;">
+<div class="ui-sm-12 ui-lg-7" style="margin: auto;">
 
-    <p-dataView [value]="AllWallets">
+    <div class="filters-container">
+        <p-dropdown [options]="SortMode" [(ngModel)]="SelectedSortMode" (onChange)="updateWallets()"></p-dropdown>
+        <p-dropdown [options]="PageLenght" [(ngModel)]="SelectedPageLength" (onChange)="updateWallets()"></p-dropdown>
+        <div>
+            <input type="text" [(ngModel)]="KeyWord" pInputText />
+        </div>
+        <p-button icon="pi pi-arrow-left" (onClick)="UpdatePageNumber(-1)"></p-button>
+        <p class="page-number">page: {{CurrentPageNumber}}</p>
+        <p-button icon="pi pi-arrow-right" (onClick)="UpdatePageNumber(+1)"></p-button>
+    </div>
+
+    <p-dataView [value]="AllWallets" *ngIf="AllWallets.length > 1">
 
         <!-- Header -->
 

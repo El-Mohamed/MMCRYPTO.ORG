@@ -19,6 +19,11 @@ export class MmcryptoService
     return this.http.get<Wallet[]>(this.walletsURL).toPromise();
   }
 
+  public GetWalletsWithQuery(page: string, length: string, dir: string, sort: string = 'brand')
+  {
+    return this.http.get<Wallet[]>(`https://localhost:44362/api/v1/wallets/?page=${ page }&length=${ length }&dir=${ dir }&sort=${ sort }`).toPromise();
+  }
+
   public GetWalletById(id: number)
   {
     return this.http.get<Wallet>(this.walletsURL + '/' + id).toPromise();
