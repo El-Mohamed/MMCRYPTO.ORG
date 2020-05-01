@@ -17,7 +17,7 @@ namespace MM_Crypto.Controllers
         }
 
         [HttpGet]
-        public List<Wallet> GetAllWallets(string sort,string category, string brand, int? page, int length = 20, string dir="asc")
+        public List<Wallet> GetAllWallets(string sort,string category, string brand, int? page, int length = 100, string dir="asc")
         {
             IQueryable<Wallet> query = context.Wallets;
 

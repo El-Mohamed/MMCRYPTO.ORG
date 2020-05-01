@@ -17,7 +17,7 @@ namespace MM_Crypto.Controllers
         }
 
         [HttpGet]
-        public List<Asset> GetAllAssets(string sort, int? page, int length = 20, string dir = "asc")
+        public List<Asset> GetAllAssets(string sort, int? page, int length = 100, string dir = "asc")
         {
             IQueryable<Asset> query = context.Assets;
 

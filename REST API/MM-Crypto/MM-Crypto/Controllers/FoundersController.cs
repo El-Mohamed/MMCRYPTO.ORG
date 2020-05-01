@@ -16,7 +16,7 @@ namespace MM_Crypto.Controllers
         }
 
         [HttpGet]
-        public List<Founder> GetAllFounders(int? page, int lenght = 20)
+        public List<Founder> GetAllFounders(int? page, int lenght = 100)
         {
             IQueryable<Founder> query = context.Founders;
 
