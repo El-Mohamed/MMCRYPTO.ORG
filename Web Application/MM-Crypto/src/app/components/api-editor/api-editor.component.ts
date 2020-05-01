@@ -91,6 +91,32 @@ export class ApiEditorComponent implements OnInit
     this.messageService.add({ severity: 'success', summary: statusCode, detail: 'Request was succesfull' });
   }
 
+  ErrorToast(key: string, errorDescription: string)
+  {
+    var messageDetail = key + ' : ' + errorDescription;
+    this.messageService.add({ severity: 'error', summary: '400 - Bad Request', detail: messageDetail });
+  }
+
+  HandleError(errorResponse: HttpErrorResponse)
+  {
+    //console.log(errorResponse.error.status);
+    //console.log(errorResponse);
+
+    var allRequestErrors = errorResponse.error.errors;
+
+    for (const key of Object.keys(allRequestErrors)) {
+
+      // console.log(key, allRequestErrors[key]);
+      var allErrorsOfKey = allRequestErrors[key];
+
+      allErrorsOfKey.forEach(keyError =>
+      {
+        this.ErrorToast(key, keyError);
+        //console.log(keyError);
+      });
+    }
+  }
+
   // Wallet CRUD
 
   async ReadWallet(id: number)
@@ -107,7 +133,7 @@ export class ApiEditorComponent implements OnInit
   {
     this.service.PostWallet(this.WalletToPost).subscribe(
       data => this.SuccesToast('204 - Created'),
-      error => console.log('POST FAILED', error)
+      (error: HttpErrorResponse) => this.HandleError(error)
     );
   }
 
@@ -115,7 +141,7 @@ export class ApiEditorComponent implements OnInit
   {
     this.service.PutWallet(this.WalletToPut).subscribe(
       data => this.SuccesToast('200 - OK'),
-      error => console.log('PUT FAILED', error)
+      (error: HttpErrorResponse) => this.HandleError(error)
     );
   }
 
@@ -123,7 +149,7 @@ export class ApiEditorComponent implements OnInit
   {
     this.service.DeleteWallet(Id).subscribe(
       data => this.SuccesToast('204 - Not Content'),
-      error => console.log('DELETE FAILED', error)
+      (error: HttpErrorResponse) => this.HandleError(error)
     );
   }
 
@@ -143,7 +169,7 @@ export class ApiEditorComponent implements OnInit
   {
     this.service.PostAsset(this.AssetToPost).subscribe(
       data => this.SuccesToast('204 - Created'),
-      error => console.log('POST FAILED', error)
+      (error: HttpErrorResponse) => this.HandleError(error)
     );
   }
 
@@ -151,7 +177,7 @@ export class ApiEditorComponent implements OnInit
   {
     this.service.PutAsset(this.AssetToPut).subscribe(
       data => this.SuccesToast('200 - OK'),
-      error => console.log('PUT FAILED', error)
+      (error: HttpErrorResponse) => this.HandleError(error)
     );
   }
 
@@ -159,7 +185,7 @@ export class ApiEditorComponent implements OnInit
   {
     this.service.DeleteAsset(Id).subscribe(
       data => this.SuccesToast('204 - Not Content'),
-      error => console.log('DELETE FAILED', error)
+      (error: HttpErrorResponse) => this.HandleError(error)
     );
   }
 }
