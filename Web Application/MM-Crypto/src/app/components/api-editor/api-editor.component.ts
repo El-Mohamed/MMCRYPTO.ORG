@@ -84,6 +84,13 @@ export class ApiEditorComponent implements OnInit
 
   }
 
+  // Toast Messages
+
+  SuccesToast(statusCode: string)
+  {
+    this.messageService.add({ severity: 'success', summary: statusCode, detail: 'Request was succesfull' });
+  }
+
   // Wallet CRUD
 
   async ReadWallet(id: number)
@@ -99,7 +106,7 @@ export class ApiEditorComponent implements OnInit
   PerformWalletPOST()
   {
     this.service.PostWallet(this.WalletToPost).subscribe(
-      data => console.log('POST SUCCESFULLY', data),
+      data => this.SuccesToast('204 - Created'),
       error => console.log('POST FAILED', error)
     );
   }
@@ -107,7 +114,7 @@ export class ApiEditorComponent implements OnInit
   PerformWalletPUT()
   {
     this.service.PutWallet(this.WalletToPut).subscribe(
-      data => console.log('PUT SUCCESFULLY', data),
+      data => this.SuccesToast('200 - OK'),
       error => console.log('PUT FAILED', error)
     );
   }
@@ -115,7 +122,7 @@ export class ApiEditorComponent implements OnInit
   PerformWalletDELETE(Id: number)
   {
     this.service.DeleteWallet(Id).subscribe(
-      data => console.log('DELETE SUCCESFULLY', data),
+      data => this.SuccesToast('204 - Not Content'),
       error => console.log('DELETE FAILED', error)
     );
   }
@@ -135,7 +142,7 @@ export class ApiEditorComponent implements OnInit
   PerformAssetPOST()
   {
     this.service.PostAsset(this.AssetToPost).subscribe(
-      data => console.log('POST SUCCESFULLY', data),
+      data => this.SuccesToast('204 - Created'),
       error => console.log('POST FAILED', error)
     );
   }
@@ -143,7 +150,7 @@ export class ApiEditorComponent implements OnInit
   PerformAssetPUT()
   {
     this.service.PutAsset(this.AssetToPut).subscribe(
-      data => console.log('PUT SUCCESFULLY', data),
+      data => this.SuccesToast('200 - OK'),
       error => console.log('PUT FAILED', error)
     );
   }
@@ -151,7 +158,7 @@ export class ApiEditorComponent implements OnInit
   PeformAssetDELETE(Id: number)
   {
     this.service.DeleteAsset(Id).subscribe(
-      data => console.log('DELETE SUCCESFULLY', data),
+      data => this.SuccesToast('204 - Not Content'),
       error => console.log('DELETE FAILED', error)
     );
   }
