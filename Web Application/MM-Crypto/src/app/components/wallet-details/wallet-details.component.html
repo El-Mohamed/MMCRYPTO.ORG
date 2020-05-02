@@ -12,7 +12,7 @@
             <input type="text" [(ngModel)]="KeyWord" pInputText />
         </div>
         <p-button icon="pi pi-arrow-left" (onClick)="UpdatePageNumber(-1)"></p-button>
-        <p class="page-number">page: {{CurrentPageNumber}}</p>
+        <p-button [label]="CurrentPageNumber"></p-button>
         <p-button icon="pi pi-arrow-right" (onClick)="UpdatePageNumber(+1)"></p-button>
     </div>
 
