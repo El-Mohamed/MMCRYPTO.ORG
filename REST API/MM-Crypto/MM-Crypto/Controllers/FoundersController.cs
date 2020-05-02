@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -44,6 +45,7 @@ namespace MM_Crypto.Controllers
             return Ok(founder);
         }
 
+        [Authorize]
         [Route("{id}")]
         [HttpDelete]
         public IActionResult DeleteFounderById(int id)
@@ -60,6 +62,7 @@ namespace MM_Crypto.Controllers
             return NoContent();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult InsertFounder([FromBody] Founder newFounder)
         {
@@ -71,6 +74,7 @@ namespace MM_Crypto.Controllers
             return Created("", newFounder);
         }
 
+        [Authorize]
         [HttpPut]
         public IActionResult UpdateFounder([FromBody] Founder updateFouder)
         {

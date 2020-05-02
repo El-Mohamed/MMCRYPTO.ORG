@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -85,6 +86,7 @@ namespace MM_Crypto.Controllers
             return Ok(supportedAssets);
         }
 
+        [Authorize]
         [Route("{id}")]
         [HttpDelete]
         public IActionResult DeleteWalletById(int id)
@@ -101,6 +103,7 @@ namespace MM_Crypto.Controllers
             return NoContent();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult InsertWallet([FromBody] Wallet newWallet)
         {
@@ -112,6 +115,7 @@ namespace MM_Crypto.Controllers
             return Created("", newWallet);
         }
 
+        [Authorize]
         [HttpPut]
         public IActionResult UpdateWallet([FromBody] Wallet updateWallet)
         {
