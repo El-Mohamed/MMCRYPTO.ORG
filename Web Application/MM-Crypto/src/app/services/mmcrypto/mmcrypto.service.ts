@@ -63,17 +63,17 @@ export class MmcryptoService
 
   public PostWallet(wallet: any)
   {
-    return this.http.post<any>(this.walletsURL, wallet);
+    return this.http.post<any>(this.walletsURL, wallet, this.httpOptions);
   }
 
   public PutWallet(wallet: Wallet)
   {
-    return this.http.put<Wallet>(this.walletsURL, wallet);
+    return this.http.put<Wallet>(this.walletsURL, wallet, this.httpOptions);
   }
 
   public DeleteWallet(Id: number)
   {
-    return this.http.delete(this.walletsURL + '/' + Id);
+    return this.http.delete(this.walletsURL + '/' + Id, this.httpOptions);
   }
 
   // ASSET CRUD
@@ -90,17 +90,17 @@ export class MmcryptoService
 
   public PostAsset(coin: any)
   {
-    return this.http.post<any>(this.assetsURL, coin);
+    return this.http.post<any>(this.assetsURL, coin, this.httpOptions);
   }
 
   public PutAsset(asset: Asset)
   {
-    return this.http.put<Asset>(this.assetsURL, asset);
+    return this.http.put<Asset>(this.assetsURL, asset, this.httpOptions);
   }
 
   public DeleteAsset(Id: number)
   {
-    return this.http.delete(this.assetsURL + '/' + Id);
+    return this.http.delete(this.assetsURL + '/' + Id, this.httpOptions);
   }
 }
 
