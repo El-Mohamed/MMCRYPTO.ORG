@@ -14,10 +14,10 @@ namespace MM_Crypto
                     ctx.Add(entity);
                     break;
                 case EntityState.Modified:
-                    ctx.Update(entity);
+                    //ctx.Update(entity);
                     break;
                 case EntityState.Added:
-                    ctx.Add(entity);
+                    //ctx.Add(entity);
                     break;
                 case EntityState.Unchanged:
                     //item already in db no need to do anything  
