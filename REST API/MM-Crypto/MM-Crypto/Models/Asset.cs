@@ -27,6 +27,6 @@ namespace MM_Crypto
         public ICollection<Asset> HardForks { get; set; }
 
         [JsonIgnore]
-        public ICollection<WalletCoin> SupportedWallets { get; set; }
+        public ICollection<WalletAsset> SupportedWallets { get; set; }
     }
 }

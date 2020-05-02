@@ -31,6 +31,6 @@ namespace MM_Crypto
         public string? Category { get; set; }
         
         [JsonIgnore]
-        public ICollection<WalletCoin> SupportedAssets { get; set; }
+        public ICollection<WalletAsset> SupportedAssets { get; set; }
     }
 }

@@ -97,11 +97,11 @@ namespace MM_Crypto
                 Category = "Software"
             };
 
-            LegderNanoS.SupportedAssets = new List<WalletCoin>() { };
-            LegderNanoX.SupportedAssets = new List<WalletCoin>() { };
-            TrezorOne.SupportedAssets = new List<WalletCoin>() { };
-            TrezorModelT.SupportedAssets = new List<WalletCoin>() { };
-            Exodus.SupportedAssets = new List<WalletCoin>() { };
+            LegderNanoS.SupportedAssets = new List<WalletAsset>() { };
+            LegderNanoX.SupportedAssets = new List<WalletAsset>() { };
+            TrezorOne.SupportedAssets = new List<WalletAsset>() { };
+            TrezorModelT.SupportedAssets = new List<WalletAsset>() { };
+            Exodus.SupportedAssets = new List<WalletAsset>() { };
 
             var supportedWallets1 = new List<Wallet>() { LegderNanoS, LegderNanoX };
             var supportedWallets2 = new List<Wallet>() { Exodus };
@@ -109,13 +109,13 @@ namespace MM_Crypto
             BTC.SupportedWallets = CreateRelations(BTC, supportedWallets1, context);
             ETH.SupportedWallets = CreateRelations(ETH, supportedWallets1, context);
             XRP.SupportedWallets = CreateRelations(XRP, supportedWallets2, context);
-            BSV.SupportedWallets = new List<WalletCoin>() { };
-            LTC.SupportedWallets = new List<WalletCoin>() { };
-            BCH.SupportedWallets = new List<WalletCoin>() { };
-            DASH.SupportedWallets = new List<WalletCoin>() { };
-            PIVX.SupportedWallets = new List<WalletCoin>() { };
-            ZEC.SupportedWallets = new List<WalletCoin>() { };
-            XLM.SupportedWallets = new List<WalletCoin>() { };
+            BSV.SupportedWallets = new List<WalletAsset>() { };
+            LTC.SupportedWallets = new List<WalletAsset>() { };
+            BCH.SupportedWallets = new List<WalletAsset>() { };
+            DASH.SupportedWallets = new List<WalletAsset>() { };
+            PIVX.SupportedWallets = new List<WalletAsset>() { };
+            ZEC.SupportedWallets = new List<WalletAsset>() { };
+            XLM.SupportedWallets = new List<WalletAsset>() { };
 
             if (!context.Founders.Any())
             {
@@ -160,13 +160,13 @@ namespace MM_Crypto
         }
 
 
-        public static List<WalletCoin> CreateRelations(Asset coin, List<Wallet> allSupportedWallets, CryptoContext context)
+        public static List<WalletAsset> CreateRelations(Asset coin, List<Wallet> allSupportedWallets, CryptoContext context)
         {
-            List<WalletCoin> allRelations = new List<WalletCoin>();
+            List<WalletAsset> allRelations = new List<WalletAsset>();
 
             foreach (var wallet in allSupportedWallets)
             {
-                var relation = new WalletCoin() { Wallet = wallet, Asset = coin };
+                var relation = new WalletAsset() { Wallet = wallet, Asset = coin };
 
                 context.AddOrUpdate(relation);
                 allRelations.Add(relation);
@@ -175,13 +175,13 @@ namespace MM_Crypto
             return allRelations;
         }
 
-        public static List<WalletCoin> CreateRelations(Wallet wallet, List<Asset> allSupportedCoins, CryptoContext context)
+        public static List<WalletAsset> CreateRelations(Wallet wallet, List<Asset> allSupportedCoins, CryptoContext context)
         {
-            List<WalletCoin> allRelations = new List<WalletCoin>();
+            List<WalletAsset> allRelations = new List<WalletAsset>();
 
             foreach (var coin in allSupportedCoins)
             {
-                var relation = new WalletCoin() { Wallet = wallet, Asset = coin };
+                var relation = new WalletAsset() { Wallet = wallet, Asset = coin };
 
                 context.AddOrUpdate(relation);
                 allRelations.Add(relation);

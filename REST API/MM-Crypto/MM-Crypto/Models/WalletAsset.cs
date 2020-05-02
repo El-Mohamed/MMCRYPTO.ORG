@@ -4,7 +4,7 @@
     /// Entity class to represent the join table
     /// </summary>
 
-    public class WalletCoin
+    public class WalletAsset
     {
         public int WalletId { get; set; }
         public int AssetId { get; set; }
