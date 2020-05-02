@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { MmcryptoAuthService, Auth0Token } from '../mmcrypto-auth/mmcrypto-auth.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +11,38 @@ export class MmcryptoService
 
   private walletsURL = 'https://localhost:44362/api/v1/wallets';
   private assetsURL = 'https://localhost:44362/api/v1/assets';
+  private httpOptions;
 
-  constructor(private http: HttpClient) { }
+  private Auth0Token: Auth0Token;
+
+  constructor(private http: HttpClient, private apiAuth: MmcryptoAuthService)
+  {
+    this.GetToken();
+  }
+
+  // Auth For API
+
+  public GetToken()
+  {
+    this.apiAuth.RequestNewToken().subscribe(
+      (data: Auth0Token) =>
+      {
+        this.Auth0Token = data;
+        this.SetHttpHeaders();
+      },
+      (error: HttpErrorResponse) => console.log(error)
+    );
+  }
+
+  private SetHttpHeaders()
+  {
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + this.Auth0Token.access_token,
+        'Content-Type': 'application/json'
+      })
+    };
+  }
 
   // WALLET CRUD
 
