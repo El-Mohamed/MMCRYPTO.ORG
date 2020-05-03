@@ -44,7 +44,7 @@ export class CurrencyCalculatorComponent implements OnInit
   async updatePrices()
   {
     try {
-      this.coinCapData = await this.service.getAssets();
+      this.coinCapData = await this.service.GetAllAssets();
       this.allCoinCapAssets = this.coinCapData.data;
       this.createSelectItems();
     }

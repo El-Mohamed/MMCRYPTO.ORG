@@ -9,14 +9,14 @@ export class CoincapService
 
   constructor(private http: HttpClient) { }
 
-  public getAssets()
+  public GetAllAssets()
   {
     return this.http.get<CoinCapData>('https://api.coincap.io/v2/assets').toPromise();
   }
 
-  public getHistoryFromCoin(id: string, timeframe: string)
+  public GetHistoryFromCoin(id: string, interval: string)
   {
-    return this.http.get<HistoryData>(`https://api.coincap.io/v2/assets/${ id }/history?interval=${ timeframe }`).toPromise();
+    return this.http.get<HistoryData>(`https://api.coincap.io/v2/assets/${ id }/history?interval=${ interval }`).toPromise();
   }
 
 }
