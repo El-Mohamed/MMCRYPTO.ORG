@@ -13,11 +13,11 @@ p, .title {
     margin-right: 10px;
 }
 
-.input-fields-subcontainer {
+.input-fields-sub-container {
     display: flex;
 }
 
-.input-fields-subcontainer * {
+.input-fields-sub-container * {
     margin-left: 10px;
     margin-right: 10px;
 }
