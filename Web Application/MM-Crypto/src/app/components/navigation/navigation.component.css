@@ -8,7 +8,7 @@
 
 .toolbar {
   margin: 0 auto;
-  height: 8%;
+  height: 60px;
   display: flex;
   align-items: center;
   background-color: #1976d2;
