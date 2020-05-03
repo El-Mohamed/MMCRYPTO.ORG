@@ -52,12 +52,14 @@ export class MmcryptoService
 
   public GetWalletsWithQuery(page: string, length: string, dir: string, sort: string = 'brand')
   {
-    return this.http.get<Wallet[]>(`https://localhost:44362/api/v1/wallets/?page=${ page }&length=${ length }&dir=${ dir }&sort=${ sort }`).toPromise();
+    const url = `https://localhost:44362/api/v1/wallets/?page=${ page }&length=${ length }&dir=${ dir }&sort=${ sort }`;
+    return this.http.get<Wallet[]>(url).toPromise();
   }
 
   public GetWalletById(id: number)
   {
-    return this.http.get<Wallet>(this.walletsURL + '/' + id).toPromise();
+    const url = this.walletsURL + '/' + id;
+    return this.http.get<Wallet>(url).toPromise();
   }
 
   public PostWallet(wallet: any)
@@ -72,7 +74,8 @@ export class MmcryptoService
 
   public DeleteWallet(Id: number)
   {
-    return this.http.delete(this.walletsURL + '/' + Id, this.httpOptions);
+    const url = this.walletsURL + '/' + Id;
+    return this.http.delete(url, this.httpOptions);
   }
 
   // ASSET CRUD
@@ -84,7 +87,8 @@ export class MmcryptoService
 
   public GetAssetById(id: number)
   {
-    return this.http.get<Asset>(this.assetsURL + '/' + id).toPromise();
+    const url = this.assetsURL + '/' + id;
+    return this.http.get<Asset>(url).toPromise();
   }
 
   public PostAsset(coin: any)
@@ -99,7 +103,8 @@ export class MmcryptoService
 
   public DeleteAsset(Id: number)
   {
-    return this.http.delete(this.assetsURL + '/' + Id, this.httpOptions);
+    const url = this.assetsURL + '/' + Id;
+    return this.http.delete(url, this.httpOptions);
   }
 }
 
