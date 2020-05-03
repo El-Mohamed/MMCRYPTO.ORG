@@ -15,10 +15,10 @@ export class CurrencyDetailsComponent implements OnInit
 
   ngOnInit(): void
   {
-    this.updateAssets();
+    this.ReadAssets();
   }
 
-  async updateAssets()
+  async ReadAssets()
   {
     try {
       this.AllAssets = await this.service.GetAssets();

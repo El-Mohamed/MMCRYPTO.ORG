@@ -49,10 +49,10 @@ export class WalletDetailsComponent implements OnInit
 
   ngOnInit(): void
   {
-    this.UpdateWallets();
+    this.ReadWallets();
   }
 
-  async UpdateWallets()
+  async ReadWallets()
   {
     try {
       this.AllWallets = await this.service.GetWalletsWithQuery(
@@ -68,7 +68,7 @@ export class WalletDetailsComponent implements OnInit
   {
     if (!(this.CurrentPageNumber == 1 && command == -1)) {
       this.CurrentPageNumber += command;
-      this.UpdateWallets();
+      this.ReadWallets();
     }
   }
 
