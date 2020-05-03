@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace MM_Crypto
 {
@@ -26,6 +28,9 @@ namespace MM_Crypto
         public string? ImageURL { get; set; }
 
         [Required]
-        public string? Categorie { get; set; }
+        public string? Category { get; set; }
+        
+        [JsonIgnore]
+        public ICollection<WalletAsset> SupportedAssets { get; set; }
     }
 }

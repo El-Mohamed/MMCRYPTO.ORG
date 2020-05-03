@@ -20,12 +20,15 @@ namespace MM_Crypto
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Auth0 Authentication
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            // 1. Add Authentication Services
+            services.AddAuthentication(options =>
             {
-                options.Authority = "mm-crypto.eu.auth0.com";
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.Authority = "https://mm-crypto.eu.auth0.com/";
                 options.Audience = "https://localhost:44362/";
-                options.RequireHttpsMetadata = false;
             });
 
             services.AddControllers();
@@ -52,14 +55,13 @@ namespace MM_Crypto
                 app.UseDeveloperExceptionPage();
             }
 
-            // Use the Authentication
-            app.UseAuthentication();
-
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
-           // app.UseAuthorization();
+            // 2. Enable authentication middleware
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

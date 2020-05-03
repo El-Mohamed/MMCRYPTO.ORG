@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -7,20 +8,21 @@ namespace MM_Crypto.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
-    public class CoinsController : ControllerBase
+    public class AssetsController : ControllerBase
     {
         private readonly CryptoContext context;
 
-        public CoinsController(CryptoContext context)
+        public AssetsController(CryptoContext context)
         {
             this.context = context;
         }
 
         [HttpGet]
-        public List<Coin> GetAllCoins(string sort, int? page, int length = 20, string dir = "asc")
+        public List<Asset> GetAllAssets(string sort, int? page, int length = 100, string dir = "asc")
         {
-            IQueryable<Coin> query = context.Coins;
+            IQueryable<Asset> query = context.Assets;
 
+            // Sort
             if (!string.IsNullOrWhiteSpace(sort))
             {
                 switch (sort)
@@ -39,10 +41,9 @@ namespace MM_Crypto.Controllers
                             query.OrderByDescending(c => c.Symbol);
                         break;
                 }
-
             }
 
-
+            // Paging
             if (page.HasValue)
                 query = query.Skip(page.Value * length);
             query = query.Take(length);
@@ -51,6 +52,7 @@ namespace MM_Crypto.Controllers
                 .Include(c => c.Founder)
                 .Include(c => c.Fork);
 
+            // Response Headers
             Response.Headers.Add("X-Total-Count", query.Count().ToString());
 
             return query.ToList();
@@ -58,9 +60,9 @@ namespace MM_Crypto.Controllers
 
         [Route("{id}")]
         [HttpGet]
-        public IActionResult GetCoinById(int Id)
+        public IActionResult GetAssetById(int Id)
         {
-            var coin = context.Coins
+            var coin = context.Assets
                 .Include(c => c.Founder)
                 .Include(c => c.Fork)
                 .SingleOrDefault(c => c.ID == Id);
@@ -73,16 +75,16 @@ namespace MM_Crypto.Controllers
 
         [Route("{id}/founder")]
         [HttpGet]
-        public IActionResult GetFounderFromCoin(int Id)
+        public IActionResult GetFounderFromAsset(int Id)
         {
-            var coin = context.Coins
+            var asset = context.Assets
                 .Include(c => c.Founder)
                 .SingleOrDefault(c => c.ID == Id);
 
-            if (coin == null)
+            if (asset == null)
                 return NotFound();
 
-            var founder = context.Founders.Find(coin.Founder.ID);
+            var founder = context.Founders.Find(asset.Founder.ID);
 
             if (founder == null)
                 return NotFound();
@@ -90,62 +92,79 @@ namespace MM_Crypto.Controllers
             return Ok(founder);
         }
 
-
-        [Route("{id}")]
-        [HttpDelete]
-
-        public IActionResult DeleteCoinById(int id)
+        [Route("{id}/hardforks")]
+        [HttpGet]
+        public IActionResult GetHardForksFromAsset(int Id)
         {
-            var coin = context.Coins.Find(id);
+            var asset = context.Assets
+                .Include(c => c.HardForks)
+                .SingleOrDefault(c => c.ID == Id);
 
-            if (coin == null)
+            if (asset == null)
                 return NotFound();
 
-            var forks = context.Coins.Where(c => c.Fork.ID == coin.ID).ToList();
+            return Ok(asset.HardForks);
+        }
+
+        [Route("{id}/wallets")]
+        [HttpGet]
+        public IActionResult GetSupportedWallets(int Id)
+        {
+            var assetIncludingWallets = context.Assets.Include(c => c.SupportedWallets).ThenInclude(row => row.Wallet).First(c => c.ID == Id);
+            var supportedWallets = assetIncludingWallets.SupportedWallets.Select(row => row.Wallet);
+
+            if (supportedWallets == null)
+                return NotFound();
+
+            return Ok(supportedWallets);
+        }
+
+        [Authorize]
+        [Route("{id}")]
+        [HttpDelete]
+        public IActionResult DeleteAssetById(int id)
+        {
+            var asset = context.Assets.Find(id);
+
+            if (asset == null)
+                return NotFound();
+
+            var forks = context.Assets.Where(c => c.Fork.ID == asset.ID).ToList();
 
             if (forks.Count > 0)
                 return NotFound();
 
-            context.Coins.Remove(coin);
+            context.Assets.Remove(asset);
             context.SaveChanges();
 
             // Default 404 if delete was successful
             return NoContent();
         }
 
-        [Route("{id}/hardforks")]
-        [HttpGet]
-        public IActionResult GetHardForksFromCoin(int Id)
-        {
-            var coin = context.Coins
-                .Include(c => c.HardForks)
-                .SingleOrDefault(c => c.ID == Id);
-
-            if (coin == null)
-                return NotFound();
-
-            return Ok(coin.HardForks);
-        }
-
+        [Authorize]
         [HttpPost]
-        public IActionResult CreateCoin([FromBody] Coin newCoin)
+        public IActionResult InsertAsset([FromBody] Asset newAsset)
         {
-            context.Coins.Add(newCoin);
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            context.Assets.Add(newAsset);
             context.SaveChanges();
-            return Created("", newCoin);
+            return Created("", newAsset);
         }
 
+        [Authorize]
         [HttpPut]
-        public IActionResult UpdateCoin([FromBody] Coin updateCoin)
+        public IActionResult UpdateAsset([FromBody] Asset updateAsset)
         {
-            var originalCoin = context.Coins.Find(updateCoin.ID);
+            var originalCoin = context.Assets.Find(updateAsset.ID);
 
             if (originalCoin == null)
                 return NotFound();
 
-            originalCoin.Name = updateCoin.Name;
-            originalCoin.Founder = updateCoin.Founder;
-            originalCoin.Website = updateCoin.Website;
+            originalCoin.Name = updateAsset.Name;
+            originalCoin.Founder = updateAsset.Founder;
+            originalCoin.Website = updateAsset.Website;
 
             context.SaveChanges();
             return Ok(originalCoin);

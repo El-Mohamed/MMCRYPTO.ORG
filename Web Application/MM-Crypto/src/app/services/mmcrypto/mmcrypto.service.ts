@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { MmcryptoAuthService, Auth0Token } from '../mmcrypto-auth/mmcrypto-auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,50 +9,102 @@ export class MmcryptoService
 {
 
   private walletsURL = 'https://localhost:44362/api/v1/wallets';
-  private coinsURL = 'https://localhost:44362/api/v1/coins';
+  private assetsURL = 'https://localhost:44362/api/v1/assets';
+  private httpOptions;
 
-  constructor(private http: HttpClient) { }
+  private Auth0Token: Auth0Token;
 
-  public getWallets()
+  constructor(private http: HttpClient, private apiAuth: MmcryptoAuthService)
+  {
+    this.GetToken();
+  }
+
+  // Auth For API
+
+  public GetToken()
+  {
+    this.apiAuth.RequestNewToken().subscribe(
+      (data: Auth0Token) =>
+      {
+        this.Auth0Token = data;
+        this.SetHttpHeaders();
+      },
+      (error: HttpErrorResponse) => console.log(error)
+    );
+  }
+
+  private SetHttpHeaders()
+  {
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + this.Auth0Token.access_token,
+        'Content-Type': 'application/json'
+      })
+    };
+  }
+
+  // WALLET CRUD
+
+  public GetWallets()
   {
     return this.http.get<Wallet[]>(this.walletsURL).toPromise();
   }
 
-  public postWallet(wallet: any)
+  public GetWalletsWithQuery(page: string, length: string, dir: string, sort: string = 'brand')
   {
-    this.http.post<any>(this.walletsURL, wallet).subscribe(
-      data => console.log('POST SUCCESFULLY', data),
-      error => console.log('POST FAILED', error)
-    );
+    const url = `https://localhost:44362/api/v1/wallets/?page=${ page }&length=${ length }&dir=${ dir }&sort=${ sort }`;
+    return this.http.get<Wallet[]>(url).toPromise();
   }
 
-  public deleteWallet(Id: number)
+  public GetWalletById(id: number)
   {
-    this.http.delete(this.walletsURL + '/' + Id).subscribe(
-      data => console.log('DELETE SUCCESFULLY', data),
-      error => console.log('DELETE FAILED', error)
-    );
+    const url = this.walletsURL + '/' + id;
+    return this.http.get<Wallet>(url).toPromise();
   }
 
-  public getCoins()
+  public PostWallet(wallet: any)
   {
-    return this.http.get<Coin[]>(this.coinsURL).toPromise();
+    return this.http.post<any>(this.walletsURL, wallet, this.httpOptions);
   }
 
-  public postCoin(coin: any)
+  public PutWallet(wallet: Wallet)
   {
-    this.http.post<any>(this.coinsURL, coin).subscribe(
-      data => console.log('POST SUCCESFULLY', data),
-      error => console.log('POST FAILED', error)
-    );
+    return this.http.put<Wallet>(this.walletsURL, wallet, this.httpOptions);
   }
 
-  public deleteCoin(Id: number)
+  public DeleteWallet(Id: number)
   {
-    this.http.delete(this.coinsURL + '/' + Id).subscribe(
-      data => console.log('DELETE SUCCESFULLY', data),
-      error => console.log('DELETE FAILED', error)
-    );
+    const url = this.walletsURL + '/' + Id;
+    return this.http.delete(url, this.httpOptions);
+  }
+
+  // ASSET CRUD
+
+  public GetAssets()
+  {
+    return this.http.get<Asset[]>(this.assetsURL).toPromise();
+  }
+
+  public GetAssetById(id: number)
+  {
+    const url = this.assetsURL + '/' + id;
+    return this.http.get<Asset>(url).toPromise();
+  }
+
+  public PostAsset(coin: any)
+  {
+    return this.http.post<any>(this.assetsURL, coin, this.httpOptions);
+  }
+
+  public PutAsset(asset: Asset)
+  {
+    return this.http.put<Asset>(this.assetsURL, asset, this.httpOptions);
+  }
+
+  public DeleteAsset(Id: number)
+  {
+    const url = this.assetsURL + '/' + Id;
+    return this.http.delete(url, this.httpOptions);
   }
 }
 
@@ -63,7 +116,7 @@ export interface Wallet
   website: string;
   price: number;
   imageURL: string;
-  categorie: string;
+  category: string;
 }
 
 export interface Founder
@@ -74,12 +127,12 @@ export interface Founder
   gender: string;
 }
 
-export interface Coin
+export interface Asset
 {
   id: number;
   symbol: string;
   name: string;
   founder: Founder;
   website: string;
-  fork?: Coin;
+  fork?: Asset;
 }

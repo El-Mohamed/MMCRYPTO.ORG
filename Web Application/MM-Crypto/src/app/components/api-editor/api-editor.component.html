@@ -1,19 +1,21 @@
 <app-api-navigation></app-api-navigation>
 
-<!-- Title -->
+<!-- Toast Message -->
 
-<h1 class="title">MM Crypto API Editor</h1>
+<p-toast position="bottom-left"></p-toast>
 
 <!-- Action Selector -->
 
-<p-dropdown [options]="CRUDActions" [(ngModel)]="SelectedCRUDAction"></p-dropdown>
-<p-dropdown [options]="Models" [(ngModel)]="SelectedModel"></p-dropdown>
+<div class="action-selector">
+    <p-dropdown [options]="CRUDActions" [(ngModel)]="SelectedCRUDAction"></p-dropdown>
+    <p-dropdown [options]="Models" [(ngModel)]="SelectedModel"></p-dropdown>
+</div>
 
 <div class="ui-g">
 
     <!-- POST Wallet -->
 
-    <div *ngIf="SelectedModel == 'Wallet' && SelectedCRUDAction == 'POST'" class="ui-g-6">
+    <div *ngIf="SelectedModel == 'Wallet' && SelectedCRUDAction == 'POST'" class="input-fields-container">
 
         <!-- SubTitle -->
 
@@ -21,58 +23,76 @@
 
         <!-- Input Fields -->
 
-        <p>Brand</p>
-        <input type="text" size="30" pInputText [(ngModel)]="WalletToPost.brand">
-        <p>Model</p>
-        <input type="text" size="30" pInputText [(ngModel)]="WalletToPost.model">
-        <p>Category</p>
-        <input type="text" size="30" pInputText [(ngModel)]="WalletToPost.categorie">
-        <p>Website</p>
-        <input type="url" size="30" pInputText [(ngModel)]="WalletToPost.website">
-        <p>Image URL</p>
-        <input type="url" size="30" pInputText [(ngModel)]="WalletToPost.imageURL">
-        <p>Price EUR</p>
-        <input type="number" size="30" pInputText [(ngModel)]="WalletToPost.price">
+        <div class="input-fields-sub-container">
+
+            <div>
+                <p>Brand</p>
+                <input type="text" size="30" pInputText [(ngModel)]="WalletToPost.brand">
+                <p>Model</p>
+                <input type="text" size="30" pInputText [(ngModel)]="WalletToPost.model">
+                <p>Category</p>
+                <input type="text" size="30" pInputText [(ngModel)]="WalletToPost.category">
+            </div>
+
+            <div>
+                <p>Website</p>
+                <input type="url" size="30" pInputText [(ngModel)]="WalletToPost.website">
+                <p>Image URL</p>
+                <input type="url" size="30" pInputText [(ngModel)]="WalletToPost.imageURL">
+                <p>Price EUR</p>
+                <input type="number" size="30" pInputText [(ngModel)]="WalletToPost.price">
+            </div>
+
+        </div>
 
         <!-- Button -->
 
         <br><br>
-        <p-button icon="pi pi-cloud-upload" label="Send" (onClick)="PerformWalletPost()"></p-button>
+        <p-button icon="pi pi-cloud-upload" label="Send" (onClick)="PerformWalletPOST()"></p-button>
     </div>
 
-    <!-- Coin POST -->
+    <!-- Post Asset -->
 
-    <div *ngIf="SelectedModel == 'Coin' && SelectedCRUDAction == 'POST'" class="ui-g-6">
+    <div *ngIf="SelectedModel == 'Asset' && SelectedCRUDAction == 'POST'" class="input-fields-container">
 
         <!-- SubTitle -->
 
-        <h2 class="title">Coin</h2>
+        <h2 class="title">Asset</h2>
 
         <!-- Input Fields -->
 
-        <p>Coin Name</p>
-        <input type="text" size="30" pInputText [(ngModel)]="CoinToPost.name">
-        <p>Coin Symbol</p>
-        <input type="text" size="30" pInputText [(ngModel)]="CoinToPost.symbol">
-        <p>Coin Website</p>
-        <input type="url" size="30" pInputText [(ngModel)]="CoinToPost.website">
-        <p>Founder First Name</p>
-        <input type="text" size="30" pInputText [(ngModel)]="CoinToPost.founder.firstName">
-        <p>Founder Last Name</p>
-        <input type="url" size="30" pInputText [(ngModel)]="CoinToPost.founder.lastName">
-        <p>Gender</p>
-        <input type="url" size="30" pInputText [(ngModel)]="CoinToPost.founder.gender">
+        <div class="input-fields-sub-container">
+
+            <div>
+                <p>Asset Name</p>
+                <input type="text" size="30" pInputText [(ngModel)]="AssetToPost.name">
+                <p>Asset Symbol</p>
+                <input type="text" size="30" pInputText [(ngModel)]="AssetToPost.symbol">
+                <p>Asset Website</p>
+                <input type="url" size="30" pInputText [(ngModel)]="AssetToPost.website">
+            </div>
+
+            <div>
+                <p>Founder First Name</p>
+                <input type="text" size="30" pInputText [(ngModel)]="AssetToPost.founder.firstName">
+                <p>Founder Last Name</p>
+                <input type="url" size="30" pInputText [(ngModel)]="AssetToPost.founder.lastName">
+                <p>Gender</p>
+                <input type="url" size="30" pInputText [(ngModel)]="AssetToPost.founder.gender">
+            </div>
+
+        </div>
 
         <!-- Button -->
 
         <br><br>
-        <p-button icon="pi pi-cloud-upload" label="Send" (onClick)="PerformCoinPost()"></p-button>
+        <p-button icon="pi pi-cloud-upload" label="Send" (onClick)="PerformAssetPOST()"></p-button>
 
     </div>
 
     <!-- DELETE Wallet -->
 
-    <div *ngIf="SelectedModel == 'Wallet' && SelectedCRUDAction == 'DELETE'" class="ui-g-6">
+    <div *ngIf="SelectedModel == 'Wallet' && SelectedCRUDAction == 'DELETE'" class="input-fields-container">
 
         <!-- SubTitle -->
 
@@ -86,28 +106,112 @@
         <!-- Button -->
 
         <br><br>
-        <p-button icon="pi pi-cloud-upload" label="Send" (onClick)="DeleteWallet(id.value)"></p-button>
+        <p-button icon="pi pi-cloud-upload" label="Send" (onClick)="PerformWalletDELETE(id.value)"></p-button>
     </div>
 
-    <!-- DELETE Coin -->
+    <!-- DELETE Asset -->
 
-    <div *ngIf="SelectedModel == 'Coin' && SelectedCRUDAction == 'DELETE'" class="ui-g-6">
+    <div *ngIf="SelectedModel == 'Asset' && SelectedCRUDAction == 'DELETE'" class="input-fields-container">
 
         <!-- SubTitle -->
 
-        <h2 class="title">Coin</h2>
+        <h2 class="title">Asset</h2>
 
         <!-- Input Fields -->
 
-        <p>Coin ID</p>
+        <p>Asset ID</p>
         <input #id2 type="number" size="30" pInputText>
 
         <!-- Button -->
 
         <br><br>
-        <p-button icon="pi pi-cloud-upload" label="Send" (onClick)="DeleteCoin(id2.value)"></p-button>
+        <p-button icon="pi pi-cloud-upload" label="Send" (onClick)="PeformAssetDELETE(id2.value)"></p-button>
     </div>
 
+    <!-- PUT Wallet -->
+
+    <div *ngIf="SelectedModel == 'Wallet' && SelectedCRUDAction == 'PUT'" class="input-fields-container">
+
+        <!-- SubTitle -->
+
+        <h2 class="title">Wallet</h2>
+
+        <!-- Input Fields -->
+
+        <div class="input-fields-sub-container">
+
+            <div>
+                <p>ID</p>
+                <input type="number" size="30" pInputText [(ngModel)]="WalletToPut.id"
+                    (change)="ReadWallet(WalletToPut.id)">
+                <p>Brand</p>
+                <input type="text" size="30" pInputText [(ngModel)]="WalletToPut.brand">
+                <p>Model</p>
+                <input type="text" size="30" pInputText [(ngModel)]="WalletToPut.model">
+            </div>
+
+            <div>
+                <p>Category</p>
+                <input type="text" size="30" pInputText [(ngModel)]="WalletToPut.category">
+                <p>Website</p>
+                <input type="url" size="30" pInputText [(ngModel)]="WalletToPut.website">
+                <p>Image URL</p>
+                <input type="url" size="30" pInputText [(ngModel)]="WalletToPut.imageURL">
+                <p>Price EUR</p>
+                <input type="number" size="30" pInputText [(ngModel)]="WalletToPut.price">
+            </div>
+
+        </div>
+
+        <!-- Button -->
+
+        <br><br>
+        <p-button icon="pi pi-cloud-upload" label="Send" (onClick)="PerformWalletPUT()"></p-button>
+    </div>
+
+    <!-- PUT Asset -->
+
+    <div *ngIf="SelectedModel == 'Asset' && SelectedCRUDAction == 'PUT'" class="input-fields-container">
+
+        <!-- SubTitle -->
+
+        <h2 class="title">Asset</h2>
+
+        <!-- Input Fields -->
+
+        <div class="input-fields-sub-container">
+
+            <div>
+                <p>Asset ID</p>
+                <input type="number" size="30" pInputText [(ngModel)]="AssetToPut.id"
+                    (change)="ReadAsset(AssetToPut.id)">
+                <p>Asset Name</p>
+                <input type="text" size="30" pInputText [(ngModel)]="AssetToPut.name">
+                <p>Asset Symbol</p>
+                <input type="text" size="30" pInputText [(ngModel)]="AssetToPut.symbol">
+                <p>Asset Website</p>
+                <input type="url" size="30" pInputText [(ngModel)]="AssetToPut.website">
+            </div>
+
+            <div>
+                <p>Founder ID</p>
+                <input [disabled]="true" type="number" size="30" pInputText [(ngModel)]="AssetToPut.founder.id">
+                <p>Founder First Name</p>
+                <input type=" text" size="30" pInputText [(ngModel)]="AssetToPut.founder.firstName">
+                <p>Founder Last Name</p>
+                <input type="url" size="30" pInputText [(ngModel)]="AssetToPut.founder.lastName">
+                <p>Gender</p>
+                <input type="url" size="30" pInputText [(ngModel)]="AssetToPut.founder.gender">
+            </div>
+
+        </div>
+
+        <!-- Button -->
+
+        <br><br>
+        <p-button icon="pi pi-cloud-upload" label="Send" (onClick)="PerformAssetPUT()"></p-button>
+
+    </div>
 
 
 </div>

@@ -1,3 +1,23 @@
 p, .title {
     color: white;
 }
+
+.input-fields-container, .action-selector, .title {
+    margin: auto;
+    width: fit-content;
+    padding: 10px;
+}
+
+.action-selector * {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.input-fields-sub-container {
+    display: flex;
+}
+
+.input-fields-sub-container * {
+    margin-left: 10px;
+    margin-right: 10px;
+}

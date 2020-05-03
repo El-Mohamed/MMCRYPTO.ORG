@@ -56,7 +56,7 @@ export class PriceChartComponent implements OnInit
   {
     try {
       this.clearAllData();
-      this.CoinHistoryData = await this.service.getHistoryFromCoin(this.id, SelectedTimeFrame);
+      this.CoinHistoryData = await this.service.GetHistoryFromCoin(this.id, SelectedTimeFrame);
       this.AllHistoryItems = this.CoinHistoryData.data;
       this.createChartData();
       this.initChart();
@@ -204,7 +204,7 @@ export class PriceChartComponent implements OnInit
       labels: {
         formatter(val)
         {
-          let date = new Date(val);
+          const date = new Date(val);
           return (date.toLocaleString());
         }
       },
@@ -235,7 +235,7 @@ export class PriceChartComponent implements OnInit
       x: {
         formatter(val)
         {
-          let date = new Date(val);
+          const date = new Date(val);
           return (date.toLocaleString());
         }
       },

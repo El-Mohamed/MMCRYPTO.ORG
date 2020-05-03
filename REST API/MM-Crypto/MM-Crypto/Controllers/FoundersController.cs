@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -16,15 +17,17 @@ namespace MM_Crypto.Controllers
         }
 
         [HttpGet]
-        public List<Founder> GetAllFounders(int? page, int lenght = 20)
+        public List<Founder> GetAllFounders(int? page, int lenght = 100)
         {
             IQueryable<Founder> query = context.Founders;
 
+            // Paging
             if (page.HasValue)
                 query = query.Skip(page.Value * lenght);
 
             query = query.Take(lenght);
 
+            // Response Headers
             Response.Headers.Add("X-Total-Count", query.Count().ToString());
 
             return query.ToList();
@@ -42,6 +45,7 @@ namespace MM_Crypto.Controllers
             return Ok(founder);
         }
 
+        [Authorize]
         [Route("{id}")]
         [HttpDelete]
         public IActionResult DeleteFounderById(int id)
@@ -58,14 +62,19 @@ namespace MM_Crypto.Controllers
             return NoContent();
         }
 
+        [Authorize]
         [HttpPost]
-        public IActionResult CreateFounder([FromBody] Founder newFounder)
+        public IActionResult InsertFounder([FromBody] Founder newFounder)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             context.Founders.Add(newFounder);
             context.SaveChanges();
             return Created("", newFounder);
         }
 
+        [Authorize]
         [HttpPut]
         public IActionResult UpdateFounder([FromBody] Founder updateFouder)
         {

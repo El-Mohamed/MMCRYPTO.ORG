@@ -1,4 +1,6 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -16,13 +18,13 @@ namespace MM_Crypto.Controllers
         }
 
         [HttpGet]
-        public List<Wallet> GetAllWallets(string sort,string category, string brand, int? page, int length = 20, string dir="asc")
+        public List<Wallet> GetAllWallets(string sort,string category, string brand, int? page, int length = 100, string dir="asc")
         {
             IQueryable<Wallet> query = context.Wallets;
 
             // Filter
             if (!string.IsNullOrWhiteSpace(category))
-                query = query.Where(w => w.Categorie == category);
+                query = query.Where(w => w.Category == category);
             if (!string.IsNullOrWhiteSpace(brand))
                 query = query.Where(w => w.Brand == brand);
 
@@ -52,6 +54,7 @@ namespace MM_Crypto.Controllers
                 query = query.Skip(page.Value * length);
             query = query.Take(length);
 
+            // Response Headers
             Response.Headers.Add("X-Total-Count", query.Count().ToString());
 
             return query.ToList();
@@ -70,6 +73,20 @@ namespace MM_Crypto.Controllers
             return Ok(wallet);
         }
 
+        [Route("{id}/assets")]
+        [HttpGet]
+        public IActionResult GetSupportedAssets(int Id)
+        {
+            var walletIncludingAssets = context.Wallets.Include(c => c.SupportedAssets).ThenInclude(row => row.Asset).First(c => c.ID == Id);
+            var supportedAssets = walletIncludingAssets.SupportedAssets.Select(row => row.Asset);
+
+            if (supportedAssets == null)
+                return NotFound();
+
+            return Ok(supportedAssets);
+        }
+
+        [Authorize]
         [Route("{id}")]
         [HttpDelete]
         public IActionResult DeleteWalletById(int id)
@@ -86,14 +103,19 @@ namespace MM_Crypto.Controllers
             return NoContent();
         }
 
+        [Authorize]
         [HttpPost]
-        public IActionResult CreateWallet([FromBody] Wallet newWallet)
+        public IActionResult InsertWallet([FromBody] Wallet newWallet)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             context.Wallets.Add(newWallet);
             context.SaveChanges();
             return Created("", newWallet);
         }
 
+        [Authorize]
         [HttpPut]
         public IActionResult UpdateWallet([FromBody] Wallet updateWallet)
         {
@@ -107,7 +129,7 @@ namespace MM_Crypto.Controllers
             originalWallet.Website = updateWallet.Website;
             originalWallet.Price = updateWallet.Price;
             originalWallet.ImageURL = updateWallet.ImageURL;
-            originalWallet.Categorie = updateWallet.Categorie;
+            originalWallet.Category = updateWallet.Category;
 
             context.SaveChanges();
             return Ok(originalWallet);

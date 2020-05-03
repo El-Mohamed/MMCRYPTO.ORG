@@ -1,12 +1,19 @@
 .title, .currency-rate {
     color: white;
-    margin: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
 }
 
 .input-container {
     display: flex;
     padding: 20px;
     align-items: center;
+    margin: auto;
+    width: fit-content;
+    flex-direction: column;
 }
 
 .input-container * {

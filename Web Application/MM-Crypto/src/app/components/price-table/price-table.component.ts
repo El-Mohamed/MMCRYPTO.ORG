@@ -31,7 +31,7 @@ export class PriceTableComponent implements OnInit
   async updatePrices()
   {
     try {
-      this.CoinCapData = await this.service.getAssets();
+      this.CoinCapData = await this.service.GetAllAssets();
       this.AllCoinCapAssets = this.CoinCapData.data;
       this.symbolsToLowerCase();
     }

@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: "ranking", component: PriceTableComponent },
   { path: "calculator", component: CurrencyCalculatorComponent },
   { path: "wallet-details", component: WalletDetailsComponent },
-  { path: "currency-details", component: CurrencyDetailsComponent },
+  { path: "asset-details", component: CurrencyDetailsComponent },
   { path: "api-editor", component: ApiEditorComponent },
   { path: 'chart/:id', component: PriceChartComponent },
   { path: '404', component: NotFoundComponent },

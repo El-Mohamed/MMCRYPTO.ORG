@@ -14,3 +14,8 @@
 .shop-button {
     margin-right: 20px;
 }
+
+.filters-container {
+    display: flex;
+    margin-bottom: 7px;
+}
