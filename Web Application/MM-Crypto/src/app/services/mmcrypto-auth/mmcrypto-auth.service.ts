@@ -16,7 +16,7 @@ export class MmcryptoAuthService
     grant_type: 'client_credentials'
   };
 
-  private URL: string = "https://mm-crypto.eu.auth0.com/oauth/token";
+  private URL = 'https://mm-crypto.eu.auth0.com/oauth/token';
 
   constructor(private http: HttpClient) { }
 

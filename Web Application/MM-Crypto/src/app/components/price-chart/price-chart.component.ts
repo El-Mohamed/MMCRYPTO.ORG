@@ -204,7 +204,7 @@ export class PriceChartComponent implements OnInit
       labels: {
         formatter(val)
         {
-          let date = new Date(val);
+          const date = new Date(val);
           return (date.toLocaleString());
         }
       },
@@ -235,7 +235,7 @@ export class PriceChartComponent implements OnInit
       x: {
         formatter(val)
         {
-          let date = new Date(val);
+          const date = new Date(val);
           return (date.toLocaleString());
         }
       },

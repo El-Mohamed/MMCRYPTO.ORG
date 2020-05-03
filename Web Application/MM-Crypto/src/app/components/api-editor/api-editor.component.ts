@@ -20,7 +20,7 @@ export class ApiEditorComponent implements OnInit
       { label: 'DELETE', value: 'DELETE' }
     ];
 
-  SelectedCRUDAction: string = 'PUT';
+  SelectedCRUDAction = 'PUT';
 
   Models: SelectItem[] =
     [
@@ -28,7 +28,7 @@ export class ApiEditorComponent implements OnInit
       { label: 'Wallet', value: 'Wallet' }
     ];
 
-  SelectedModel: string = 'Wallet';
+  SelectedModel = 'Wallet';
 
   WalletToPost: any = {
     brand: 'Ledger',
@@ -93,26 +93,26 @@ export class ApiEditorComponent implements OnInit
 
   ErrorToast(key: string, errorDescription: string)
   {
-    var messageDetail = key + ' : ' + errorDescription;
+    const messageDetail = key + ' : ' + errorDescription;
     this.messageService.add({ severity: 'error', summary: '400 - Bad Request', detail: messageDetail });
   }
 
   HandleError(errorResponse: HttpErrorResponse)
   {
-    //console.log(errorResponse.error.status);
-    //console.log(errorResponse);
+    // console.log(errorResponse.error.status);
+    // console.log(errorResponse);
 
-    var allRequestErrors = errorResponse.error.errors;
+    const allRequestErrors = errorResponse.error.errors;
 
     for (const key of Object.keys(allRequestErrors)) {
 
       // console.log(key, allRequestErrors[key]);
-      var allErrorsOfKey = allRequestErrors[key];
+      const allErrorsOfKey = allRequestErrors[key];
 
       allErrorsOfKey.forEach(keyError =>
       {
         this.ErrorToast(key, keyError);
-        //console.log(keyError);
+        // console.log(keyError);
       });
     }
   }
@@ -153,7 +153,7 @@ export class ApiEditorComponent implements OnInit
     );
   }
 
-  // Asset CRUD 
+  // Asset CRUD
 
   async ReadAsset(id: number)
   {

@@ -18,7 +18,7 @@ export class WalletDetailsComponent implements OnInit
       { label: 'Descending ', value: 'desc' },
     ];
 
-  SelectedSortMode: string = 'asc';
+  SelectedSortMode = 'asc';
 
   PageLenght: SelectItem[] =
     [
@@ -30,7 +30,7 @@ export class WalletDetailsComponent implements OnInit
       { label: '100', value: '100' },
     ];
 
-  SelectedPageLength: string = '5';
+  SelectedPageLength = '5';
 
 
   SortOn: SelectItem[] =
@@ -39,10 +39,10 @@ export class WalletDetailsComponent implements OnInit
       { label: 'Price', value: 'price' }
     ];
 
-  SelectedSortOn: string = 'price';
+  SelectedSortOn = 'price';
 
-  CurrentPageNumber: number = 1;
-  KeyWord: string = 'Search Here';
+  CurrentPageNumber = 1;
+  KeyWord = 'Search Here';
 
 
   constructor(private service: MmcryptoService) { }
