@@ -7,7 +7,7 @@
     <div class="filters-container">
         <p-dropdown [options]="SortOn" [(ngModel)]="SelectedSortOn" (onChange)="UpdateWallets()"></p-dropdown>
         <p-dropdown [options]="SortMode" [(ngModel)]="SelectedSortMode" (onChange)="UpdateWallets()"></p-dropdown>
-        <p-dropdown [options]="PageLenght" [(ngModel)]="SelectedPageLength" (onChange)="UpdateWallets()"></p-dropdown>
+        <p-dropdown [options]="PageLength" [(ngModel)]="SelectedPageLength" (onChange)="UpdateWallets()"></p-dropdown>
         <div>
             <input type="text" [(ngModel)]="KeyWord" pInputText />
         </div>

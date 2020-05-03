@@ -20,7 +20,7 @@ export class WalletDetailsComponent implements OnInit
 
   SelectedSortMode = 'asc';
 
-  PageLenght: SelectItem[] =
+  PageLength: SelectItem[] =
     [
       { label: '5', value: '5' },
       { label: '10', value: '10' },
