@@ -59,7 +59,7 @@ export class MmCryptoService
   public GetWalletById(id: number)
   {
     const url = this.walletsURL + '/' + id;
-    return this.http.get<Wallet>(url).toPromise();
+    return this.http.get<Wallet>(url);
   }
 
   public PostWallet(wallet: any)
@@ -88,7 +88,7 @@ export class MmCryptoService
   public GetAssetById(id: number)
   {
     const url = this.assetsURL + '/' + id;
-    return this.http.get<Asset>(url).toPromise();
+    return this.http.get<Asset>(url);
   }
 
   public PostAsset(coin: any)

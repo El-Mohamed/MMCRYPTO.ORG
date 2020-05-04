@@ -77,6 +77,8 @@ export class ApiEditorComponent implements OnInit
 
   constructor(private service: MmCryptoService, private messageService: MessageService)
   {
+    this.ReadWallet(1);
+    this.ReadAsset(1);
   }
 
   ngOnInit(): void
@@ -93,7 +95,7 @@ export class ApiEditorComponent implements OnInit
 
   ErrorToast(statusCode: string, title: string, key: string = "", errorDescription: string = "")
   {
-    const messageDetail = key + ' : ' + errorDescription;
+    const messageDetail = key + '  ' + errorDescription;
     const messageSummary = statusCode + ' ' + title;
     this.messageService.add({ severity: 'error', summary: messageSummary, detail: messageDetail });
   }
@@ -125,12 +127,9 @@ export class ApiEditorComponent implements OnInit
 
   async ReadWallet(id: number)
   {
-    try {
-      this.WalletToPut = await this.service.GetWalletById(id);
-    }
-    catch (e) {
-
-    }
+    await this.service.GetWalletById(id).toPromise().
+      then(data => this.WalletToPut = data).
+      catch((error: HttpErrorResponse) => this.HandleError(error));
   }
 
   PerformWalletPOST()
@@ -152,7 +151,7 @@ export class ApiEditorComponent implements OnInit
   PerformWalletDELETE(Id: number)
   {
     this.service.DeleteWallet(Id).subscribe(
-      data => this.SuccesToast('204 - Not Content'),
+      data => this.SuccesToast('204 - No Content'),
       (error: HttpErrorResponse) => this.HandleError(error)
     );
   }
@@ -161,12 +160,9 @@ export class ApiEditorComponent implements OnInit
 
   async ReadAsset(id: number)
   {
-    try {
-      this.AssetToPut = await this.service.GetAssetById(id);
-    }
-    catch (e) {
-
-    }
+    await this.service.GetAssetById(id).toPromise().
+      then(data => this.AssetToPut = data)
+      .catch((error: HttpErrorResponse) => this.HandleError(error));
   }
 
   PerformAssetPOST()
@@ -188,7 +184,7 @@ export class ApiEditorComponent implements OnInit
   PeformAssetDELETE(Id: number)
   {
     this.service.DeleteAsset(Id).subscribe(
-      data => this.SuccesToast('204 - Not Content'),
+      data => this.SuccesToast('204 - No Content'),
       (error: HttpErrorResponse) => this.HandleError(error)
     );
   }
