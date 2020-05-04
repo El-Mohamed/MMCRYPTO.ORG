@@ -49,6 +49,8 @@ export class ApiEditorComponent implements OnInit
     category: 'Hardware'
   };
 
+  BlockWalletFields: Boolean = false;
+
   AssetToPost: any = {
     symbol: 'BTC',
     name: 'Bitcoin',
@@ -74,6 +76,8 @@ export class ApiEditorComponent implements OnInit
     website: 'http://www.bitcoin.org/',
     fork: null
   };
+
+  BlockAssetFields: Boolean = false;
 
   constructor(private service: MmCryptoService, private messageService: MessageService)
   {
@@ -128,8 +132,16 @@ export class ApiEditorComponent implements OnInit
   async ReadWallet(id: number)
   {
     await this.service.GetWalletById(id).toPromise().
-      then(data => this.WalletToPut = data).
-      catch((error: HttpErrorResponse) => this.HandleError(error));
+      then(data =>
+      {
+        this.WalletToPut = data;
+        this.BlockWalletFields = false;
+      }).
+      catch((error: HttpErrorResponse) =>
+      {
+        this.HandleError(error);
+        this.BlockWalletFields = true;
+      });
   }
 
   PerformWalletPOST()
@@ -161,8 +173,16 @@ export class ApiEditorComponent implements OnInit
   async ReadAsset(id: number)
   {
     await this.service.GetAssetById(id).toPromise().
-      then(data => this.AssetToPut = data)
-      .catch((error: HttpErrorResponse) => this.HandleError(error));
+      then(data =>
+      {
+        this.AssetToPut = data;
+        this.BlockAssetFields = false;
+      })
+      .catch((error: HttpErrorResponse) =>
+      {
+        this.HandleError(error);
+        this.BlockAssetFields = true;
+      });
   }
 
   PerformAssetPOST()
