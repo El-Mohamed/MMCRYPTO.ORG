@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { MmcryptoAuthService, Auth0Token } from '../mmcrypto-auth/mmcrypto-auth.service';
+import { MmCryptoAuthService, Auth0Token } from '../mm-crypto-auth/mm-crypto-auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class MmCryptoService
 
   private Auth0Token: Auth0Token;
 
-  constructor(private http: HttpClient, private apiAuth: MmcryptoAuthService)
+  constructor(private http: HttpClient, private apiAuth: MmCryptoAuthService)
   {
     this.GetToken();
   }

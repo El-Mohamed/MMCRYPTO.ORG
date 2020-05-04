@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class MmcryptoAuthService
+export class MmCryptoAuthService
 {
 
   private body: any = {

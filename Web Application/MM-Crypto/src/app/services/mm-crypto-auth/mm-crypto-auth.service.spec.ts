@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MmcryptoAuthService } from './mmcrypto-auth.service';
+import { MmCryptoAuthService } from './mm-crypto-auth.service';
 
 describe('MmcryptoAuthService', () => {
-  let service: MmcryptoAuthService;
+  let service: MmCryptoAuthService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(MmcryptoAuthService);
+    service = TestBed.inject(MmCryptoAuthService);
   });
 
   it('should be created', () => {
