@@ -169,7 +169,8 @@
         <!-- Button -->
 
         <br><br>
-        <p-button icon="pi pi-cloud-upload" label="Send" (onClick)="PerformWalletPUT()"></p-button>
+        <p-button icon="pi pi-cloud-upload" label="Send" (onClick)="PerformWalletPUT()" [disabled]="BlockWalletFields">
+        </p-button>
     </div>
 
     <!-- PUT Asset -->
@@ -216,9 +217,9 @@
         <!-- Button -->
 
         <br><br>
-        <p-button icon="pi pi-cloud-upload" label="Send" (onClick)="PerformAssetPUT()"></p-button>
+        <p-button icon="pi pi-cloud-upload" label="Send" (onClick)="PerformAssetPUT()" [disabled]="BlockAssetFields">
+        </p-button>
 
     </div>
-
 
 </div>
