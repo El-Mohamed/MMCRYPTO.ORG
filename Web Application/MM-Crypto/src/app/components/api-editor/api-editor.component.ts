@@ -91,30 +91,34 @@ export class ApiEditorComponent implements OnInit
     this.messageService.add({ severity: 'success', summary: statusCode, detail: 'Request was succesfull' });
   }
 
-  ErrorToast(key: string, errorDescription: string)
+  ErrorToast(statusCode: string, title: string, key: string = "", errorDescription: string = "")
   {
     const messageDetail = key + ' : ' + errorDescription;
-    this.messageService.add({ severity: 'error', summary: '400 - Bad Request', detail: messageDetail });
+    const messageSummary = statusCode + ' ' + title;
+    this.messageService.add({ severity: 'error', summary: messageSummary, detail: messageDetail });
   }
 
   HandleError(errorResponse: HttpErrorResponse)
   {
-    // console.log(errorResponse.error.status);
-    // console.log(errorResponse);
-
+    const statusCode = errorResponse.error.status;
+    const errorTitle = errorResponse.error.title;
     const allRequestErrors = errorResponse.error.errors;
 
-    for (const key of Object.keys(allRequestErrors)) {
+    if (allRequestErrors) {
+      for (const key of Object.keys(allRequestErrors)) {
 
-      // console.log(key, allRequestErrors[key]);
-      const allErrorsOfKey = allRequestErrors[key];
+        const allErrorsOfKey = allRequestErrors[key];
 
-      allErrorsOfKey.forEach(keyError =>
-      {
-        this.ErrorToast(key, keyError);
-        // console.log(keyError);
-      });
+        allErrorsOfKey.forEach(keyError =>
+        {
+          this.ErrorToast(statusCode, errorTitle, key, keyError);
+        });
+      }
     }
+    else {
+      this.ErrorToast(statusCode, errorTitle);
+    }
+
   }
 
   // Wallet CRUD
