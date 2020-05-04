@@ -5,7 +5,7 @@ import { MmcryptoAuthService, Auth0Token } from '../mmcrypto-auth/mmcrypto-auth.
 @Injectable({
   providedIn: 'root'
 })
-export class MmcryptoService
+export class MmCryptoService
 {
 
   private walletsURL = 'https://localhost:44362/api/v1/wallets';
