@@ -16,7 +16,7 @@ export class MmCryptoService
 
   constructor(private http: HttpClient, private apiAuth: MmCryptoAuthService)
   {
-    this.GetToken();
+
   }
 
   // Auth For API
@@ -31,6 +31,11 @@ export class MmCryptoService
       },
       (error: HttpErrorResponse) => console.log(error)
     );
+  }
+
+  public DeleteToken()
+  {
+    this.Auth0Token = null;
   }
 
   private SetHttpHeaders()

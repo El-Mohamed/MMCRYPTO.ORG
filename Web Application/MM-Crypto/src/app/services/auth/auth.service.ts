@@ -4,6 +4,8 @@ import Auth0Client from '@auth0/auth0-spa-js/dist/typings/Auth0Client';
 import { from, of, Observable, BehaviorSubject, combineLatest, throwError } from 'rxjs';
 import { tap, catchError, concatMap, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { MmCryptoAuthService } from '../mm-crypto-auth/mm-crypto-auth.service';
+import { MmCryptoService } from '../mm-crypto/mm-crypto.service';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +29,13 @@ export class AuthService
   // from: Convert that resulting promise into an observable
   isAuthenticated$ = this.auth0Client$.pipe(
     concatMap((client: Auth0Client) => from(client.isAuthenticated())),
-    tap(res => this.loggedIn = res)
+    tap(res =>
+    {
+      this.loggedIn = res;
+      if (this.loggedIn == true) {
+        this.ApiService.GetToken();
+      }
+    })
   );
   handleRedirectCallback$ = this.auth0Client$.pipe(
     concatMap((client: Auth0Client) => from(client.handleRedirectCallback()))
@@ -38,7 +46,7 @@ export class AuthService
   // Create a local property for login status
   loggedIn: boolean = null;
 
-  constructor(private router: Router)
+  constructor(private router: Router, private ApiService: MmCryptoService)
   {
     // On initial load, check authentication state with authorization server
     // Set up local auth streams if user is already authenticated
@@ -109,7 +117,7 @@ export class AuthService
           // Redirect callback complete; get user and login status
           return combineLatest([
             this.getUser$(),
-            this.isAuthenticated$
+            this.isAuthenticated$,
           ]);
         })
       );
@@ -125,6 +133,7 @@ export class AuthService
 
   logout()
   {
+    this.ApiService.DeleteToken();
     // Ensure Auth0 client instance exists
     this.auth0Client$.subscribe((client: Auth0Client) =>
     {
@@ -134,6 +143,7 @@ export class AuthService
         returnTo: `${ window.location.origin }`
       });
     });
+
   }
 
 }

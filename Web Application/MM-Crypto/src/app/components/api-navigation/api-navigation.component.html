@@ -1,7 +1,7 @@
 <div class="buttons-container">
     <p-button class="nav-button" label="Wallets" routerLink="/wallet-details"></p-button>
     <p-button class="nav-button" label="Assets" routerLink="/asset-details"></p-button>
-    <p-button class="nav-button" label="Editor" routerLink="/api-editor"></p-button>
+    <p-button class="nav-button" label="Editor" routerLink="/api-editor" *ngIf="auth.loggedIn"></p-button>
     <p-button class="nav-button" label="Documentation" (onClick)="OpenDocumentation()"></p-button>
 </div>
 
