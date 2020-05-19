@@ -4,7 +4,6 @@ import Auth0Client from '@auth0/auth0-spa-js/dist/typings/Auth0Client';
 import { from, of, Observable, BehaviorSubject, combineLatest, throwError } from 'rxjs';
 import { tap, catchError, concatMap, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { MmCryptoAuthService } from '../mm-crypto-auth/mm-crypto-auth.service';
 import { MmCryptoService } from '../mm-crypto/mm-crypto.service';
 
 @Injectable({
@@ -13,6 +12,8 @@ import { MmCryptoService } from '../mm-crypto/mm-crypto.service';
 export class AuthService
 {
 
+  // From Auth0 Quick Start Guide & Modified Few Lines
+
   auth0Client$ = (from(
     createAuth0Client({
       domain: 'mm-crypto.eu.auth0.com',
@@ -20,7 +21,7 @@ export class AuthService
       redirect_uri: `${ window.location.origin }`
     })
   ) as Observable<Auth0Client>).pipe(
-    shareReplay(1), // Every subscription receives the same shared value
+    shareReplay(1),
     catchError(err => throwError(err))
   );
 
@@ -30,7 +31,7 @@ export class AuthService
     {
       this.loggedIn = res;
       if (this.loggedIn == true) {
-        this.ApiService.GetToken();
+        this.ApiService.GetToken(); // Generator Token
       }
     })
   );
@@ -118,7 +119,7 @@ export class AuthService
 
   logout()
   {
-    this.ApiService.DeleteToken();
+    this.ApiService.DeleteToken(); // Delete Token
 
     this.auth0Client$.subscribe((client: Auth0Client) =>
     {
