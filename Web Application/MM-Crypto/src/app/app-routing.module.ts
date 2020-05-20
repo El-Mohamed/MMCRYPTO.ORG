@@ -8,6 +8,7 @@ import { CurrencyCalculatorComponent } from './components/currency-calculator/cu
 import { AssetDetailsComponent } from './components/asset-details/asset-details.component';
 import { WalletDetailsComponent } from './components/wallet-details/wallet-details.component';
 import { ApiEditorComponent } from './components/api-editor/api-editor.component';
+import { TokenGenratorComponent } from './components/token-genrator/token-genrator.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: "wallet-details", component: WalletDetailsComponent },
   { path: "asset-details", component: AssetDetailsComponent },
   { path: "api-editor", component: ApiEditorComponent },
+  { path: "token-generator", component: TokenGenratorComponent },
   { path: 'chart/:id', component: PriceChartComponent },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '/404', pathMatch: "full" }
