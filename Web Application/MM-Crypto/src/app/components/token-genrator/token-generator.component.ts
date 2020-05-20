@@ -6,16 +6,16 @@ import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-token-genrator',
-  templateUrl: './token-genrator.component.html',
-  styleUrls: ['./token-genrator.component.css'],
+  templateUrl: './token-generator.component.html',
+  styleUrls: ['./token-generator.component.css'],
   providers: [MessageService]
 })
-export class TokenGenratorComponent implements OnInit
+export class TokenGeneratorComponent implements OnInit
 {
   GeneratedToken: Auth0Token = {
-    access_token: "",
+    access_token: '',
     expires_in: 0,
-    token_type: ""
+    token_type: ''
   };
 
   constructor(private apiAuth: MmCryptoAuthService, private messageService: MessageService) { }
@@ -26,12 +26,12 @@ export class TokenGenratorComponent implements OnInit
 
   SuccesToast()
   {
-    this.messageService.add({ severity: 'success', summary: "Succes", detail: 'Request was succesfull' });
+    this.messageService.add({ severity: 'success', summary: 'Succes', detail: 'Request was succesfull' });
   }
 
   ErrorToast()
   {
-    this.messageService.add({ severity: 'error', summary: "Error", detail: 'Request was failed' });
+    this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Request was failed' });
   }
 
   GenerateToken()

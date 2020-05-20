@@ -35,7 +35,7 @@ import { NgApexchartsModule } from "ng-apexcharts";
 
 // Firebase
 import { AngularFireModule } from '@angular/fire';
-import { TokenGenratorComponent } from './components/token-genrator/token-genrator.component';
+import { TokenGeneratorComponent } from './components/token-genrator/token-generator.component';
 
 
 
@@ -55,7 +55,7 @@ import { TokenGenratorComponent } from './components/token-genrator/token-genrat
     ApiNavigationComponent,
     WalletDetailsComponent,
     ApiEditorComponent,
-    TokenGenratorComponent
+    TokenGeneratorComponent
   ],
   imports: [
     BrowserModule,

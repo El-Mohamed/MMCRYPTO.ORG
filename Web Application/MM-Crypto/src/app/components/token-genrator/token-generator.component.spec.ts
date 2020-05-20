@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TokenGenratorComponent } from './token-genrator.component';
+import { TokenGeneratorComponent } from './token-generator.component';
 
 describe('TokenGenratorComponent', () => {
-  let component: TokenGenratorComponent;
-  let fixture: ComponentFixture<TokenGenratorComponent>;
+  let component: TokenGeneratorComponent;
+  let fixture: ComponentFixture<TokenGeneratorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TokenGenratorComponent ]
+      declarations: [ TokenGeneratorComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TokenGenratorComponent);
+    fixture = TestBed.createComponent(TokenGeneratorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
