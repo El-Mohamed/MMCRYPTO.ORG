@@ -5,8 +5,8 @@
     <h1 class="title">GENERATE TOKEN FOR API</h1>
 
     <div class="input-container">
-        <input type="text" size="30" pInputText>
-        <p-button label="Generate"></p-button>
+        <input type="text" size="60" [(ngModel)]="GeneratedToken.access_token" pInputText>
+        <p-button label="Generate" (onClick)="GenerateToken()"></p-button>
     </div>
 
 </div>
