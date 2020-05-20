@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MmcryptoService, Wallet } from 'src/app/services/mmcrypto/mmcrypto.service';
+import { MmCryptoService, Wallet } from 'src/app/services/mm-crypto/mm-crypto.service';
 import { SelectItem } from 'primeng/api/selectitem';
 
 @Component({
@@ -45,7 +45,7 @@ export class WalletDetailsComponent implements OnInit
   KeyWord = 'Search Here';
 
 
-  constructor(private service: MmcryptoService) { }
+  constructor(private service: MmCryptoService) { }
 
   ngOnInit(): void
   {

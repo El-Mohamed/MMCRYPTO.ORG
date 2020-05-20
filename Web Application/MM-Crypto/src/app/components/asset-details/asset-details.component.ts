@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { MmcryptoService, Asset } from 'src/app/services/mmcrypto/mmcrypto.service';
+import { MmCryptoService, Asset } from 'src/app/services/mm-crypto/mm-crypto.service';
 
 @Component({
   selector: 'app-currency-details',
-  templateUrl: './currency-details.component.html',
-  styleUrls: ['./currency-details.component.css']
+  templateUrl: './asset-details.component.html',
+  styleUrls: ['./asset-details.component.css']
 })
-export class CurrencyDetailsComponent implements OnInit
+export class AssetDetailsComponent implements OnInit
 {
 
   AllAssets: Asset[] = [];
 
-  constructor(private service: MmcryptoService) { }
+  constructor(private service: MmCryptoService) { }
 
   ngOnInit(): void
   {

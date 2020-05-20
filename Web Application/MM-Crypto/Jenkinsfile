@@ -1,0 +1,46 @@
+pipeline {
+   agent { node { label 'master' } } 
+   tools {nodejs "My NodeJS"}
+    environment {
+        FIREBASE_TOKEN = credentials('firebase-token')
+        FIREBASE_PROJECT = credentials('firebase-project')
+    }
+    stages {
+        stage('Install: Angular CLI & npm Packages') {
+            steps {
+                sh '''
+                npm install @angular/cli
+                cd "Web Application"/MM-Crypto
+                npm install
+                '''
+            }
+        }
+        stage('Build Production Mode') {
+            steps {
+                sh '''
+                cd "Web Application"/MM-Crypto
+                npm run "build prod"
+                ''' 
+            }
+        }
+        stage('Deploy Containers (Ansible)') {
+            steps {
+                node('Ubuntu') {
+                    sh '''
+                    cd /home/mohamed/Desktop/DevOps-Project-Files/Ansible/
+                    ./start_deployment.sh
+                    '''
+                }
+            }
+        }
+        stage('Deploy To Firebase') {
+            steps {
+               sh '''
+                cd "Web Application"/MM-Crypto 
+                npm install -g firebase-tools
+                firebase deploy --token $FIREBASE_TOKEN --project $FIREBASE_PROJECT --message "JENKINS"
+                '''
+            }
+        }                    
+    }
+}

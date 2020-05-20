@@ -145,20 +145,23 @@
                 <input type="number" size="30" pInputText [(ngModel)]="WalletToPut.id"
                     (change)="ReadWallet(WalletToPut.id)">
                 <p>Brand</p>
-                <input type="text" size="30" pInputText [(ngModel)]="WalletToPut.brand">
+                <input type="text" size="30" pInputText [(ngModel)]="WalletToPut.brand" [disabled]="BlockWalletFields">
                 <p>Model</p>
-                <input type="text" size="30" pInputText [(ngModel)]="WalletToPut.model">
+                <input type="text" size="30" pInputText [(ngModel)]="WalletToPut.model" [disabled]="BlockWalletFields">
             </div>
 
             <div>
                 <p>Category</p>
-                <input type="text" size="30" pInputText [(ngModel)]="WalletToPut.category">
+                <input type="text" size="30" pInputText [(ngModel)]="WalletToPut.category"
+                    [disabled]="BlockWalletFields">
                 <p>Website</p>
-                <input type="url" size="30" pInputText [(ngModel)]="WalletToPut.website">
+                <input type="url" size="30" pInputText [(ngModel)]="WalletToPut.website" [disabled]="BlockWalletFields">
                 <p>Image URL</p>
-                <input type="url" size="30" pInputText [(ngModel)]="WalletToPut.imageURL">
+                <input type="url" size="30" pInputText [(ngModel)]="WalletToPut.imageURL"
+                    [disabled]="BlockWalletFields">
                 <p>Price EUR</p>
-                <input type="number" size="30" pInputText [(ngModel)]="WalletToPut.price">
+                <input type="number" size="30" pInputText [(ngModel)]="WalletToPut.price"
+                    [disabled]="BlockWalletFields">
             </div>
 
         </div>
@@ -166,7 +169,8 @@
         <!-- Button -->
 
         <br><br>
-        <p-button icon="pi pi-cloud-upload" label="Send" (onClick)="PerformWalletPUT()"></p-button>
+        <p-button icon="pi pi-cloud-upload" label="Send" (onClick)="PerformWalletPUT()" [disabled]="BlockWalletFields">
+        </p-button>
     </div>
 
     <!-- PUT Asset -->
@@ -186,22 +190,26 @@
                 <input type="number" size="30" pInputText [(ngModel)]="AssetToPut.id"
                     (change)="ReadAsset(AssetToPut.id)">
                 <p>Asset Name</p>
-                <input type="text" size="30" pInputText [(ngModel)]="AssetToPut.name">
+                <input type="text" size="30" pInputText [(ngModel)]="AssetToPut.name" [disabled]="BlockAssetFields">
                 <p>Asset Symbol</p>
-                <input type="text" size="30" pInputText [(ngModel)]="AssetToPut.symbol">
+                <input type="text" size="30" pInputText [(ngModel)]="AssetToPut.symbol" [disabled]="BlockAssetFields">
                 <p>Asset Website</p>
-                <input type="url" size="30" pInputText [(ngModel)]="AssetToPut.website">
+                <input type="url" size="30" pInputText [(ngModel)]="AssetToPut.website" [disabled]="BlockAssetFields">
             </div>
 
             <div>
                 <p>Founder ID</p>
-                <input [disabled]="true" type="number" size="30" pInputText [(ngModel)]="AssetToPut.founder.id">
+                <input [disabled]="true" type="number" size="30" pInputText [(ngModel)]="AssetToPut.founder.id"
+                    [disabled]="BlockAssetFields">
                 <p>Founder First Name</p>
-                <input type=" text" size="30" pInputText [(ngModel)]="AssetToPut.founder.firstName">
+                <input type=" text" size="30" pInputText [(ngModel)]="AssetToPut.founder.firstName"
+                    [disabled]="BlockAssetFields">
                 <p>Founder Last Name</p>
-                <input type="url" size="30" pInputText [(ngModel)]="AssetToPut.founder.lastName">
+                <input type="url" size="30" pInputText [(ngModel)]="AssetToPut.founder.lastName"
+                    [disabled]="BlockAssetFields">
                 <p>Gender</p>
-                <input type="url" size="30" pInputText [(ngModel)]="AssetToPut.founder.gender">
+                <input type="url" size="30" pInputText [(ngModel)]="AssetToPut.founder.gender"
+                    [disabled]="BlockAssetFields">
             </div>
 
         </div>
@@ -209,9 +217,9 @@
         <!-- Button -->
 
         <br><br>
-        <p-button icon="pi pi-cloud-upload" label="Send" (onClick)="PerformAssetPUT()"></p-button>
+        <p-button icon="pi pi-cloud-upload" label="Send" (onClick)="PerformAssetPUT()" [disabled]="BlockAssetFields">
+        </p-button>
 
     </div>
-
 
 </div>

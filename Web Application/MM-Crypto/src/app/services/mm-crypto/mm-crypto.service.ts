@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { MmcryptoAuthService, Auth0Token } from '../mmcrypto-auth/mmcrypto-auth.service';
+import { MmCryptoAuthService, Auth0Token } from '../mm-crypto-auth/mm-crypto-auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class MmcryptoService
+export class MmCryptoService
 {
 
   private walletsURL = 'https://localhost:44362/api/v1/wallets';
@@ -14,9 +14,9 @@ export class MmcryptoService
 
   private Auth0Token: Auth0Token;
 
-  constructor(private http: HttpClient, private apiAuth: MmcryptoAuthService)
+  constructor(private http: HttpClient, private apiAuth: MmCryptoAuthService)
   {
-    this.GetToken();
+
   }
 
   // Auth For API
@@ -31,6 +31,11 @@ export class MmcryptoService
       },
       (error: HttpErrorResponse) => console.log(error)
     );
+  }
+
+  public DeleteToken()
+  {
+    this.Auth0Token = null;
   }
 
   private SetHttpHeaders()
@@ -59,7 +64,7 @@ export class MmcryptoService
   public GetWalletById(id: number)
   {
     const url = this.walletsURL + '/' + id;
-    return this.http.get<Wallet>(url).toPromise();
+    return this.http.get<Wallet>(url);
   }
 
   public PostWallet(wallet: any)
@@ -88,7 +93,7 @@ export class MmcryptoService
   public GetAssetById(id: number)
   {
     const url = this.assetsURL + '/' + id;
-    return this.http.get<Asset>(url).toPromise();
+    return this.http.get<Asset>(url);
   }
 
   public PostAsset(coin: any)

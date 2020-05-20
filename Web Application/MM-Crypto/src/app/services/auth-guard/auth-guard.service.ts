@@ -7,7 +7,7 @@ import { tap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate
+export class AuthGuardService implements CanActivate
 {
 
   constructor(private auth: AuthService) { }

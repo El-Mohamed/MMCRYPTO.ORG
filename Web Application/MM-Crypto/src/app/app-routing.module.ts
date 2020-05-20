@@ -5,9 +5,10 @@ import { HomeComponent } from './components/home/home.component';
 import { PriceChartComponent } from './components/price-chart/price-chart.component';
 import { PriceTableComponent } from './components/price-table/price-table.component';
 import { CurrencyCalculatorComponent } from './components/currency-calculator/currency-calculator.component';
-import { CurrencyDetailsComponent } from './components/currency-details/currency-details.component';
+import { AssetDetailsComponent } from './components/asset-details/asset-details.component';
 import { WalletDetailsComponent } from './components/wallet-details/wallet-details.component';
 import { ApiEditorComponent } from './components/api-editor/api-editor.component';
+import { TokenGeneratorComponent } from './components/token-genrator/token-generator.component';
 
 
 const routes: Routes = [
@@ -16,8 +17,9 @@ const routes: Routes = [
   { path: "ranking", component: PriceTableComponent },
   { path: "calculator", component: CurrencyCalculatorComponent },
   { path: "wallet-details", component: WalletDetailsComponent },
-  { path: "asset-details", component: CurrencyDetailsComponent },
+  { path: "asset-details", component: AssetDetailsComponent },
   { path: "api-editor", component: ApiEditorComponent },
+  { path: "token-generator", component: TokenGeneratorComponent },
   { path: 'chart/:id', component: PriceChartComponent },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '/404', pathMatch: "full" }

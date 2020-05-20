@@ -1,0 +1,18 @@
+<app-api-navigation></app-api-navigation>
+
+<!-- Toast Message -->
+
+<p-toast position="bottom-left"></p-toast>
+
+<!-- Generator -->
+
+<div class="ui-sm-12 ui-lg-7" style="margin: auto;">
+
+    <h1 class="title">GENERATE TOKEN FOR API</h1>
+
+    <div class="input-container">
+        <input type="text" size="60" [(ngModel)]="GeneratedToken.access_token" pInputText>
+        <p-button label="Generate" (onClick)="GenerateToken()"></p-button>
+    </div>
+
+</div>

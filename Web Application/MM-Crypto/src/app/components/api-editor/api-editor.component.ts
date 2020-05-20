@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MmcryptoService, Wallet, Asset } from 'src/app/services/mmcrypto/mmcrypto.service';
+import { MmCryptoService, Wallet, Asset } from 'src/app/services/mm-crypto/mm-crypto.service';
 import { SelectItem } from 'primeng/api/selectitem';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MessageService } from 'primeng/api';
@@ -49,6 +49,8 @@ export class ApiEditorComponent implements OnInit
     category: 'Hardware'
   };
 
+  BlockWalletFields: Boolean = false;
+
   AssetToPost: any = {
     symbol: 'BTC',
     name: 'Bitcoin',
@@ -75,8 +77,12 @@ export class ApiEditorComponent implements OnInit
     fork: null
   };
 
-  constructor(private service: MmcryptoService, private messageService: MessageService)
+  BlockAssetFields: Boolean = false;
+
+  constructor(private service: MmCryptoService, private messageService: MessageService)
   {
+    this.ReadWallet(1);
+    this.ReadAsset(1);
   }
 
   ngOnInit(): void
@@ -91,42 +97,51 @@ export class ApiEditorComponent implements OnInit
     this.messageService.add({ severity: 'success', summary: statusCode, detail: 'Request was succesfull' });
   }
 
-  ErrorToast(key: string, errorDescription: string)
+  ErrorToast(statusCode: string, title: string, key: string = "", errorDescription: string = "")
   {
-    const messageDetail = key + ' : ' + errorDescription;
-    this.messageService.add({ severity: 'error', summary: '400 - Bad Request', detail: messageDetail });
+    const messageDetail = key + '  ' + errorDescription;
+    const messageSummary = statusCode + ' ' + title;
+    this.messageService.add({ severity: 'error', summary: messageSummary, detail: messageDetail });
   }
 
   HandleError(errorResponse: HttpErrorResponse)
   {
-    // console.log(errorResponse.error.status);
-    // console.log(errorResponse);
-
+    const statusCode = errorResponse.error.status;
+    const errorTitle = errorResponse.error.title;
     const allRequestErrors = errorResponse.error.errors;
 
-    for (const key of Object.keys(allRequestErrors)) {
+    if (allRequestErrors) {
+      for (const key of Object.keys(allRequestErrors)) {
 
-      // console.log(key, allRequestErrors[key]);
-      const allErrorsOfKey = allRequestErrors[key];
+        const allErrorsOfKey = allRequestErrors[key];
 
-      allErrorsOfKey.forEach(keyError =>
-      {
-        this.ErrorToast(key, keyError);
-        // console.log(keyError);
-      });
+        allErrorsOfKey.forEach(keyError =>
+        {
+          this.ErrorToast(statusCode, errorTitle, key, keyError);
+        });
+      }
     }
+    else {
+      this.ErrorToast(statusCode, errorTitle);
+    }
+
   }
 
   // Wallet CRUD
 
   async ReadWallet(id: number)
   {
-    try {
-      this.WalletToPut = await this.service.GetWalletById(id);
-    }
-    catch (e) {
-
-    }
+    await this.service.GetWalletById(id).toPromise().
+      then(data =>
+      {
+        this.WalletToPut = data;
+        this.BlockWalletFields = false;
+      }).
+      catch((error: HttpErrorResponse) =>
+      {
+        this.HandleError(error);
+        this.BlockWalletFields = true;
+      });
   }
 
   PerformWalletPOST()
@@ -148,7 +163,7 @@ export class ApiEditorComponent implements OnInit
   PerformWalletDELETE(Id: number)
   {
     this.service.DeleteWallet(Id).subscribe(
-      data => this.SuccesToast('204 - Not Content'),
+      data => this.SuccesToast('204 - No Content'),
       (error: HttpErrorResponse) => this.HandleError(error)
     );
   }
@@ -157,12 +172,17 @@ export class ApiEditorComponent implements OnInit
 
   async ReadAsset(id: number)
   {
-    try {
-      this.AssetToPut = await this.service.GetAssetById(id);
-    }
-    catch (e) {
-
-    }
+    await this.service.GetAssetById(id).toPromise().
+      then(data =>
+      {
+        this.AssetToPut = data;
+        this.BlockAssetFields = false;
+      })
+      .catch((error: HttpErrorResponse) =>
+      {
+        this.HandleError(error);
+        this.BlockAssetFields = true;
+      });
   }
 
   PerformAssetPOST()
@@ -184,7 +204,7 @@ export class ApiEditorComponent implements OnInit
   PeformAssetDELETE(Id: number)
   {
     this.service.DeleteAsset(Id).subscribe(
-      data => this.SuccesToast('204 - Not Content'),
+      data => this.SuccesToast('204 - No Content'),
       (error: HttpErrorResponse) => this.HandleError(error)
     );
   }

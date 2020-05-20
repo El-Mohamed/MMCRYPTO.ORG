@@ -16,7 +16,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { WalletDetailsComponent } from './components/wallet-details/wallet-details.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HomeComponent } from './components/home/home.component';
-import { CurrencyDetailsComponent } from './components/currency-details/currency-details.component';
+import { AssetDetailsComponent } from './components/asset-details/asset-details.component';
 import { ApiNavigationComponent } from './components/api-navigation/api-navigation.component';
 import { ApiEditorComponent } from './components/api-editor/api-editor.component';
 
@@ -35,6 +35,7 @@ import { NgApexchartsModule } from "ng-apexcharts";
 
 // Firebase
 import { AngularFireModule } from '@angular/fire';
+import { TokenGeneratorComponent } from './components/token-genrator/token-generator.component';
 
 
 
@@ -50,10 +51,11 @@ import { AngularFireModule } from '@angular/fire';
     PriceChartComponent,
     PriceTableComponent,
     CurrencyCalculatorComponent,
-    CurrencyDetailsComponent,
+    AssetDetailsComponent,
     ApiNavigationComponent,
     WalletDetailsComponent,
-    ApiEditorComponent
+    ApiEditorComponent,
+    TokenGeneratorComponent
   ],
   imports: [
     BrowserModule,
