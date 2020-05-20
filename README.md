@@ -11,6 +11,28 @@
 ## API Documentation
 * [Postman](https://documenter.getpostman.com/view/11121025/Szf9V6zz?version=latest)
 
+# Set SQL Database
+Create database-credentials.json
+```
+REST API/MM-Crypto/MM-Crypto/database-credentials.json
+```
+## Cloud
+
+```
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "server=IP;database=DBNAME;uid=USER;password=PASSWORD"
+  }
+}
+```
+## Local
+```
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=MMCyrptoDb"
+  },
+}
+```
 
 ## Run Angular Project In Docker
 ```
