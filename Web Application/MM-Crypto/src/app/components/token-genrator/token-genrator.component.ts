@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { MmCryptoAuthService, Auth0Token } from 'src/app/services/mm-crypto-auth/mm-crypto-auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { MessageService } from 'primeng/api';
+
 
 @Component({
   selector: 'app-token-genrator',
   templateUrl: './token-genrator.component.html',
-  styleUrls: ['./token-genrator.component.css']
+  styleUrls: ['./token-genrator.component.css'],
+  providers: [MessageService]
 })
 export class TokenGenratorComponent implements OnInit
 {
@@ -15,10 +18,20 @@ export class TokenGenratorComponent implements OnInit
     token_type: ""
   };
 
-  constructor(private apiAuth: MmCryptoAuthService) { }
+  constructor(private apiAuth: MmCryptoAuthService, private messageService: MessageService) { }
 
   ngOnInit(): void
   {
+  }
+
+  SuccesToast()
+  {
+    this.messageService.add({ severity: 'success', summary: "Succes", detail: 'Request was succesfull' });
+  }
+
+  ErrorToast()
+  {
+    this.messageService.add({ severity: 'error', summary: "Error", detail: 'Request was failed' });
   }
 
   GenerateToken()
@@ -27,11 +40,12 @@ export class TokenGenratorComponent implements OnInit
       (data: Auth0Token) =>
       {
         this.GeneratedToken = data;
+        this.SuccesToast();
       },
       (error: HttpErrorResponse) =>
       {
         console.log(error);
-        alert("Error");
+        this.ErrorToast();
       }
     );
   }
