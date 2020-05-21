@@ -11,6 +11,20 @@
 ## API Documentation
 * [Postman](https://documenter.getpostman.com/view/11121025/Szf9V6zz?version=latest)
 
+# Docker
+Each project has a Dockerfile
+
+## Run Angular Project
+```
+$ docker build -t mm-crypto:v1 .
+$ docker run -p 80:80 mm-crypto:v1
+```
+## Run ASP.NET API
+```
+$ docker build -t mm-crypto-backend:v1 .
+$ docker run -d -p 82:8080 --name MM-Backend mm-crypto-backend:v1
+```
+
 # Set SQL Database
 Create database-credentials.json
 ```
@@ -32,10 +46,4 @@ REST API/MM-Crypto/MM-Crypto/database-credentials.json
     "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=MMCyrptoDb"
   },
 }
-```
-
-## Run Angular Project In Docker
-```
-$ docker build -t mm-crypto:v1 .
-$ docker run -p 80:80 mm-crypto:v1
 ```
