@@ -20,4 +20,10 @@ export class ApiNavigationComponent implements OnInit
     window.open('https://documenter.getpostman.com/view/11121025/Szf9V6zz?version=latest');
   }
 
+
+  OpenAPI()
+  {
+    window.open('http://api.mmcrypto.org/api/v1/assets');
+  }
+
 }
