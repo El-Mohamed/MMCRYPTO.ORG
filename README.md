@@ -1,4 +1,4 @@
-# MM-Crypto
+# MM Crypto
 
 ## Status
 ![GitHub contributors](https://img.shields.io/github/contributors/ElMoufid-Mohamed/MM-Crypto)
@@ -8,25 +8,38 @@
 [![Build Status](https://dev.azure.com/elmoufidmohamed/MM-Crypto/_apis/build/status/CI%20Pipeline?branchName=master)](https://dev.azure.com/elmoufidmohamed/MM-Crypto/_build/latest?definitionId=4&branchName=master)
 [![Build Status](https://dev.azure.com/elmoufidmohamed/MM-Crypto/_apis/build/status/CD%20Pipeline?branchName=release)](https://dev.azure.com/elmoufidmohamed/MM-Crypto/_build/latest?definitionId=7&branchName=release)
 
-## API
+
+## Technologies
+### Frontend
+* Angular
+* PrimeNG
+* Apex Charts
+* Auth0
+### Backend
+* SQL
+* ASP.NET
+* Entity Framework
+* Auth0
+
+## API Documentation
 * [Postman Documentation](https://documenter.getpostman.com/view/11121025/Szf9V6zz?version=latest)
 * [api.mmcrypto.org](http://api.mmcrypto.org/api/v1/assets)
 
-# Docker
+## Docker
 Each project has a Dockerfile
 
-## Run Angular Project
+### Run Angular Project
 ```
 $ docker build -t mm-crypto:v1 .
 $ docker run -p 80:80 mm-crypto:v1
 ```
-## Run ASP.NET API
+### Run ASP.NET API
 ```
 $ docker build -t mm-crypto-backend:v1 .
 $ docker run -d -p 82:8080 --name MM-Backend mm-crypto-backend:v1
 ```
 
-# Set SQL Database
+## SQL Database
 Create database-credentials.json
 ```
 REST API/MM-Crypto/MM-Crypto/database-credentials.json
@@ -38,13 +51,5 @@ REST API/MM-Crypto/MM-Crypto/database-credentials.json
   "ConnectionStrings": {
     "DefaultConnection": "server=IP;database=DBNAME;uid=USER;password=PASSWORD"
   }
-}
-```
-## Local
-```
-{
-  "ConnectionStrings": {
-    "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=MMCyrptoDb"
-  },
 }
 ```
