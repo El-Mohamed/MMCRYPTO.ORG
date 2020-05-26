@@ -8,8 +8,9 @@ import { MmCryptoAuthService, Auth0Token } from '../mm-crypto-auth/mm-crypto-aut
 export class MmCryptoService
 {
 
-  private walletsURL = 'https://localhost:44362/api/v1/wallets';
-  private assetsURL = 'https://localhost:44362/api/v1/assets';
+  private walletsURL = 'https://api.mmcrypto.org/api/v1/wallets';
+  private assetsURL = 'https://api.mmcrypto.org/api/v1/assets';
+
   private httpOptions;
 
   private Auth0Token: Auth0Token;
@@ -57,7 +58,7 @@ export class MmCryptoService
 
   public GetWalletsWithQuery(page: string, length: string, dir: string, sort: string = 'brand')
   {
-    const url = `https://localhost:44362/api/v1/wallets/?page=${ page }&length=${ length }&dir=${ dir }&sort=${ sort }`;
+    const url = `https://api.mmcrypto.org/api/v1/wallets/?page=${ page }&length=${ length }&dir=${ dir }&sort=${ sort }`;
     return this.http.get<Wallet[]>(url).toPromise();
   }
 

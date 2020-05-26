@@ -12,16 +12,16 @@ namespace MM_Crypto
             // Create database if not exsist
             context.Database.EnsureCreated();
 
-            Founder SatoshiNakamoto = new Founder() { FirstName = "Satoshi", LastName = "Nakamotor", Gender = 'M' };
-            Founder VitalikButerin = new Founder() { FirstName = "Vitalik", LastName = "Buterin", Gender = 'M' };
-            Founder ChrisLarsen = new Founder() { FirstName = "Chris", LastName = "Larsen", Gender = 'M' };
-            Founder CraigWright = new Founder() { FirstName = "Craig", LastName = "Wright", Gender = 'M' };
-            Founder CharlesLee = new Founder() { FirstName = "Charles", LastName = "Lee", Gender = 'M' };
+            Founder SatoshiNakamoto = new Founder() { FirstName = "Satoshi", LastName = "Nakamotor", Gender = "Male" };
+            Founder VitalikButerin = new Founder() { FirstName = "Vitalik", LastName = "Buterin", Gender = "Male" };
+            Founder ChrisLarsen = new Founder() { FirstName = "Chris", LastName = "Larsen", Gender = "Male" };
+            Founder CraigWright = new Founder() { FirstName = "Craig", LastName = "Wright", Gender = "Male" };
+            Founder CharlesLee = new Founder() { FirstName = "Charles", LastName = "Lee", Gender = "Male" };
 
-            Founder RyanTaylor = new Founder() { FirstName = "Ryan", LastName = "Taylor", Gender = 'M' };
-            Founder JamesBurden = new Founder() { FirstName = "James", LastName = "Burden", Gender = 'M' };
-            Founder ZookoWilcox = new Founder() { FirstName = "Zooko", LastName = "Wilcox-O'Hearn", Gender = 'M' };
-            Founder DavidMazières = new Founder() { FirstName = "David", LastName = "Mazières", Gender = 'M' };
+            Founder RyanTaylor = new Founder() { FirstName = "Ryan", LastName = "Taylor", Gender = "Male" };
+            Founder JamesBurden = new Founder() { FirstName = "James", LastName = "Burden", Gender = "Male" };
+            Founder ZookoWilcox = new Founder() { FirstName = "Zooko", LastName = "Wilcox-O'Hearn", Gender = "Male" };
+            Founder DavidMazières = new Founder() { FirstName = "David", LastName = "Mazières", Gender = "Male" };
 
 
             Asset BTC = new Asset() { Symbol = "BTC", Name = "Bitcoin", Founder = SatoshiNakamoto, Website = "http://www.bitcoin.org/", Fork = null };

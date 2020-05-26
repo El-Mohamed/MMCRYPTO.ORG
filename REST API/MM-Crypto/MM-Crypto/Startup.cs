@@ -12,7 +12,13 @@ namespace MM_Crypto
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder();
+
+            builder
+                .AddConfiguration(configuration)
+                .AddJsonFile("database-credentials.json");
+
+            Configuration = builder.Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -28,13 +34,17 @@ namespace MM_Crypto
             }).AddJwtBearer(options =>
             {
                 options.Authority = "https://mm-crypto.eu.auth0.com/";
-                options.Audience = "https://localhost:44362/";
+                options.Audience = "https://api.mmcrypto.org/";
             });
 
             services.AddControllers();
 
+            //services.AddDbContext<CryptoContext>(
+            //    options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
+            //    );
+
             services.AddDbContext<CryptoContext>(
-                options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
+                options => options.UseMySQL(Configuration.GetConnectionString("DefaultConnection"))
                 );
         }
 

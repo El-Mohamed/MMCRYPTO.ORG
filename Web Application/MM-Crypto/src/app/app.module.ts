@@ -29,6 +29,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { DataViewModule } from 'primeng/dataview';
 import { ToastModule } from 'primeng/toast';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
 
 // Other
 import { NgApexchartsModule } from "ng-apexcharts";
@@ -55,7 +57,7 @@ import { TokenGeneratorComponent } from './components/token-genrator/token-gener
     ApiNavigationComponent,
     WalletDetailsComponent,
     ApiEditorComponent,
-    TokenGeneratorComponent
+    TokenGeneratorComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,6 +75,8 @@ import { TokenGeneratorComponent } from './components/token-genrator/token-gener
     ButtonModule,
     DataViewModule,
     ToastModule,
+    MessageModule,
+    MessagesModule,
     // Other
     NgApexchartsModule,
     // Firebase
