@@ -29,9 +29,9 @@
         <!-- Body -->
 
         <ng-template pTemplate="body" let-coin>
-            <tr>
+            <tr [routerLink]="['/chart', coin.id]">
                 <th>
-                    <a [routerLink]="['/chart', coin.id]">{{coin.rank}}</a>
+                    {{coin.rank}}
                 </th>
                 <th>
                     <div class="logo-header-cell">
