@@ -11,7 +11,7 @@ On MMCRYPTO.ORG you can find realtime data, tools, charts (multiple timeframes) 
 
 ## Brave Publisher
 Brave Verified, download the browser for free
-<br><br>
+<br><br><br>
 <a href="https://brave.com/mmc473">
 <img src="https://raw.githubusercontent.com/ElMoufid-Mohamed/MMCRYPTO.ORG/f3070d43f0a13b2bc3df4f39574f61ebc785e078/Web%20Application/MM-Crypto/src/assets/img/brave-bat-partnership.svg" width="300px">
 </a>
