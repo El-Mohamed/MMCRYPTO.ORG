@@ -8,6 +8,9 @@
 
 <div *ngIf="AllCoinCapAssets.length > 1" class="ui-sm-12 ui-lg-7" style="margin: auto;">
 
+    <!-- Message For Chart -->
+
+    <p-messages [(value)]="msgs"></p-messages>
 
     <p-table [value]="AllCoinCapAssets" [columns]="Columns" (sortFunction)="sortTable($event)" [customSort]="true">
 

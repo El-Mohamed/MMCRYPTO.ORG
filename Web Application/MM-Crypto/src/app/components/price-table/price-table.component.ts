@@ -1,17 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { CoincapService, CoinCapAsset, CoinCapData } from 'src/app/services/coincap/coincap.service';
 import { SortEvent } from 'primeng/api';
+import { Message } from 'primeng/api';
+import { MessageService } from 'primeng/api';
+
 
 @Component({
   selector: 'app-price-table',
   templateUrl: './price-table.component.html',
-  styleUrls: ['./price-table.component.css']
+  styleUrls: ['./price-table.component.css'],
+  providers: [MessageService]
 })
 export class PriceTableComponent implements OnInit
 {
 
   AllCoinCapAssets: CoinCapAsset[] = [];
   CoinCapData: CoinCapData;
+
+  msgs: Message[] = [];
 
   Columns = [
     { field: 'rank', header: 'Rank' },
@@ -21,11 +27,12 @@ export class PriceTableComponent implements OnInit
     { field: 'changePercent24Hr', header: 'Change' }
   ];
 
-  constructor(private service: CoincapService) { }
+  constructor(private service: CoincapService, private messageService: MessageService) { }
 
   ngOnInit(): void
   {
     this.updatePrices();
+    this.showInfo();
   }
 
   async updatePrices()
@@ -80,4 +87,12 @@ export class PriceTableComponent implements OnInit
     });
   }
 
+  private showInfo()
+  {
+    setTimeout(() =>
+    {
+      this.msgs = [];
+      this.msgs.push({ severity: 'info', summary: 'Info', detail: 'Click On The Table Row To View The Chart' });
+    }, 2500);
+  }
 }
