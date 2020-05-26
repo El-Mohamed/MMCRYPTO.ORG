@@ -1,4 +1,5 @@
-# MM Crypto
+# MMCRYPTO.ORG
+On MMCRYPTO.ORG you can find realtime data, tools, charts (multiple timeframes) and more coming soon!
 
 ## Status
 ![GitHub contributors](https://img.shields.io/github/contributors/ElMoufid-Mohamed/MM-Crypto)
@@ -8,6 +9,13 @@
 [![Build Status](https://dev.azure.com/elmoufidmohamed/MM-Crypto/_apis/build/status/CI%20Pipeline?branchName=master)](https://dev.azure.com/elmoufidmohamed/MM-Crypto/_build/latest?definitionId=4&branchName=master)
 [![Build Status](https://dev.azure.com/elmoufidmohamed/MM-Crypto/_apis/build/status/CD%20Pipeline?branchName=release)](https://dev.azure.com/elmoufidmohamed/MM-Crypto/_build/latest?definitionId=7&branchName=release)
 
+## Brave Publisher
+Brave Verified, download the browser for free
+<br><br>
+<a href="https://brave.com/mmc473">
+<img src="https://raw.githubusercontent.com/ElMoufid-Mohamed/MMCRYPTO.ORG/f3070d43f0a13b2bc3df4f39574f61ebc785e078/Web%20Application/MM-Crypto/src/assets/img/brave-bat-partnership.svg" width="300px">
+</a>
+<br> <br>
 
 ## Technologies
 ### Frontend
