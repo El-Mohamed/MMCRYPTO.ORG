@@ -15,9 +15,9 @@ export const environment = {
     measurementId: "G-GCZ3XS7RY1"
   },
   auth0ApiConfig: {
-    client_id: '3JC2S33fQUZPMXgo8RSXK8dD5qneLNm1',
-    client_secret: 'oBHNyS8T1X8lOA7kruWaK43JqABL89TbJAr1yiEw4noCxQdCQWS8_-cCp0AyecyL',
-    audience: 'https://api.mmcrypto.org/',
+    client_id: 'A6dsM7rTUaRee6Ld89c1kqqVL3q8Kw04',
+    client_secret: 'V3vE5wqkwHjAilvfnG0-z0pNNfu3t5r-deoEPr6tGEYKEc3Jzxv37YqBo6LdtEfB',
+    audience: 'https://localhost:44362/',
     grant_type: 'client_credentials'
   }
 };
