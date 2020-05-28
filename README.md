@@ -47,12 +47,12 @@ $ docker build -t mm-crypto-backend:v1 .
 $ docker run -d -p 82:8080 --name MM-Backend mm-crypto-backend:v1
 ```
 
-## SQL Database
+## Database Setup
 Create database-credentials.json
 ```
 REST API/MM-Crypto/MM-Crypto/database-credentials.json
 ```
-## Cloud
+### MYSQL Connection
 
 ```
 {
