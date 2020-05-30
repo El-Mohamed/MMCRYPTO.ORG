@@ -6,6 +6,7 @@ On MMCRYPTO.ORG you can find realtime data, tools, charts (multiple timeframes) 
 ![GitHub last commit](https://img.shields.io/github/last-commit/ElMoufid-Mohamed/MM-Crypto)
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/ElMoufid-Mohamed/MM-Crypto)
 ![GitHub language count](https://img.shields.io/github/languages/count/ElMoufid-Mohamed/MM-Crypto)
+![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fmmcrypto.org)
 [![Build Status](https://dev.azure.com/elmoufidmohamed/MM-Crypto/_apis/build/status/CI%20Pipeline?branchName=master)](https://dev.azure.com/elmoufidmohamed/MM-Crypto/_build/latest?definitionId=4&branchName=master)
 [![Build Status](https://dev.azure.com/elmoufidmohamed/MM-Crypto/_apis/build/status/CD%20Pipeline?branchName=release)](https://dev.azure.com/elmoufidmohamed/MM-Crypto/_build/latest?definitionId=7&branchName=release)
 
