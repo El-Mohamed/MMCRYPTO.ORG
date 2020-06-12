@@ -14,7 +14,8 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "resolveJsonModule": true // To Read JSOn Files
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

@@ -1,0 +1,20 @@
+[
+    {
+        "id": 2,
+        "brand": "Ledger",
+        "model": "Nano X",
+        "website": "https://shop.ledger.com/products/ledger-nano-x",
+        "price": 119,
+        "imageURL": "https://cdn.shopify.com/s/files/1/2974/4858/products/ledger-nano-x-open_grande_eb0d186e-2c75-4687-9c85-1b6eb6e224d1_large.png",
+        "category": "Hardware"
+    },
+    {
+        "id": 6,
+        "brand": "Ledger",
+        "model": "Nano S",
+        "website": "https://shop.ledger.com/products/ledger-nano-s",
+        "price": 59,
+        "imageURL": "https://cdn.shopify.com/s/files/1/2974/4858/products/lns-black-open_large.png",
+        "category": "Hardware"
+    }
+]

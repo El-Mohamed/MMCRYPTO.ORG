@@ -1,0 +1,178 @@
+[
+    {
+        "id": 1,
+        "symbol": "BTC",
+        "name": "Bitcoin",
+        "founder": {
+            "id": 1,
+            "firstName": "Satoshi",
+            "lastName": "Nakamoto",
+            "gender": "Male"
+        },
+        "website": "http://www.bitcoin.org/",
+        "fork": null
+    },
+    {
+        "id": 2,
+        "symbol": "ETH",
+        "name": "Ethereum",
+        "founder": {
+            "id": 6,
+            "firstName": "Vitalik",
+            "lastName": "Buterin",
+            "gender": "Male"
+        },
+        "website": "http://www.ethereum.org/",
+        "fork": null
+    },
+    {
+        "id": 3,
+        "symbol": "XRP",
+        "name": "Ripple",
+        "founder": {
+            "id": 7,
+            "firstName": "Chris",
+            "lastName": "Larsen",
+            "gender": "Male"
+        },
+        "website": "http://www.ripple.com/",
+        "fork": null
+    },
+    {
+        "id": 5,
+        "symbol": "LTC",
+        "name": "Litecoin",
+        "founder": {
+            "id": 2,
+            "firstName": "Charles",
+            "lastName": "Lee",
+            "gender": "Male"
+        },
+        "website": "http://www.litecoin.org/",
+        "fork": {
+            "id": 1,
+            "symbol": "BTC",
+            "name": "Bitcoin",
+            "founder": {
+                "id": 1,
+                "firstName": "Satoshi",
+                "lastName": "Nakamotor",
+                "gender": "Male"
+            },
+            "website": "http://www.bitcoin.org/",
+            "fork": null
+        }
+    },
+    {
+        "id": 6,
+        "symbol": "DASH",
+        "name": "Dash",
+        "founder": {
+            "id": 3,
+            "firstName": "Ryan",
+            "lastName": "Taylor",
+            "gender": "Male"
+        },
+        "website": "https://www.dash.org/",
+        "fork": {
+            "id": 1,
+            "symbol": "BTC",
+            "name": "Bitcoin",
+            "founder": {
+                "id": 1,
+                "firstName": "Satoshi",
+                "lastName": "Nakamotor",
+                "gender": "Male"
+            },
+            "website": "http://www.bitcoin.org/",
+            "fork": null
+        }
+    },
+    {
+        "id": 7,
+        "symbol": "ZEC",
+        "name": "Zcash",
+        "founder": {
+            "id": 5,
+            "firstName": "Zooko",
+            "lastName": "Wilcox-O'Hearn",
+            "gender": "Male"
+        },
+        "website": "https://z.cash/",
+        "fork": {
+            "id": 1,
+            "symbol": "BTC",
+            "name": "Bitcoin",
+            "founder": {
+                "id": 1,
+                "firstName": "Satoshi",
+                "lastName": "Nakamotor",
+                "gender": "Male"
+            },
+            "website": "http://www.bitcoin.org/",
+            "fork": null
+        }
+    },
+    {
+        "id": 9,
+        "symbol": "XLM",
+        "name": "Stellar",
+        "founder": {
+            "id": 8,
+            "firstName": "David",
+            "lastName": "Mazières",
+            "gender": "Male"
+        },
+        "website": "https://www.stellar.org/",
+        "fork": {
+            "id": 3,
+            "symbol": "XRP",
+            "name": "Ripple",
+            "founder": {
+                "id": 7,
+                "firstName": "Chris",
+                "lastName": "Larsen",
+                "gender": "Male"
+            },
+            "website": "http://www.ripple.com/",
+            "fork": null
+        }
+    },
+    {
+        "id": 10,
+        "symbol": "PIVX",
+        "name": "PIVX",
+        "founder": {
+            "id": 4,
+            "firstName": "James",
+            "lastName": "Burden",
+            "gender": "Male"
+        },
+        "website": "https://pivx.org/",
+        "fork": {
+            "id": 6,
+            "symbol": "DASH",
+            "name": "Dash",
+            "founder": {
+                "id": 3,
+                "firstName": "Ryan",
+                "lastName": "Taylor",
+                "gender": "Male"
+            },
+            "website": "https://www.dash.org/",
+            "fork": {
+                "id": 1,
+                "symbol": "BTC",
+                "name": "Bitcoin",
+                "founder": {
+                    "id": 1,
+                    "firstName": "Satoshi",
+                    "lastName": "Nakamotor",
+                    "gender": "Male"
+                },
+                "website": "http://www.bitcoin.org/",
+                "fork": null
+            }
+        }
+    }
+]
