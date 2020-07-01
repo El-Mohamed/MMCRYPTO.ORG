@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { MmCryptoAuthService } from '../mm-crypto-auth/mm-crypto-auth.service';
 import { Auth0Token } from '../mm-crypto-auth/auth0token.model';
-
+import { Wallet } from './models/wallet.model';
+import { Asset } from './models/asset.model';
 
 @Injectable({
   providedIn: 'root'
@@ -114,33 +115,4 @@ export class MmCryptoService
     const url = this.assetsURL + '/' + Id;
     return this.http.delete(url, this.httpOptions);
   }
-}
-
-export interface Wallet
-{
-  id: number;
-  brand: string;
-  model: string;
-  website: string;
-  price: number;
-  imageURL: string;
-  category: string;
-}
-
-export interface Founder
-{
-  id: number;
-  firstName: string;
-  lastName: string;
-  gender: string;
-}
-
-export interface Asset
-{
-  id: number;
-  symbol: string;
-  name: string;
-  founder: Founder;
-  website: string;
-  fork?: Asset;
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MmCryptoService, Wallet } from 'src/app/services/mm-crypto/mm-crypto.service';
+import { MmCryptoService } from 'src/app/services/mm-crypto/mm-crypto.service';
 import { SelectItem } from 'primeng/api/selectitem';
+import { Wallet } from 'src/app/services/mm-crypto/models/wallet.model';
 
 @Component({
   selector: 'app-wallet-details',

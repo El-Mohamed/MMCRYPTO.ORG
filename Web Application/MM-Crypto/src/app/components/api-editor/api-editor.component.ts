@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { MmCryptoService, Wallet, Asset } from 'src/app/services/mm-crypto/mm-crypto.service';
+import { MmCryptoService } from 'src/app/services/mm-crypto/mm-crypto.service';
 import { SelectItem } from 'primeng/api/selectitem';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MessageService } from 'primeng/api';
+import { Wallet } from 'src/app/services/mm-crypto/models/wallet.model';
+import { Asset } from 'src/app/services/mm-crypto/models/asset.model';
 
 @Component({
   selector: 'app-api-editor',

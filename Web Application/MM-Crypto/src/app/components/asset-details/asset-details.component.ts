@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MmCryptoService, Asset } from 'src/app/services/mm-crypto/mm-crypto.service';
+import { MmCryptoService } from 'src/app/services/mm-crypto/mm-crypto.service';
 import * as allData from 'src/app/data/assets.json';
+import { Asset } from 'src/app/services/mm-crypto/models/asset.model';
 
 @Component({
   selector: 'app-currency-details',
