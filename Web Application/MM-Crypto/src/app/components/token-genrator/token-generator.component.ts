@@ -24,9 +24,9 @@ export class TokenGeneratorComponent implements OnInit
   {
   }
 
-  SuccesToast()
+  SuccessToast()
   {
-    this.messageService.add({ severity: 'success', summary: 'Succes', detail: 'Request was succesfull' });
+    this.messageService.add({ severity: 'success', summary: 'Succes', detail: 'Request was successful' });
   }
 
   ErrorToast()
@@ -40,7 +40,7 @@ export class TokenGeneratorComponent implements OnInit
       (data: Auth0Token) =>
       {
         this.GeneratedToken = data;
-        this.SuccesToast();
+        this.SuccessToast();
       },
       (error: HttpErrorResponse) =>
       {

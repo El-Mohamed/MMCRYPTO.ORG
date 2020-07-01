@@ -94,10 +94,10 @@ export class ApiEditorComponent implements OnInit
 
   SuccesToast(statusCode: string)
   {
-    this.messageService.add({ severity: 'success', summary: statusCode, detail: 'Request was succesfull' });
+    this.messageService.add({ severity: 'success', summary: statusCode, detail: 'Request was successful' });
   }
 
-  ErrorToast(statusCode: string, title: string, key: string = "", errorDescription: string = "")
+  ErrorToast(statusCode: string, title: string, key: string = '', errorDescription: string = '')
   {
     const messageDetail = key + '  ' + errorDescription;
     const messageSummary = statusCode + ' ' + title;
