@@ -1,0 +1,1291 @@
+{
+	"info": {
+		"_postman_id": "65bf56ae-df96-4333-8625-a3eee16827d4",
+		"name": "MM CRYPTO API 1.0",
+		"description": "# Source Code\n\n[MM Crypto Website](www.mmcrypto.org)\n\n[Github](https://github.com/ElMoufid-Mohamed)\n\n## RESPONSE CODES\n\n* 401 - Unauthorized\n* 404 - Not Found\n* 200 - OK\n* 204 - No Content / Created (OK)\n\n## Authorization\n\nBear Tokens (Auth0 Acces Tokens)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Assets",
+			"item": [
+				{
+					"name": "All Assets",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.mmcrypto.org/api/v1/assets",
+							"protocol": "http",
+							"host": [
+								"api",
+								"mmcrypto",
+								"org"
+							],
+							"path": [
+								"api",
+								"v1",
+								"assets"
+							]
+						},
+						"description": "# Response\r\n\r\nArray Of Assets\r\n\r\n<table>\r\n  <tr>\r\n    <td>Key</td>\r\n    <td>Type</td>\r\n    <td>Description</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Id</td>\r\n    <td>Number</td>\r\n    <td>Id Of Object</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Symbol</td>\r\n    <td>String</td>\r\n    <td>Symbol Of Asset</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Name</td>\r\n    <td>String</td>\r\n    <td>Full Name Of Asset</td>\r\n  </tr>\r\n\r\n  <tr>\r\n    <td>Website</td>\r\n    <td>String</td>\r\n    <td>URL Of The Website</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Fork</td>\r\n    <td>Asset Object</td>\r\n    <td>Fork Asset</td>\r\n  </tr>\r\n</table>"
+					},
+					"response": [
+						{
+							"name": "All Assets",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://api.mmcrypto.org/api/v1/assets",
+									"protocol": "http",
+									"host": [
+										"api",
+										"mmcrypto",
+										"org"
+									],
+									"path": [
+										"api",
+										"v1",
+										"assets"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 01 Jul 2020 12:09:46 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "X-Total-Count",
+									"value": "19"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 google"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"symbol\": \"BTC\",\n        \"name\": \"Bitcoin\",\n        \"founder\": {\n            \"id\": 1,\n            \"firstName\": \"Satoshi\",\n            \"lastName\": \"Nakamotor\",\n            \"gender\": \"Male\"\n        },\n        \"website\": \"http://www.bitcoin.org/\",\n        \"fork\": null\n    },\n    {\n        \"id\": 2,\n        \"symbol\": \"ETH\",\n        \"name\": \"Ethereum\",\n        \"founder\": {\n            \"id\": 6,\n            \"firstName\": \"Vitalik\",\n            \"lastName\": \"Buterin\",\n            \"gender\": \"Male\"\n        },\n        \"website\": \"http://www.ethereum.org/\",\n        \"fork\": null\n    },\n    {\n        \"id\": 3,\n        \"symbol\": \"XRP\",\n        \"name\": \"Ripple\",\n        \"founder\": {\n            \"id\": 7,\n            \"firstName\": \"Chris\",\n            \"lastName\": \"Larsen\",\n            \"gender\": \"Male\"\n        },\n        \"website\": \"http://www.ripple.com/\",\n        \"fork\": null\n    },\n    {\n        \"id\": 4,\n        \"symbol\": \"BSV\",\n        \"name\": \"Bitcoin SV\",\n        \"founder\": {\n            \"id\": 9,\n            \"firstName\": \"Craig\",\n            \"lastName\": \"Wright\",\n            \"gender\": \"Male\"\n        },\n        \"website\": \"http://www.bitcoinsv.io/\",\n        \"fork\": null\n    },\n    {\n        \"id\": 5,\n        \"symbol\": \"LTC\",\n        \"name\": \"Litecoin\",\n        \"founder\": {\n            \"id\": 2,\n            \"firstName\": \"Charles\",\n            \"lastName\": \"Lee\",\n            \"gender\": \"Male\"\n        },\n        \"website\": \"http://www.litecoin.org/\",\n        \"fork\": {\n            \"id\": 1,\n            \"symbol\": \"BTC\",\n            \"name\": \"Bitcoin\",\n            \"founder\": {\n                \"id\": 1,\n                \"firstName\": \"Satoshi\",\n                \"lastName\": \"Nakamotor\",\n                \"gender\": \"Male\"\n            },\n            \"website\": \"http://www.bitcoin.org/\",\n            \"fork\": null\n        }\n    },\n    {\n        \"id\": 6,\n        \"symbol\": \"DASH\",\n        \"name\": \"Dash\",\n        \"founder\": {\n            \"id\": 3,\n            \"firstName\": \"Ryan\",\n            \"lastName\": \"Taylor\",\n            \"gender\": \"Male\"\n        },\n        \"website\": \"https://www.dash.org/\",\n        \"fork\": {\n            \"id\": 1,\n            \"symbol\": \"BTC\",\n            \"name\": \"Bitcoin\",\n            \"founder\": {\n                \"id\": 1,\n                \"firstName\": \"Satoshi\",\n                \"lastName\": \"Nakamotor\",\n                \"gender\": \"Male\"\n            },\n            \"website\": \"http://www.bitcoin.org/\",\n            \"fork\": null\n        }\n    },\n    {\n        \"id\": 7,\n        \"symbol\": \"ZEC\",\n        \"name\": \"Zcash\",\n        \"founder\": {\n            \"id\": 5,\n            \"firstName\": \"Zooko\",\n            \"lastName\": \"Wilcox-O'Hearn\",\n            \"gender\": \"Male\"\n        },\n        \"website\": \"https://z.cash/\",\n        \"fork\": {\n            \"id\": 1,\n            \"symbol\": \"BTC\",\n            \"name\": \"Bitcoin\",\n            \"founder\": {\n                \"id\": 1,\n                \"firstName\": \"Satoshi\",\n                \"lastName\": \"Nakamotor\",\n                \"gender\": \"Male\"\n            },\n            \"website\": \"http://www.bitcoin.org/\",\n            \"fork\": null\n        }\n    },\n    {\n        \"id\": 8,\n        \"symbol\": \"BCH\",\n        \"name\": \"Bitcoin Cash\",\n        \"founder\": {\n            \"id\": 1,\n            \"firstName\": \"Satoshi\",\n            \"lastName\": \"Nakamotor\",\n            \"gender\": \"Male\"\n        },\n        \"website\": \"https://www.bitcoincash.org/\",\n        \"fork\": {\n            \"id\": 1,\n            \"symbol\": \"BTC\",\n            \"name\": \"Bitcoin\",\n            \"founder\": {\n                \"id\": 1,\n                \"firstName\": \"Satoshi\",\n                \"lastName\": \"Nakamotor\",\n                \"gender\": \"Male\"\n            },\n            \"website\": \"http://www.bitcoin.org/\",\n            \"fork\": null\n        }\n    },\n    {\n        \"id\": 9,\n        \"symbol\": \"XLM\",\n        \"name\": \"Stellar\",\n        \"founder\": {\n            \"id\": 8,\n            \"firstName\": \"David\",\n            \"lastName\": \"Mazières\",\n            \"gender\": \"Male\"\n        },\n        \"website\": \"https://www.stellar.org/\",\n        \"fork\": {\n            \"id\": 3,\n            \"symbol\": \"XRP\",\n            \"name\": \"Ripple\",\n            \"founder\": {\n                \"id\": 7,\n                \"firstName\": \"Chris\",\n                \"lastName\": \"Larsen\",\n                \"gender\": \"Male\"\n            },\n            \"website\": \"http://www.ripple.com/\",\n            \"fork\": null\n        }\n    },\n    {\n        \"id\": 10,\n        \"symbol\": \"PIVX\",\n        \"name\": \"PIVX\",\n        \"founder\": {\n            \"id\": 4,\n            \"firstName\": \"James\",\n            \"lastName\": \"Burden\",\n            \"gender\": \"Male\"\n        },\n        \"website\": \"https://pivx.org/\",\n        \"fork\": {\n            \"id\": 6,\n            \"symbol\": \"DASH\",\n            \"name\": \"Dash\",\n            \"founder\": {\n                \"id\": 3,\n                \"firstName\": \"Ryan\",\n                \"lastName\": \"Taylor\",\n                \"gender\": \"Male\"\n            },\n            \"website\": \"https://www.dash.org/\",\n            \"fork\": {\n                \"id\": 1,\n                \"symbol\": \"BTC\",\n                \"name\": \"Bitcoin\",\n                \"founder\": {\n                    \"id\": 1,\n                    \"firstName\": \"Satoshi\",\n                    \"lastName\": \"Nakamotor\",\n                    \"gender\": \"Male\"\n                },\n                \"website\": \"http://www.bitcoin.org/\",\n                \"fork\": null\n            }\n        }\n    },\n    {\n        \"id\": 11,\n        \"symbol\": \"BTC\",\n        \"name\": \"Bitcoin\",\n        \"founder\": {\n            \"id\": 10,\n            \"firstName\": \"Satoshi\",\n            \"lastName\": \"Nakamotor\",\n            \"gender\": \"Male\"\n        },\n        \"website\": \"http://www.bitcoin.org/\",\n        \"fork\": null\n    },\n    {\n        \"id\": 12,\n        \"symbol\": \"ETH\",\n        \"name\": \"Ethereum\",\n        \"founder\": {\n            \"id\": 15,\n            \"firstName\": \"Vitalik\",\n            \"lastName\": \"Buterin\",\n            \"gender\": \"Male\"\n        },\n        \"website\": \"http://www.ethereum.org/\",\n        \"fork\": null\n    },\n    {\n        \"id\": 13,\n        \"symbol\": \"XRP\",\n        \"name\": \"Ripple\",\n        \"founder\": {\n            \"id\": 16,\n            \"firstName\": \"Chris\",\n            \"lastName\": \"Larsen\",\n            \"gender\": \"Male\"\n        },\n        \"website\": \"http://www.ripple.com/\",\n        \"fork\": null\n    },\n    {\n        \"id\": 14,\n        \"symbol\": \"LTC\",\n        \"name\": \"Litecoin\",\n        \"founder\": {\n            \"id\": 11,\n            \"firstName\": \"Charles\",\n            \"lastName\": \"Lee\",\n            \"gender\": \"Male\"\n        },\n        \"website\": \"http://www.litecoin.org/\",\n        \"fork\": {\n            \"id\": 11,\n            \"symbol\": \"BTC\",\n            \"name\": \"Bitcoin\",\n            \"founder\": {\n                \"id\": 10,\n                \"firstName\": \"Satoshi\",\n                \"lastName\": \"Nakamotor\",\n                \"gender\": \"Male\"\n            },\n            \"website\": \"http://www.bitcoin.org/\",\n            \"fork\": null\n        }\n    },\n    {\n        \"id\": 15,\n        \"symbol\": \"DASH\",\n        \"name\": \"Dash\",\n        \"founder\": {\n            \"id\": 12,\n            \"firstName\": \"Ryan\",\n            \"lastName\": \"Taylor\",\n            \"gender\": \"Male\"\n        },\n        \"website\": \"https://www.dash.org/\",\n        \"fork\": {\n            \"id\": 11,\n            \"symbol\": \"BTC\",\n            \"name\": \"Bitcoin\",\n            \"founder\": {\n                \"id\": 10,\n                \"firstName\": \"Satoshi\",\n                \"lastName\": \"Nakamotor\",\n                \"gender\": \"Male\"\n            },\n            \"website\": \"http://www.bitcoin.org/\",\n            \"fork\": null\n        }\n    },\n    {\n        \"id\": 16,\n        \"symbol\": \"ZEC\",\n        \"name\": \"Zcash\",\n        \"founder\": {\n            \"id\": 14,\n            \"firstName\": \"Zooko\",\n            \"lastName\": \"Wilcox-O'Hearn\",\n            \"gender\": \"Male\"\n        },\n        \"website\": \"https://z.cash/\",\n        \"fork\": {\n            \"id\": 11,\n            \"symbol\": \"BTC\",\n            \"name\": \"Bitcoin\",\n            \"founder\": {\n                \"id\": 10,\n                \"firstName\": \"Satoshi\",\n                \"lastName\": \"Nakamotor\",\n                \"gender\": \"Male\"\n            },\n            \"website\": \"http://www.bitcoin.org/\",\n            \"fork\": null\n        }\n    },\n    {\n        \"id\": 17,\n        \"symbol\": \"BCH\",\n        \"name\": \"Bitcoin Cash\",\n        \"founder\": {\n            \"id\": 10,\n            \"firstName\": \"Satoshi\",\n            \"lastName\": \"Nakamotor\",\n            \"gender\": \"Male\"\n        },\n        \"website\": \"https://www.bitcoincash.org/\",\n        \"fork\": {\n            \"id\": 11,\n            \"symbol\": \"BTC\",\n            \"name\": \"Bitcoin\",\n            \"founder\": {\n                \"id\": 10,\n                \"firstName\": \"Satoshi\",\n                \"lastName\": \"Nakamotor\",\n                \"gender\": \"Male\"\n            },\n            \"website\": \"http://www.bitcoin.org/\",\n            \"fork\": null\n        }\n    },\n    {\n        \"id\": 18,\n        \"symbol\": \"XLM\",\n        \"name\": \"Stellar\",\n        \"founder\": {\n            \"id\": 17,\n            \"firstName\": \"David\",\n            \"lastName\": \"Mazières\",\n            \"gender\": \"Male\"\n        },\n        \"website\": \"https://www.stellar.org/\",\n        \"fork\": {\n            \"id\": 13,\n            \"symbol\": \"XRP\",\n            \"name\": \"Ripple\",\n            \"founder\": {\n                \"id\": 16,\n                \"firstName\": \"Chris\",\n                \"lastName\": \"Larsen\",\n                \"gender\": \"Male\"\n            },\n            \"website\": \"http://www.ripple.com/\",\n            \"fork\": null\n        }\n    },\n    {\n        \"id\": 19,\n        \"symbol\": \"PIVX\",\n        \"name\": \"PIVX\",\n        \"founder\": {\n            \"id\": 13,\n            \"firstName\": \"James\",\n            \"lastName\": \"Burden\",\n            \"gender\": \"Male\"\n        },\n        \"website\": \"https://pivx.org/\",\n        \"fork\": {\n            \"id\": 15,\n            \"symbol\": \"DASH\",\n            \"name\": \"Dash\",\n            \"founder\": {\n                \"id\": 12,\n                \"firstName\": \"Ryan\",\n                \"lastName\": \"Taylor\",\n                \"gender\": \"Male\"\n            },\n            \"website\": \"https://www.dash.org/\",\n            \"fork\": {\n                \"id\": 11,\n                \"symbol\": \"BTC\",\n                \"name\": \"Bitcoin\",\n                \"founder\": {\n                    \"id\": 10,\n                    \"firstName\": \"Satoshi\",\n                    \"lastName\": \"Nakamotor\",\n                    \"gender\": \"Male\"\n                },\n                \"website\": \"http://www.bitcoin.org/\",\n                \"fork\": null\n            }\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Filter - Sort - Page Assets",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.mmcrypto.org/api/v1/wallets/?page=1&length=300&dir=asc&sort=brand",
+							"protocol": "http",
+							"host": [
+								"api",
+								"mmcrypto",
+								"org"
+							],
+							"path": [
+								"api",
+								"v1",
+								"wallets",
+								""
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "length",
+									"value": "300"
+								},
+								{
+									"key": "dir",
+									"value": "asc"
+								},
+								{
+									"key": "sort",
+									"value": "brand"
+								}
+							]
+						},
+						"description": "# Response\r\n\r\nArray Of Assets\r\n\r\n<table>\r\n  <tr>\r\n    <td>Key</td>\r\n    <td>Type</td>\r\n    <td>Description</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Id</td>\r\n    <td>Number</td>\r\n    <td>Id Of Object</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Symbol</td>\r\n    <td>String</td>\r\n    <td>Symbol Of Asset</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Name</td>\r\n    <td>String</td>\r\n    <td>Full Name Of Asset</td>\r\n  </tr>\r\n\r\n  <tr>\r\n    <td>Website</td>\r\n    <td>String</td>\r\n    <td>URL Of The Website</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Fork</td>\r\n    <td>Asset Object</td>\r\n    <td>Fork Asset</td>\r\n  </tr>\r\n</table>"
+					},
+					"response": []
+				},
+				{
+					"name": "Asset By Id",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.mmcrypto.org/api/v1/assets/1",
+							"protocol": "http",
+							"host": [
+								"api",
+								"mmcrypto",
+								"org"
+							],
+							"path": [
+								"api",
+								"v1",
+								"assets",
+								"1"
+							]
+						},
+						"description": "# Response\r\n\r\nOne Asset\r\n\r\n<table>\r\n  <tr>\r\n    <td>Key</td>\r\n    <td>Type</td>\r\n    <td>Description</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Id</td>\r\n    <td>Number</td>\r\n    <td>Id Of Object</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Symbol</td>\r\n    <td>String</td>\r\n    <td>Symbol Of Asset</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Name</td>\r\n    <td>String</td>\r\n    <td>Full Name Of Asset</td>\r\n  </tr>\r\n\r\n  <tr>\r\n    <td>Website</td>\r\n    <td>String</td>\r\n    <td>URL Of The Website</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Fork</td>\r\n    <td>Asset Object</td>\r\n    <td>Fork Asset</td>\r\n  </tr>\r\n</table>"
+					},
+					"response": [
+						{
+							"name": "Asset By Id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:44362/api/v1/assets/1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44362",
+									"path": [
+										"api",
+										"v1",
+										"assets",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/10.0"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 03 May 2020 21:13:08 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"symbol\": \"BTC\",\n    \"name\": \"Bitcoin\",\n    \"founder\": {\n        \"id\": 1,\n        \"firstName\": \"Satoshi\",\n        \"lastName\": \"Nakamotor\",\n        \"gender\": \"M\"\n    },\n    \"website\": \"http://www.bitcoin.org/\",\n    \"fork\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Founder From Asset",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.mmcrypto.org/api/v1/assets/1/founder",
+							"protocol": "http",
+							"host": [
+								"api",
+								"mmcrypto",
+								"org"
+							],
+							"path": [
+								"api",
+								"v1",
+								"assets",
+								"1",
+								"founder"
+							]
+						},
+						"description": "# Response\r\n\r\nOne Founder\r\n\r\n<table>\r\n  <tr>\r\n    <th>Key</th>\r\n    <th>Type</th>\r\n    <th>Description</th>\r\n  </tr>\r\n  <tr>\r\n    <td>Id</td>\r\n    <td>Number</td>\r\n    <td>Id Of Founder</td>\r\n  </tr>\r\n  <tr>\r\n    <td>FirstName</td>\r\n    <td>String</td>\r\n    <td>First Name Of Founder</td>\r\n  </tr>\r\n  <tr>\r\n    <td>LastName</td>\r\n    <td>String</td>\r\n    <td>Last Name Of Founder</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Gender</td>\r\n    <td>Char</td>\r\n    <td>Gender Of Founder</td>\r\n  </tr>\r\n</table>"
+					},
+					"response": [
+						{
+							"name": "Founder From Asset",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://api.mmcrypto.org/api/v1/assets/1/founder",
+									"protocol": "http",
+									"host": [
+										"api",
+										"mmcrypto",
+										"org"
+									],
+									"path": [
+										"api",
+										"v1",
+										"assets",
+										"1",
+										"founder"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 01 Jul 2020 12:11:46 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 google"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"firstName\": \"Satoshi\",\n    \"lastName\": \"Nakamoto\",\n    \"gender\": \"Male\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Supported Wallets",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.mmcrypto.org/api/v1/assets/1/wallets",
+							"protocol": "http",
+							"host": [
+								"api",
+								"mmcrypto",
+								"org"
+							],
+							"path": [
+								"api",
+								"v1",
+								"assets",
+								"1",
+								"wallets"
+							]
+						},
+						"description": "# Response\n\nArray Of Wallets\n\n<table>\n  <tr>\n    <th>Key</th>\n    <th>Type</th>\n    <th>Description</th>\n  </tr>\n  <tr>\n    <td>Id</td>\n    <td>Number</td>\n    <td>Id Of Wallet</td>\n  </tr>\n  <tr>\n    <td>Brand</td>\n    <td>String</td>\n    <td>Manufacturer of Wallet</td>\n  </tr>\n  <tr>\n    <td>Model</td>\n    <td>String</td>\n    <td>Model Of Wallet</td>\n  </tr>\n  <tr>\n    <td>Price</td>\n    <td>Number</td>\n    <td>Price Of Wallet In USD</td>\n  </tr>\n  <tr>\n    <td>Website</td>\n    <td>String (URL)</td>\n    <td>Website Of Manufacturer</td>\n  </tr>\n  <tr>\n    <td>ImageURL</td>\n    <td>String (URL)</td>\n    <td>Url To The Image of Wallet</td>\n  </tr>\n    <tr>\n    <td>Category</td>\n    <td>String</td>\n    <td>Category Of Wallet (Hardware/Software)</td>\n  </tr>\n</table>"
+					},
+					"response": [
+						{
+							"name": "Supported Wallets",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://api.mmcrypto.org/api/v1/assets/1/wallets",
+									"protocol": "http",
+									"host": [
+										"api",
+										"mmcrypto",
+										"org"
+									],
+									"path": [
+										"api",
+										"v1",
+										"assets",
+										"1",
+										"wallets"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 01 Jul 2020 12:12:05 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 google"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"brand\": \"Ledger\",\n        \"model\": \"Nano S\",\n        \"website\": \"https://shop.ledger.com/products/ledger-nano-s\",\n        \"price\": 59,\n        \"imageURL\": \"https://cdn.shopify.com/s/files/1/2974/4858/products/lns-black-open_large.png\",\n        \"category\": \"Hardware\"\n    },\n    {\n        \"id\": 2,\n        \"brand\": \"Ledger\",\n        \"model\": \"Nano X\",\n        \"website\": \"https://shop.ledger.com/products/ledger-nano-x\",\n        \"price\": 119,\n        \"imageURL\": \"https://cdn.shopify.com/s/files/1/2974/4858/products/ledger-nano-x-open_grande_eb0d186e-2c75-4687-9c85-1b6eb6e224d1_large.png\",\n        \"category\": \"Hardware\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Hardforks From Asset",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.mmcrypto.org/api/v1/assets/1/hardforks",
+							"protocol": "http",
+							"host": [
+								"api",
+								"mmcrypto",
+								"org"
+							],
+							"path": [
+								"api",
+								"v1",
+								"assets",
+								"1",
+								"hardforks"
+							]
+						},
+						"description": "# Response\r\n\r\nArray Of Assets\r\n\r\n<table>\r\n  <tr>\r\n    <td>Key</td>\r\n    <td>Type</td>\r\n    <td>Description</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Id</td>\r\n    <td>Number</td>\r\n    <td>Id Of Object</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Symbol</td>\r\n    <td>String</td>\r\n    <td>Symbol Of Asset</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Name</td>\r\n    <td>String</td>\r\n    <td>Full Name Of Asset</td>\r\n  </tr>\r\n\r\n  <tr>\r\n    <td>Website</td>\r\n    <td>String</td>\r\n    <td>URL Of The Website</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Fork</td>\r\n    <td>Asset Object</td>\r\n    <td>Fork Asset</td>\r\n  </tr>\r\n</table>"
+					},
+					"response": [
+						{
+							"name": "Hardforks From Asset",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://api.mmcrypto.org/api/v1/assets/1/hardforks",
+									"protocol": "http",
+									"host": [
+										"api",
+										"mmcrypto",
+										"org"
+									],
+									"path": [
+										"api",
+										"v1",
+										"assets",
+										"1",
+										"hardforks"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 01 Jul 2020 12:12:24 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 google"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 5,\n        \"symbol\": \"LTC\",\n        \"name\": \"Litecoin\",\n        \"founder\": null,\n        \"website\": \"http://www.litecoin.org/\",\n        \"fork\": {\n            \"id\": 1,\n            \"symbol\": \"BTC\",\n            \"name\": \"Bitcoin\",\n            \"founder\": null,\n            \"website\": \"http://www.bitcoin.org/\",\n            \"fork\": null\n        }\n    },\n    {\n        \"id\": 6,\n        \"symbol\": \"DASH\",\n        \"name\": \"Dash\",\n        \"founder\": null,\n        \"website\": \"https://www.dash.org/\",\n        \"fork\": {\n            \"id\": 1,\n            \"symbol\": \"BTC\",\n            \"name\": \"Bitcoin\",\n            \"founder\": null,\n            \"website\": \"http://www.bitcoin.org/\",\n            \"fork\": null\n        }\n    },\n    {\n        \"id\": 7,\n        \"symbol\": \"ZEC\",\n        \"name\": \"Zcash\",\n        \"founder\": null,\n        \"website\": \"https://z.cash/\",\n        \"fork\": {\n            \"id\": 1,\n            \"symbol\": \"BTC\",\n            \"name\": \"Bitcoin\",\n            \"founder\": null,\n            \"website\": \"http://www.bitcoin.org/\",\n            \"fork\": null\n        }\n    },\n    {\n        \"id\": 8,\n        \"symbol\": \"BCH\",\n        \"name\": \"Bitcoin Cash\",\n        \"founder\": null,\n        \"website\": \"https://www.bitcoincash.org/\",\n        \"fork\": {\n            \"id\": 1,\n            \"symbol\": \"BTC\",\n            \"name\": \"Bitcoin\",\n            \"founder\": null,\n            \"website\": \"http://www.bitcoin.org/\",\n            \"fork\": null\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Asset By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://api.mmcrypto.org/api/v1/assets/5",
+							"protocol": "http",
+							"host": [
+								"api",
+								"mmcrypto",
+								"org"
+							],
+							"path": [
+								"api",
+								"v1",
+								"assets",
+								"5"
+							]
+						},
+						"description": "# Response\n\nNo Content (204)"
+					},
+					"response": [
+						{
+							"name": "Asset By Id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://api.mmcrypto.org/api/v1/assets/5",
+									"protocol": "http",
+									"host": [
+										"api",
+										"mmcrypto",
+										"org"
+									],
+									"path": [
+										"api",
+										"v1",
+										"assets",
+										"5"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 01 Jul 2020 12:12:45 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "WWW-Authenticate",
+									"value": "Bearer"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=UTF-8"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "New Asset",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"symbol\": \"MMC\",\r\n\t\"name\": \"MMCRYPTO\",\r\n\t\"founder\": \r\n\t\t{\r\n\t\t\"firstName\": \"MM\",\r\n\t\t\"lastName\": \"CRYPTO\",\r\n\t\t\"gender\": \"M\"\r\n\t\t},\r\n\t\"website\": \"https://www.mmcrypto.org/\",\r\n\t\"fork\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://api.mmcrypto.org/api/v1/assets",
+							"protocol": "http",
+							"host": [
+								"api",
+								"mmcrypto",
+								"org"
+							],
+							"path": [
+								"api",
+								"v1",
+								"assets"
+							]
+						},
+						"description": "# Response\n\nNew Asset With The Id\n\n<table>\n  <tr>\n    <td>Key</td>\n    <td>Type</td>\n    <td>Description</td>\n  </tr>\n  <tr>\n    <td>Id</td>\n    <td>Number</td>\n    <td>Id Of Object</td>\n  </tr>\n  <tr>\n    <td>Symbol</td>\n    <td>String</td>\n    <td>Symbol Of Asset</td>\n  </tr>\n  <tr>\n    <td>Name</td>\n    <td>String</td>\n    <td>Full Name Of Asset</td>\n  </tr>\n\n  <tr>\n    <td>Website</td>\n    <td>String</td>\n    <td>URL Of The Website</td>\n  </tr>\n  <tr>\n    <td>Fork</td>\n    <td>Asset Object</td>\n    <td>Fork Asset</td>\n  </tr>\n</table>"
+					},
+					"response": [
+						{
+							"name": "New Asset",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"symbol\": \"MMC\",\r\n\t\"name\": \"MMCRYPTO\",\r\n\t\"founder\": \r\n\t\t{\r\n\t\t\"firstName\": \"MM\",\r\n\t\t\"lastName\": \"CRYPTO\",\r\n\t\t\"gender\": \"M\"\r\n\t\t},\r\n\t\"website\": \"https://www.mmcrypto.org/\",\r\n\t\"fork\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://api.mmcrypto.org/api/v1/assets",
+									"protocol": "http",
+									"host": [
+										"api",
+										"mmcrypto",
+										"org"
+									],
+									"path": [
+										"api",
+										"v1",
+										"assets"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 01 Jul 2020 12:13:41 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Location",
+									"value": ""
+								},
+								{
+									"key": "Via",
+									"value": "1.1 google"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 20,\n    \"symbol\": \"MMC\",\n    \"name\": \"MMCRYPTO\",\n    \"founder\": {\n        \"id\": 18,\n        \"firstName\": \"MM\",\n        \"lastName\": \"CRYPTO\",\n        \"gender\": \"M\"\n    },\n    \"website\": \"https://www.mmcrypto.org/\",\n    \"fork\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Asset",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"id\" : 20,\r\n\t\"symbol\": \"MMC\",\r\n\t\"name\": \"MM-CRYPTO\",\r\n\t\"founder\": \r\n\t\t{\r\n\t\t\"firstName\": \"MM\",\r\n\t\t\"lastName\": \"CRYPTO\",\r\n\t\t\"gender\": \"M\"\r\n\t\t},\r\n\t\"website\": \"http://www.mmcrypto.org/\",\r\n\t\"fork\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://api.mmcrypto.org/api/v1/assets",
+							"protocol": "http",
+							"host": [
+								"api",
+								"mmcrypto",
+								"org"
+							],
+							"path": [
+								"api",
+								"v1",
+								"assets"
+							]
+						},
+						"description": "# Response\r\n\r\nThe Asset With New Properties\r\n\r\n<table>\r\n  <tr>\r\n    <td>Key</td>\r\n    <td>Type</td>\r\n    <td>Description</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Id</td>\r\n    <td>Number</td>\r\n    <td>Id Of Object</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Symbol</td>\r\n    <td>String</td>\r\n    <td>Symbol Of Asset</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Name</td>\r\n    <td>String</td>\r\n    <td>Full Name Of Asset</td>\r\n  </tr>\r\n\r\n  <tr>\r\n    <td>Website</td>\r\n    <td>String</td>\r\n    <td>URL Of The Website</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Fork</td>\r\n    <td>Asset Object</td>\r\n    <td>Fork Asset</td>\r\n  </tr>\r\n</table>"
+					},
+					"response": [
+						{
+							"name": "Update Asset",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"id\" : 20,\r\n\t\"symbol\": \"MMC\",\r\n\t\"name\": \"MM-CRYPTO\",\r\n\t\"founder\": \r\n\t\t{\r\n\t\t\"firstName\": \"MM\",\r\n\t\t\"lastName\": \"CRYPTO\",\r\n\t\t\"gender\": \"M\"\r\n\t\t},\r\n\t\"website\": \"http://www.mmcrypto.org/\",\r\n\t\"fork\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://api.mmcrypto.org/api/v1/assets",
+									"protocol": "http",
+									"host": [
+										"api",
+										"mmcrypto",
+										"org"
+									],
+									"path": [
+										"api",
+										"v1",
+										"assets"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 01 Jul 2020 12:14:23 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 google"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 20,\n    \"symbol\": \"MMC\",\n    \"name\": \"MM-CRYPTO\",\n    \"founder\": {\n        \"id\": 19,\n        \"firstName\": \"MM\",\n        \"lastName\": \"CRYPTO\",\n        \"gender\": \"M\"\n    },\n    \"website\": \"http://www.mmcrypto.org/\",\n    \"fork\": null\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Wallets",
+			"item": [
+				{
+					"name": "All Wallets",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.mmcrypto.org/api/v1/wallets",
+							"protocol": "http",
+							"host": [
+								"api",
+								"mmcrypto",
+								"org"
+							],
+							"path": [
+								"api",
+								"v1",
+								"wallets"
+							]
+						},
+						"description": "# Response\n\nArray Of Wallets\n\n<table>\n  <tr>\n    <th>Key</th>\n    <th>Type</th>\n    <th>Description</th>\n  </tr>\n  <tr>\n    <td>Id</td>\n    <td>Number</td>\n    <td>Id Of Wallet</td>\n  </tr>\n  <tr>\n    <td>Brand</td>\n    <td>String</td>\n    <td>Manufacturer of Wallet</td>\n  </tr>\n  <tr>\n    <td>Model</td>\n    <td>String</td>\n    <td>Model Of Wallet</td>\n  </tr>\n  <tr>\n    <td>Price</td>\n    <td>Number</td>\n    <td>Price Of Wallet In USD</td>\n  </tr>\n  <tr>\n    <td>Website</td>\n    <td>String (URL)</td>\n    <td>Website Of Manufacturer</td>\n  </tr>\n  <tr>\n    <td>ImageURL</td>\n    <td>String (URL)</td>\n    <td>Url To The Image of Wallet</td>\n  </tr>\n    <tr>\n    <td>Category</td>\n    <td>String</td>\n    <td>Category Of Wallet (Hardware/Software)</td>\n  </tr>\n</table>"
+					},
+					"response": [
+						{
+							"name": "All Wallets",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://api.mmcrypto.org/api/v1/wallets",
+									"protocol": "http",
+									"host": [
+										"api",
+										"mmcrypto",
+										"org"
+									],
+									"path": [
+										"api",
+										"v1",
+										"wallets"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 01 Jul 2020 12:14:58 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "X-Total-Count",
+									"value": "8"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 google"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"brand\": \"Ledger\",\n        \"model\": \"Nano S\",\n        \"website\": \"https://shop.ledger.com/products/ledger-nano-s\",\n        \"price\": 59,\n        \"imageURL\": \"https://cdn.shopify.com/s/files/1/2974/4858/products/lns-black-open_large.png\",\n        \"category\": \"Hardware\"\n    },\n    {\n        \"id\": 2,\n        \"brand\": \"Ledger\",\n        \"model\": \"Nano X\",\n        \"website\": \"https://shop.ledger.com/products/ledger-nano-x\",\n        \"price\": 119,\n        \"imageURL\": \"https://cdn.shopify.com/s/files/1/2974/4858/products/ledger-nano-x-open_grande_eb0d186e-2c75-4687-9c85-1b6eb6e224d1_large.png\",\n        \"category\": \"Hardware\"\n    },\n    {\n        \"id\": 3,\n        \"brand\": \"Exodus\",\n        \"model\": \"Mobile Wallet\",\n        \"website\": \"https://www.exodus.io/mobile\",\n        \"price\": 0,\n        \"imageURL\": \"https://www.exodus.io/mobile/img/header-img2-lsize.png\",\n        \"category\": \"Software\"\n    },\n    {\n        \"id\": 4,\n        \"brand\": \"Trezor\",\n        \"model\": \"One\",\n        \"website\": \"https://shop.trezor.io/product/trezor-one-white\",\n        \"price\": 59,\n        \"imageURL\": \"https://shop.trezor.io/static/img/product/T1_white.png\",\n        \"category\": \"Hardware\"\n    },\n    {\n        \"id\": 5,\n        \"brand\": \"Trezor\",\n        \"model\": \"Model T\",\n        \"website\": \"https://shop.trezor.io/product/trezor-model-t\",\n        \"price\": 180,\n        \"imageURL\": \"https://shop.trezor.io/static/img/product/T2.jpg\",\n        \"category\": \"Hardware\"\n    },\n    {\n        \"id\": 6,\n        \"brand\": \"Ledger\",\n        \"model\": \"Nano S\",\n        \"website\": \"https://shop.ledger.com/products/ledger-nano-s\",\n        \"price\": 59,\n        \"imageURL\": \"https://cdn.shopify.com/s/files/1/2974/4858/products/lns-black-open_large.png\",\n        \"category\": \"Hardware\"\n    },\n    {\n        \"id\": 7,\n        \"brand\": \"Ledger\",\n        \"model\": \"Nano X\",\n        \"website\": \"https://shop.ledger.com/products/ledger-nano-x\",\n        \"price\": 119,\n        \"imageURL\": \"https://cdn.shopify.com/s/files/1/2974/4858/products/ledger-nano-x-open_grande_eb0d186e-2c75-4687-9c85-1b6eb6e224d1_large.png\",\n        \"category\": \"Hardware\"\n    },\n    {\n        \"id\": 8,\n        \"brand\": \"Exodus\",\n        \"model\": \"Mobile Wallet\",\n        \"website\": \"https://www.exodus.io/mobile\",\n        \"price\": 0,\n        \"imageURL\": \"https://www.exodus.io/mobile/img/header-img2-lsize.png\",\n        \"category\": \"Software\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Filter - Sort - Page Wallets",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.mmcrypto.org/api/v1/wallets/?page=1&length=5&dir=asc&sort=brand",
+							"protocol": "http",
+							"host": [
+								"api",
+								"mmcrypto",
+								"org"
+							],
+							"path": [
+								"api",
+								"v1",
+								"wallets",
+								""
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "length",
+									"value": "5"
+								},
+								{
+									"key": "dir",
+									"value": "asc"
+								},
+								{
+									"key": "sort",
+									"value": "brand"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Filter - Sort - Page Wallets",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://api.mmcrypto.org/api/v1/wallets/?page=1&length=5&dir=asc&sort=brand",
+									"protocol": "http",
+									"host": [
+										"api",
+										"mmcrypto",
+										"org"
+									],
+									"path": [
+										"api",
+										"v1",
+										"wallets",
+										""
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "length",
+											"value": "5"
+										},
+										{
+											"key": "dir",
+											"value": "asc"
+										},
+										{
+											"key": "sort",
+											"value": "brand"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 01 Jul 2020 12:15:34 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "X-Total-Count",
+									"value": "3"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 google"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 7,\n        \"brand\": \"Ledger\",\n        \"model\": \"Nano X\",\n        \"website\": \"https://shop.ledger.com/products/ledger-nano-x\",\n        \"price\": 119,\n        \"imageURL\": \"https://cdn.shopify.com/s/files/1/2974/4858/products/ledger-nano-x-open_grande_eb0d186e-2c75-4687-9c85-1b6eb6e224d1_large.png\",\n        \"category\": \"Hardware\"\n    },\n    {\n        \"id\": 4,\n        \"brand\": \"Trezor\",\n        \"model\": \"One\",\n        \"website\": \"https://shop.trezor.io/product/trezor-one-white\",\n        \"price\": 59,\n        \"imageURL\": \"https://shop.trezor.io/static/img/product/T1_white.png\",\n        \"category\": \"Hardware\"\n    },\n    {\n        \"id\": 5,\n        \"brand\": \"Trezor\",\n        \"model\": \"Model T\",\n        \"website\": \"https://shop.trezor.io/product/trezor-model-t\",\n        \"price\": 180,\n        \"imageURL\": \"https://shop.trezor.io/static/img/product/T2.jpg\",\n        \"category\": \"Hardware\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Wallet By Id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.mmcrypto.org/api/v1/wallets/1",
+							"protocol": "http",
+							"host": [
+								"api",
+								"mmcrypto",
+								"org"
+							],
+							"path": [
+								"api",
+								"v1",
+								"wallets",
+								"1"
+							]
+						},
+						"description": "# Response\r\n\r\nOne Wallet\r\n\r\n<table>\r\n  <tr>\r\n    <td>Key</td>\r\n    <td>Type</td>\r\n    <td>Description</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Id</td>\r\n    <td>Number</td>\r\n    <td>Id Of Object</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Symbol</td>\r\n    <td>String</td>\r\n    <td>Symbol Of Asset</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Name</td>\r\n    <td>String</td>\r\n    <td>Full Name Of Asset</td>\r\n  </tr>\r\n\r\n  <tr>\r\n    <td>Website</td>\r\n    <td>String</td>\r\n    <td>URL Of The Website</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Fork</td>\r\n    <td>Asset Object</td>\r\n    <td>Fork Asset</td>\r\n  </tr>\r\n</table>"
+					},
+					"response": [
+						{
+							"name": "Wallet By Id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://api.mmcrypto.org/api/v1/wallets/1",
+									"protocol": "http",
+									"host": [
+										"api",
+										"mmcrypto",
+										"org"
+									],
+									"path": [
+										"api",
+										"v1",
+										"wallets",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 01 Jul 2020 12:16:17 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 google"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"brand\": \"Ledger\",\n    \"model\": \"Nano S\",\n    \"website\": \"https://shop.ledger.com/products/ledger-nano-s\",\n    \"price\": 59,\n    \"imageURL\": \"https://cdn.shopify.com/s/files/1/2974/4858/products/lns-black-open_large.png\",\n    \"category\": \"Hardware\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Supported Assets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.mmcrypto.org/api/v1/wallets/1/assets",
+							"protocol": "http",
+							"host": [
+								"api",
+								"mmcrypto",
+								"org"
+							],
+							"path": [
+								"api",
+								"v1",
+								"wallets",
+								"1",
+								"assets"
+							]
+						},
+						"description": "# Response\r\n\r\nArray Of Assets\r\n\r\n<table>\r\n  <tr>\r\n    <td>Key</td>\r\n    <td>Type</td>\r\n    <td>Description</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Id</td>\r\n    <td>Number</td>\r\n    <td>Id Of Object</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Symbol</td>\r\n    <td>String</td>\r\n    <td>Symbol Of Asset</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Name</td>\r\n    <td>String</td>\r\n    <td>Full Name Of Asset</td>\r\n  </tr>\r\n\r\n  <tr>\r\n    <td>Website</td>\r\n    <td>String</td>\r\n    <td>URL Of The Website</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Fork</td>\r\n    <td>Asset Object</td>\r\n    <td>Fork Asset</td>\r\n  </tr>\r\n</table>"
+					},
+					"response": [
+						{
+							"name": "Supported Assets",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://api.mmcrypto.org/api/v1/wallets/1/assets",
+									"protocol": "http",
+									"host": [
+										"api",
+										"mmcrypto",
+										"org"
+									],
+									"path": [
+										"api",
+										"v1",
+										"wallets",
+										"1",
+										"assets"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 01 Jul 2020 12:16:31 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 google"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"symbol\": \"BTC\",\n        \"name\": \"Bitcoin\",\n        \"founder\": null,\n        \"website\": \"http://www.bitcoin.org/\",\n        \"fork\": null\n    },\n    {\n        \"id\": 2,\n        \"symbol\": \"ETH\",\n        \"name\": \"Ethereum\",\n        \"founder\": null,\n        \"website\": \"http://www.ethereum.org/\",\n        \"fork\": null\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Wallet By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://api.mmcrypto.org/api/v1/wallets/1",
+							"protocol": "http",
+							"host": [
+								"api",
+								"mmcrypto",
+								"org"
+							],
+							"path": [
+								"api",
+								"v1",
+								"wallets",
+								"1"
+							]
+						},
+						"description": "#Response\n\nNo Content (204)"
+					},
+					"response": [
+						{
+							"name": "Wallet By Id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://api.mmcrypto.org/api/v1/wallets/1",
+									"protocol": "http",
+									"host": [
+										"api",
+										"mmcrypto",
+										"org"
+									],
+									"path": [
+										"api",
+										"v1",
+										"wallets",
+										"1"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 01 Jul 2020 12:17:13 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 google"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Founders",
+			"item": [],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1kUFdsUUpyaHR2QW9Mdmw1QWZJZiJ9.eyJpc3MiOiJodHRwczovL21tLWNyeXB0by5ldS5hdXRoMC5jb20vIiwic3ViIjoiQTZkc003clRVYVJlZTZMZDg5YzFrcXFWTDNxOEt3MDRAY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzYyLyIsImlhdCI6MTU4ODM4NTIyNywiZXhwIjoxNTg4NDcxNjI3LCJhenAiOiJBNmRzTTdyVFVhUmVlNkxkODljMWtxcVZMM3E4S3cwNCIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyJ9.uOjx6SHXonrFi5Lo_2naww8D7oVusn3q4nfzJLhEEOaxkszM6KQybbQkRHO2jR_-3xCYKsOt9bzsf-FWz1vHtDZhv1WZ5QXoZg4uokK4pLFf3fhkA5sddhMOOEpR3LatntYJswAK3avCi0AuYWF4nY4xWajKs9ggUROwt14ixvROpx7gRyc3I_jTMEHRctCImUzFzemAnNMdRibq6lohh14Q9Y1GuT1uHdBenxsA-QrTxForzNLFYGS5_QObvYxWbeWl-4EYPwNHYgqu-SWZbWqCBskUPTgU_ZYTMoa_8dUNzrMNJBRFSka-7WJCOAvJtt8MIeiwGFbHtmAkFazmqQ",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "0bbd3ace-03aa-4fe0-946c-328562b2e34b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "f6cb31d7-4c62-4178-8eaa-55c5a8a559bb",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
