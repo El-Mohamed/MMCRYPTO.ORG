@@ -9,6 +9,7 @@ import { AssetDetailsComponent } from './components/asset-details/asset-details.
 import { WalletDetailsComponent } from './components/wallet-details/wallet-details.component';
 import { ApiEditorComponent } from './components/api-editor/api-editor.component';
 import { TokenGeneratorComponent } from './components/token-genrator/token-generator.component';
+import {AuthGuard} from './other/auth-guard.guard';
 
 
 const routes: Routes = [
@@ -18,7 +19,7 @@ const routes: Routes = [
   { path: "calculator", component: CurrencyCalculatorComponent },
   { path: "wallet-details", component: WalletDetailsComponent },
   { path: "asset-details", component: AssetDetailsComponent },
-  { path: "api-editor", component: ApiEditorComponent },
+  { path: "api-editor", component: ApiEditorComponent, canActivate: [AuthGuard] },
   { path: "token-generator", component: TokenGeneratorComponent },
   { path: 'chart/:id', component: PriceChartComponent },
   { path: '404', component: NotFoundComponent },
