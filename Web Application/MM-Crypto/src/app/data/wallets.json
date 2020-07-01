@@ -1,5 +1,14 @@
 [
     {
+        "id": 1,
+        "brand": "Ledger",
+        "model": "Nano S",
+        "website": "https://shop.ledger.com/products/ledger-nano-s",
+        "price": 59,
+        "imageURL": "https://cdn.shopify.com/s/files/1/2974/4858/products/lns-black-open_large.png",
+        "category": "Hardware"
+    },
+    {
         "id": 2,
         "brand": "Ledger",
         "model": "Nano X",
@@ -9,12 +18,30 @@
         "category": "Hardware"
     },
     {
-        "id": 6,
-        "brand": "Ledger",
-        "model": "Nano S",
-        "website": "https://shop.ledger.com/products/ledger-nano-s",
+        "id": 3,
+        "brand": "Exodus",
+        "model": "Mobile Wallet",
+        "website": "https://www.exodus.io/mobile",
+        "price": 0,
+        "imageURL": "https://www.exodus.io/mobile/img/header-img2-lsize.png",
+        "category": "Software"
+    },
+    {
+        "id": 4,
+        "brand": "Trezor",
+        "model": "One",
+        "website": "https://shop.trezor.io/product/trezor-one-white",
         "price": 59,
-        "imageURL": "https://cdn.shopify.com/s/files/1/2974/4858/products/lns-black-open_large.png",
+        "imageURL": "https://shop.trezor.io/static/img/product/T1_white.png",
+        "category": "Hardware"
+    },
+    {
+        "id": 5,
+        "brand": "Trezor",
+        "model": "Model T",
+        "website": "https://shop.trezor.io/product/trezor-model-t",
+        "price": 180,
+        "imageURL": "https://shop.trezor.io/static/img/product/T2.jpg",
         "category": "Hardware"
     }
 ]
