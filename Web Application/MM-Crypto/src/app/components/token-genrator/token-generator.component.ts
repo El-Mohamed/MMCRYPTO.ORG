@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MmCryptoAuthService, Auth0Token } from 'src/app/services/mm-crypto-auth/mm-crypto-auth.service';
+import { MmCryptoAuthService } from 'src/app/services/mm-crypto-auth/mm-crypto-auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MessageService } from 'primeng/api';
+import { Auth0Token } from 'src/app/services/mm-crypto-auth/auth0token.model';
 
 
 @Component({

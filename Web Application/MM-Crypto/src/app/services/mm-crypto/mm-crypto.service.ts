@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { MmCryptoAuthService, Auth0Token } from '../mm-crypto-auth/mm-crypto-auth.service';
+import { MmCryptoAuthService } from '../mm-crypto-auth/mm-crypto-auth.service';
+import { Auth0Token } from '../mm-crypto-auth/auth0token.model';
+
 
 @Injectable({
   providedIn: 'root'
