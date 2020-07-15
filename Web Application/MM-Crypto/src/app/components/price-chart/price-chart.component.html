@@ -1,14 +1,14 @@
+<!-- Time Frame Buttons -->
+
+<div class="time-frame-picker">
+    <p-button *ngFor="let ButtonLabel of TimeFrameButtonLabels" label={{ButtonLabel}}
+        (onClick)="UpdateChart(ButtonLabel)">
+    </p-button>
+</div>
+
+<!-- Chart -->
+
 <div class="chart-container">
-
-    <!-- Time Frame Buttons -->
-
-    <div class="time-frame-picker">
-        <p-button *ngFor="let ButtonLabel of TimeFrameButtonLabels" label={{ButtonLabel}}
-            (onClick)="UpdateChart(ButtonLabel)">
-        </p-button>
-    </div>
-
-    <!-- Chart -->
 
     <apx-chart [series]="series" [chart]="chart" [dataLabels]="dataLabels" [markers]="markers" [title]="title"
         [fill]="fill" [yaxis]="yaxis" [xaxis]="xaxis" [tooltip]="tooltip" [autoUpdateSeries]="true"></apx-chart>

@@ -34,7 +34,7 @@ namespace MM_Crypto
             }).AddJwtBearer(options =>
             {
                 options.Authority = "https://mm-crypto.eu.auth0.com/";
-                options.Audience = "https://api.mmcrypto.org/";
+                options.Audience = "https://localhost:44362/";
             });
 
             services.AddControllers();

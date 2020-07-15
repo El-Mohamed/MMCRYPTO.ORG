@@ -31,6 +31,7 @@ import { DataViewModule } from 'primeng/dataview';
 import { ToastModule } from 'primeng/toast';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
+import { ToggleButtonModule } from 'primeng/togglebutton';
 
 // Other
 import { NgApexchartsModule } from "ng-apexcharts";
@@ -38,10 +39,6 @@ import { NgApexchartsModule } from "ng-apexcharts";
 // Firebase
 import { AngularFireModule } from '@angular/fire';
 import { TokenGeneratorComponent } from './components/token-genrator/token-generator.component';
-
-
-
-
 
 @NgModule({
   declarations: [
@@ -77,6 +74,8 @@ import { TokenGeneratorComponent } from './components/token-genrator/token-gener
     ToastModule,
     MessageModule,
     MessagesModule,
+    ToggleButtonModule,
+
     // Other
     NgApexchartsModule,
     // Firebase

@@ -4,18 +4,10 @@
 
 <div class="ui-sm-12 ui-lg-7" style="margin: auto;">
 
-    <div class="filters-container">
-        <p-dropdown [options]="SortOn" [(ngModel)]="SelectedSortOn" (onChange)="ReadWallets()"></p-dropdown>
-        <p-dropdown [options]="SortMode" [(ngModel)]="SelectedSortMode" (onChange)="ReadWallets()"></p-dropdown>
-        <p-dropdown [options]="PageLength" [(ngModel)]="SelectedPageLength" (onChange)="ReadWallets()"></p-dropdown>
-        <div>
-            <input type="text" [(ngModel)]="KeyWord" pInputText />
-        </div>
-        <p-button icon="pi pi-arrow-left" (onClick)="UpdatePageNumber(-1)"></p-button>
-        <p-button [label]="CurrentPageNumber"></p-button>
-        <p-button icon="pi pi-arrow-right" (onClick)="UpdatePageNumber(+1)"></p-button>
-    </div>
+    <!-- Show Static Data Instead Of API Calls -->
 
+    <p-toggleButton [(ngModel)]="UseAPICalls" onLabel="API Calls ON" offLabel="API Calls OFF"
+        [style]="{'width':'150px', 'margin-bottom': '10px'}" (onChange)="UpdateData()"></p-toggleButton>
     <p-dataView [value]="AllWallets" *ngIf="AllWallets.length > 1">
 
         <!-- Header -->

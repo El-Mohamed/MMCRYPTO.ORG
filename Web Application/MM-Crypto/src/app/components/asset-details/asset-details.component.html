@@ -4,6 +4,11 @@
 
 <div *ngIf="AllAssets.length > 1" class="ui-sm-12 ui-lg-7" style="margin: auto;">
 
+    <!-- Show Static Data Instead Of API Calls -->
+
+    <p-toggleButton [(ngModel)]="UseAPICalls" onLabel="API Calls ON" offLabel="API Calls OFF"
+        [style]="{'width':'150px', 'margin-bottom': '10px'}" (onChange)="UpdateData()"></p-toggleButton>
+
     <p-dataView [value]="AllAssets">
 
         <!-- Header -->

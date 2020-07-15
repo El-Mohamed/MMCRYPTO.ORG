@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MmCryptoService, Wallet } from 'src/app/services/mm-crypto/mm-crypto.service';
+import { MmCryptoService } from 'src/app/services/mm-crypto/mm-crypto.service';
 import { SelectItem } from 'primeng/api/selectitem';
+import * as allData from 'src/app/data/wallets.json';
+import { Wallet } from 'src/app/services/mm-crypto/models/wallet.model';
 
 @Component({
   selector: 'app-wallet-details',
@@ -9,6 +11,7 @@ import { SelectItem } from 'primeng/api/selectitem';
 })
 export class WalletDetailsComponent implements OnInit
 {
+  UseAPICalls: boolean = false;
 
   AllWallets: Wallet[] = [];
 
@@ -39,11 +42,6 @@ export class WalletDetailsComponent implements OnInit
       { label: 'Price', value: 'price' }
     ];
 
-  SelectedSortOn = 'price';
-
-  CurrentPageNumber = 1;
-  KeyWord = 'Search Here';
-
 
   constructor(private service: MmCryptoService) { }
 
@@ -55,20 +53,21 @@ export class WalletDetailsComponent implements OnInit
   async ReadWallets()
   {
     try {
-      this.AllWallets = await this.service.GetWalletsWithQuery(
-        this.CurrentPageNumber.toString(), this.SelectedPageLength,
-        this.SelectedSortMode, this.SelectedSortOn);
+      this.AllWallets = await this.service.GetWallets();
     }
     catch (error) {
       console.log('Error');
     }
   }
 
-  UpdatePageNumber(command: number)
+  UpdateData()
   {
-    if (!(this.CurrentPageNumber == 1 && command == -1)) {
-      this.CurrentPageNumber += command;
+    if (this.UseAPICalls) {
       this.ReadWallets();
+    }
+    else {
+      // Use Local JSON File
+      this.AllWallets = (allData as any).default;
     }
   }
 

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MmCryptoService, Asset } from 'src/app/services/mm-crypto/mm-crypto.service';
+import { MmCryptoService } from 'src/app/services/mm-crypto/mm-crypto.service';
+import * as allData from 'src/app/data/assets.json';
+import { Asset } from 'src/app/services/mm-crypto/models/asset.model';
 
 @Component({
   selector: 'app-currency-details',
@@ -8,6 +10,7 @@ import { MmCryptoService, Asset } from 'src/app/services/mm-crypto/mm-crypto.ser
 })
 export class AssetDetailsComponent implements OnInit
 {
+  UseAPICalls: boolean = false;
 
   AllAssets: Asset[] = [];
 
@@ -15,7 +18,7 @@ export class AssetDetailsComponent implements OnInit
 
   ngOnInit(): void
   {
-    this.ReadAssets();
+    this.UpdateData();
   }
 
   async ReadAssets()
@@ -25,6 +28,17 @@ export class AssetDetailsComponent implements OnInit
     }
     catch (error) {
       console.log('Error');
+    }
+  }
+
+  UpdateData()
+  {
+    if (this.UseAPICalls) {
+      this.ReadAssets();
+    }
+    else {
+      // Use Local JSON File
+      this.AllAssets = (allData as any).default;
     }
   }
 }
