@@ -38,8 +38,8 @@ Each project has a Dockerfile
 
 ### Run Angular Project
 ```
-$ docker build -t mm-crypto:v1 .
-$ docker run -p 80:80 mm-crypto:v1
+$ docker build -t mm-crypto-frontend:v1 .
+$ docker run -d -p 81:80 --name MM-Frontend mm-crypto-frontend:v1
 ```
 ### Run ASP.NET API
 ```
